@@ -1,14 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package m3.p01;
 
-/**
- *
- * @author albertribgar
- */
 public enum Genero {
     COMEDIA, ACCION, TERROR, CIENCIA_FICCION;
     @Override
@@ -27,5 +18,4 @@ public enum Genero {
         }
         return sb.toString();
     }
-    {}
 }
