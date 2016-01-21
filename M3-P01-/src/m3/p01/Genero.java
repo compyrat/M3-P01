@@ -17,5 +17,8 @@ public enum Genero {
             default:break;
         }
         return sb.toString();
+        //agregación/comp Cine-Película
+        //agregación/composición Cine-Salas
+        //agregacion/comp Sala-Sesiones
     }
 }
