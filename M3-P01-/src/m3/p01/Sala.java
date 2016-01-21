@@ -30,21 +30,19 @@ public class Sala {
     * 4. Es capaz de eliminar una sesión concreta a partir de su 
     * fecha de proyección;
     */
-    public boolean deleteSesion(Date vFecha){
+    public void deleteSesion(Date vFecha){
         /*
         * TODO all.
         */
-        return true;
     }
     
     /*
     * 5. Añadir una nueva sesión de proyección en dicha sala;
     */
-    public boolean addSesion(Date vFecha){
+    public void addSesion(Date vFecha){
         /*
         * TODO all.
         */
-        return true;
     }
     
     /*

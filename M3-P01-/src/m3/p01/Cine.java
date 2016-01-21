@@ -9,7 +9,6 @@ public class Cine {
     private List<Pelicula> pelicula = new ArrayList<Pelicula>();
     private List<Sala> sala = new ArrayList<Sala>();
 
-    
     /*
     * 5. Debe ser capaz de mostrar la cartelera, es decir, la información 
     * del conjunto de películas que tiene en cartel;
@@ -28,40 +27,35 @@ public class Cine {
     * 9. Debe permitir la eliminación de una sesión concreta, dado su fecha 
     * de proyección, de una sala concreta;
     */
-    public boolean eliminarSesion(Date vFecha, int vSala){
+    public void eliminarSesion(Date vFecha, int vSala){
         for (Sala i: sala){
             if (i.getNumSala() == vSala){
                 i.deleteSesion(vFecha);
-                return true;
             }
         }
-        return false;
     }
     
     /*
     * 10. Debe mostrar la información de las sesiones en las que se 
     * proyecta una película, dado el título de la película;
     */
-    public boolean showSesionesPelicula(String vNombre){
+    public void showSesionesPelicula(String vNombre){
         for (Pelicula i: pelicula){
             if (i.getTitulo().equals(vNombre)){
                 i.toString();
-                return true;
             }
         }
-        return false;
     }
     
     /*
     * 11. Debe mostrar la información de las películas que se proyectan en una 
     * fecha concreta (día, mes y año).
     */
-    public boolean showPelicula(Date vFecha){
+    public void showPelicula(Date vFecha){
         for (Sala i: sala){
             if (i.mostrarInfoSesiones().getFecha().equals(vFecha)){
                 i.mostrarInfoSesiones().getPelicula().toString();
             }
         }
-        return false;
     }
 }
