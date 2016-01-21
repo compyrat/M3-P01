@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Sala {
     private int numSala, butacasMax;
-    private List<Sesion> sesion = new ArrayList<Sesion>();
+    private List<Sesion> sesiones = new ArrayList<Sesion>();
     
     public Sala(int vNumSala){
         this.numSala = numSala;
@@ -31,18 +31,17 @@ public class Sala {
     * fecha de proyección;
     */
     public void deleteSesion(Date vFecha){
-        /*
-        * TODO all.
-        */
+        for(int i = 0; i<sesiones.size();i++){
+            if(sesiones.get(i).getFecha() == vFecha){
+                 sesiones.remove(sesiones.get(i));
+            }
+        }
     }
-    
     /*
     * 5. Añadir una nueva sesión de proyección en dicha sala;
     */
-    public void addSesion(Date vFecha){
-        /*
-        * TODO all.
-        */
+    public void addSesion(Sesion iSesion){
+        sesiones.add(iSesion);
     }
     
     /*
@@ -50,7 +49,7 @@ public class Sala {
     */
     public Sesion devolverSesion(Date vFecha){
         Sesion ses;
-        for (Sesion i: sesion){
+        for (Sesion i: sesiones){
             if (i.getFecha() == (vFecha)){
                 ses = i;
                 return ses;
@@ -66,7 +65,7 @@ public class Sala {
     */
     public Sesion mostrarInfoSesiones(){
         Sesion ses;
-        for (Sesion i: sesion){
+        for (Sesion i: sesiones){
             if (i.getSala().getNumSala() == this.numSala){
                 ses = i;
                 return ses;
@@ -83,7 +82,7 @@ public class Sala {
     */
     
     public String mostrarInfoSesion(Date vFecha){
-        for (Sesion i: sesion){
+        for (Sesion i: sesiones){
             if (i.getFecha() == (vFecha)){
                 return i.toString();
             }
@@ -93,7 +92,7 @@ public class Sala {
 
     @Override
     public String toString() {
-        return "Sala{" + "numSala=" + numSala + ", butacasMax=" + butacasMax + ", sesion=" + sesion + '}';
+        return "Sala{" + "numSala=" + numSala + ", butacasMax=" + butacasMax + ", sesion=" + sesiones + '}';
     }
     
     
