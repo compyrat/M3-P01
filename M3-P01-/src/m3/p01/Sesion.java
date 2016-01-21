@@ -1,25 +1,27 @@
 package m3.p01;
 
+import java.util.Date;
+
 public class Sesion {
-    private String fecha;
+    private Date fecha;
     private int nButacas, nButacasLibres;
     private Pelicula pelicula;
     private Sala sala;
     
     public Sesion(){}
 
-    public Sesion (String iFecha, Pelicula iPelicula, Sala iSala){
+    public Sesion (Date iFecha, Pelicula iPelicula, Sala iSala){
         this.fecha = iFecha;
         this.nButacas = this.sala.getNButacas();
         this.pelicula = iPelicula;
         this.sala = iSala;
     }
     
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
