@@ -9,6 +9,9 @@ public class Cine {
     private List<Pelicula> pelicula = new ArrayList<Pelicula>();
     private List<Sala> sala = new ArrayList<Sala>();
 
+    public Cine(){
+        
+    }
     /*
     * 5. Debe ser capaz de mostrar la cartelera, es decir, la información 
     * del conjunto de películas que tiene en cartel;
@@ -21,6 +24,16 @@ public class Cine {
             sb.append("\t" + i.toString());
         }
         return sb.toString();
+    }
+    
+    /*
+    * 8. Debe permitir la asignación de la proyección de una película en una 
+    * sesión en una sala concreta. Se debe tener en cuenta que al asociar una 
+    * sesión a una sala, las butacas de la sesión se deben actualizar con la 
+    * capacidad que tiene la sala donde se va a proyectar;
+    */
+    public void asignarPelicula(/*Pelicula pel, Sesion ses, Sala sala*/){
+        //TODO
     }
     
     /*
@@ -58,4 +71,6 @@ public class Cine {
             }
         }
     }
+    
+    
 }

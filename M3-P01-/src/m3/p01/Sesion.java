@@ -14,7 +14,8 @@ public class Sesion {
 
     public Sesion (Date iFecha, Pelicula iPelicula, Sala iSala){
         this.fecha = iFecha;
-        this.nButacas = this.sala.getNButacas();
+        this.nButacas = iSala.getNButacas();
+        this.nButacasLibres = iSala.getNButacas();
         this.pelicula = iPelicula;
         this.sala = iSala;
     }
@@ -53,16 +54,21 @@ public class Sesion {
 
     public void setSala(Sala sala) {
         this.sala = sala;
+        nButacas = sala.getNButacas();
     }
 
-    @Override
-    public String toString() {
-        return "Sesion{" + "fecha=" + fecha + ", nButacas=" + nButacas 
-                + ", nButacasLibres=" + nButacasLibres + ", pelicula=" 
-                + pelicula + ", sala=" + sala + '}';
-    }
-    
     public void actualizarButacasVendidas(int vendidas) {
         nButacasLibres = nButacas - vendidas;
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("Fecha: ").append(fecha);
+        sb.append("\nNumero de Butacas totales: ").append(nButacas);
+        sb.append("\nNumero de Butacas disponibles: ").append(nButacasLibres);
+        sb.append("\nPelicula: ").append(pelicula.getTitulo());
+        sb.append("\nNumero de sala: ").append(sala.getNumSala());
+        return sb.toString();
     }
 }
