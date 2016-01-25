@@ -1,7 +1,6 @@
 package m3.p01;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class M3P01 {

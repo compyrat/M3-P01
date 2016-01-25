@@ -1,6 +1,5 @@
 package m3.p01;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Sesion {

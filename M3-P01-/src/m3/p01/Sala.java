@@ -2,11 +2,10 @@ package m3.p01;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 public class Sala {
     private int numSala, butacasMax;
-    private List<Sesion> sesiones = new ArrayList<Sesion>();
+    private ArrayList<Sesion> sesiones = new ArrayList<Sesion>();
     
     public Sala(int vNumSala){
         this.numSala = numSala;
@@ -52,7 +51,7 @@ public class Sala {
         sesiones.add(ses);
     }
     
-    public List<Sesion> getSesion(){
+    public ArrayList<Sesion> getSesion(){
         return sesiones;
     }
     /*
