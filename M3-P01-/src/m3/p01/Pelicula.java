@@ -7,6 +7,10 @@ public class Pelicula {
     private String sinopsis;
     private Genero genero;
 
+    public Pelicula(){
+        
+    }
+    
     public Pelicula(String titulo, String director, int anyo, String sinopsis, Genero genero) {
         this.titulo = titulo;
         this.director = director;

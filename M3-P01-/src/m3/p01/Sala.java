@@ -7,6 +7,9 @@ public class Sala {
     private int numSala, butacasMax;
     private ArrayList<Sesion> sesiones = new ArrayList<Sesion>();
     
+    public Sala(){
+        
+    }
     public Sala(int vNumSala){
         this.numSala = numSala;
     }
@@ -53,6 +56,9 @@ public class Sala {
     
     public ArrayList<Sesion> getSesion(){
         return sesiones;
+    }
+    public void setSesion(ArrayList<Sesion> sesiones){
+        this.sesiones = sesiones;
     }
     /*
     * 6. Devolver la sesión, a partir de la fecha de proyección;
