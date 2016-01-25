@@ -41,9 +41,20 @@ public class Sala {
     * 5. Añadir una nueva sesión de proyección en dicha sala;
     */
     public void addSesion(Sesion iSesion){
+        iSesion.setSala(this);
+        iSesion.setnButacas(getNButacas());
+        iSesion.setButacasLibres(getNButacas());
         sesiones.add(iSesion);
     }
     
+    public void addSesion(Pelicula iPelicula, Date iFecha){
+        Sesion ses = new Sesion(iFecha, iPelicula, this);
+        sesiones.add(ses);
+    }
+    
+    public List<Sesion> getSesion(){
+        return sesiones;
+    }
     /*
     * 6. Devolver la sesión, a partir de la fecha de proyección;
     */

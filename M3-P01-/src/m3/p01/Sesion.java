@@ -39,6 +39,9 @@ public class Sesion {
     public int getnButacasLibres() {
         return nButacasLibres;
     }
+    public void setButacasLibres(int num){
+        nButacasLibres = num;
+    }
 
     public Pelicula getPelicula() {
         return pelicula;
