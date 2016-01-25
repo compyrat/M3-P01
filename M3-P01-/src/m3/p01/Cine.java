@@ -80,6 +80,12 @@ public class Cine {
     }
     
     public void delPelicula(Pelicula pel){
+        for (Sala i: sala){
+            for (Sesion i2: i.getSesion()){
+                if (i2.getPelicula().getTitulo().equals(pel.getTitulo())) 
+                    pelicula.remove(i2.getPelicula());
+            }
+        }
         /*Sala sala;
         Sesion sesion;
         Iterator<Sala> iter = listaSalas.iterator();
