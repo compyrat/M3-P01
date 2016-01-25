@@ -6,13 +6,57 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Cine {
-    private String nombre, direccion;
+    private String nombre;
+    private String direccion;
     private ArrayList<Pelicula> pelicula = new ArrayList<Pelicula>();
     private ArrayList<Sala> sala = new ArrayList<Sala>();
 
     public Cine(){
         
     }
+    public Cine(String nombre, String direccion){
+        this.nombre = nombre;
+        this.direccion = direccion;
+    }
+    public Cine(String nombre, String direccion, ArrayList<Pelicula> cartelera, ArrayList<Sala> sala){
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.pelicula = cartelera;
+        this.sala = sala;
+    }
+   
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public ArrayList<Pelicula> getPelicula() {
+        return pelicula;
+    }
+
+    public void setPelicula(ArrayList<Pelicula> pelicula) {
+        this.pelicula = pelicula;
+    }
+
+    public ArrayList<Sala> getSala() {
+        return sala;
+    }
+
+    public void setSala(ArrayList<Sala> sala) {
+        this.sala = sala;
+    }
+    
     /*
     * 5. Debe ser capaz de mostrar la cartelera, es decir, la información 
     * del conjunto de películas que tiene en cartel;
@@ -20,13 +64,20 @@ public class Cine {
     public String mostrarCartelera(){
         int contador = 0;
         StringBuilder sb = new StringBuilder();
-        for (Pelicula i: pelicula){
+        for (Pelicula i: getPelicula()){
             sb.append("Pelicula " + contador + ".\n");
             sb.append("\t" + i.toString());
         }
         return sb.toString();
     }
     
+    public void addPelicula(Pelicula pel){
+        pelicula.add(pel);
+    }
+    public void addPelicula(String titulo, String director, int anyo, String sinopsis, Genero genero){
+        Pelicula pel = new Pelicula (titulo, director, anyo, sinopsis, genero);
+        addPelicula(pel);
+    }
     
     public void delPelicula(Pelicula pel){
         /*Sala sala;
@@ -47,10 +98,32 @@ public class Cine {
     }
     public Pelicula buscarPelicula(String titulo){
         Pelicula pel = null;
-        for (Pelicula i: pelicula){
+        for (Pelicula i: getPelicula()){
             if (i.getTitulo().equals(titulo)) pel = i;
         }
         return pel;
+    }
+    
+    public void addSala(Sala sala){
+        this.sala.add(sala);
+    }
+    public void addSala(int num, int butacas){
+        Sala sala = new Sala(num, butacas);
+        addSala(sala);
+    }
+    
+    public void delSala(Sala iSala){
+        sala.remove(iSala);
+    }
+    public void delSala(int num){
+        delSala(buscarSala(num));
+    }
+    public Sala buscarSala(int num){
+        Sala sal = null;
+        for (Sala i: sala){
+            if (i.getNumSala() == num) return i;
+        }
+        return sal;
     }
     /*
     * 8. Debe permitir la asignación de la proyección de una película en una 
@@ -72,14 +145,14 @@ public class Cine {
     * de proyección, de una sala concreta;
     */
     public void eliminarSesion(Date vFecha, int vNumSala){
-        for (Sala i: sala){
+        for (Sala i: getSala()){
             if (i.getNumSala() == vNumSala){
                 i.deleteSesion(vFecha);
             }
         }
     }
     public void eliminarSesion(int vNumSala, int dia, int mes, int anyo, int hora, int minutos){
-        for (Sala i: sala){
+        for (Sala i: getSala()){
             if (i.getNumSala() == vNumSala){
                 i.deleteSesion(getFecha(dia, mes, anyo, hora, minutos));
             }
@@ -90,7 +163,7 @@ public class Cine {
     * proyecta una película, dado el título de la película;
     */
     public void showSesionesPelicula(String vNombre){
-        for (Pelicula i: pelicula){
+        for (Pelicula i: getPelicula()){
             if (i.getTitulo().equals(vNombre)){
                 i.toString();
             }
@@ -101,16 +174,25 @@ public class Cine {
     * 11. Debe mostrar la información de las películas que se proyectan en una 
     * fecha concreta (día, mes y año).
     */
-    public void showPelicula(Date vFecha){
-        for (Sala i: sala){
+
+    public void showPelicula(int dia, int mes, int anyo){
+        Date vFecha = new Date();
+        vFecha = getFecha(dia, mes, anyo);
+        for (Sala i: getSala()){
             if (i.devolverSesion(vFecha).getFecha().equals(vFecha)){
                 i.devolverSesion(vFecha).getPelicula().toString();
             }
         }
     }
-    public void showPelicula(int dia, int mes, int anyo, int hora, int minutos){
-        showPelicula(getFecha(dia, mes, anyo, hora, minutos));
+    
+    private Date getFecha(int dia, int mes, int anyo){
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.set(anyo, mes, dia);
+        Date fecha = new Date();
+        fecha = cal.getTime();
+        return fecha;
     }
+    
     private Date getFecha(int dia, int mes, int anyo, int hora, int minutos){
         Calendar cal = GregorianCalendar.getInstance();
         cal.set(anyo, mes, dia, hora, minutos);
