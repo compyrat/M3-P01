@@ -108,6 +108,4 @@ public class Sala {
         sb.append("\nInformacion de la Sesion actual: \n\n").append(sesiones.toString());
         return sb.toString();
     }
-    
-    
 }
