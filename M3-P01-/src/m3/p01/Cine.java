@@ -103,8 +103,8 @@ public class Cine {
     */
     public void showPelicula(Date vFecha){
         for (Sala i: sala){
-            if (i.mostrarInfoSesiones().getFecha().equals(vFecha)){
-                i.mostrarInfoSesiones().getPelicula().toString();
+            if (i.devolverSesion(vFecha).getFecha().equals(vFecha)){
+                i.devolverSesion(vFecha).getPelicula().toString();
             }
         }
     }

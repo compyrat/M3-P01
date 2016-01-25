@@ -31,7 +31,7 @@ public class Sala {
     */
     public void deleteSesion(Date vFecha){
         for(int i = 0; i<sesiones.size();i++){
-            if(sesiones.get(i).getFecha() == vFecha){
+            if(sesiones.get(i).getFecha().equals(vFecha)){
                  sesiones.remove(sesiones.get(i));
             }
         }
@@ -60,7 +60,7 @@ public class Sala {
     public Sesion devolverSesion(Date vFecha){
         Sesion ses;
         for (Sesion i: sesiones){
-            if (i.getFecha() == (vFecha)){
+            if (i.getFecha().equals(vFecha)){
                 ses = i;
                 return ses;
             }
@@ -73,15 +73,15 @@ public class Sala {
     * proyectan en la sala. Esta funcionalidad se encapsulará en un método 
     * denominado mostrarInfoSesiones();
     */
-    public Sesion mostrarInfoSesiones(){
+    public String mostrarInfoSesiones(){
         Sesion ses;
         for (Sesion i: sesiones){
             if (i.getSala().getNumSala() == this.numSala){
                 ses = i;
-                return ses;
+                return i.toString();
             }
         }
-        return null;
+        return "";
     }
     
     /*
@@ -93,7 +93,7 @@ public class Sala {
     
     public String mostrarInfoSesion(Date vFecha){
         for (Sesion i: sesiones){
-            if (i.getFecha() == (vFecha)){
+            if (i.getFecha().equals(vFecha)){
                 return i.toString();
             }
         }
