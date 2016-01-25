@@ -10,6 +10,11 @@ public class Sesion {
     private Sala sala;
     
     public Sesion(){}
+    
+    public Sesion (Date iFecha, Pelicula iPelicula){
+        this.fecha = iFecha;
+        this.pelicula = iPelicula;
+    }
 
     public Sesion (Date iFecha, Pelicula iPelicula, Sala iSala){
         this.fecha = iFecha;
