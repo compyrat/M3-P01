@@ -84,6 +84,7 @@ public class Cine {
             for (Sesion i2: i.getSesion()){
                 if (i2.getPelicula().getTitulo().equals(pel.getTitulo())) 
                     pelicula.remove(i2.getPelicula());
+                    i.deleteSesion(i2.getDate());
             }
         }
         /*Sala sala;
