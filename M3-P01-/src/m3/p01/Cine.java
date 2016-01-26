@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Cine {
-    private String nombre, direccion;
+    private String nombre, direccion;////
     private ArrayList<Pelicula> pelicula = new ArrayList<Pelicula>();
     private ArrayList<Sala> sala = new ArrayList<Sala>();
 
