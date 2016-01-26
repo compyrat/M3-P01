@@ -1,7 +1,9 @@
 package m3.p01;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Sala {
     private int numSala, butacasMax;
@@ -23,6 +25,13 @@ public class Sala {
     public void setNButacas(int vButacas){
         this.butacasMax = vButacas;
     }
+   private Date getFecha(int dia, int mes, int anyo, int hora, int minutos){
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.set(anyo, mes, dia, hora, minutos);
+        Date fecha = new Date();
+        fecha = cal.getTime();
+        return fecha;
+    }
     
     public int getNumSala(){
         return numSala;
@@ -34,10 +43,13 @@ public class Sala {
     */
     public void deleteSesion(Date vFecha){
         for(int i = 0; i<sesiones.size();i++){
-            if(sesiones.get(i).getFecha().equals(vFecha)){
+            if(sesiones.get(i).getDate().equals(vFecha)){
                  sesiones.remove(sesiones.get(i));
             }
         }
+    }
+    public void deleteSesion(int anyo, int mes, int dia, int hora, int minuto){
+        deleteSesion(getFecha(anyo, mes, dia, hora, minuto));
     }
     /*
     * 5. Añadir una nueva sesión de proyección en dicha sala;
@@ -53,6 +65,9 @@ public class Sala {
         Sesion ses = new Sesion(iFecha, iPelicula, this);
         sesiones.add(ses);
     }
+    public void addSesion(Pelicula iPelicula, int anyo, int mes, int dia, int hora, int minuto){
+        addSesion(iPelicula, getFecha(anyo, mes, dia, hora, minuto));
+    }
     
     public ArrayList<Sesion> getSesion(){
         return sesiones;
@@ -66,7 +81,7 @@ public class Sala {
     public Sesion devolverSesion(Date vFecha){
         Sesion ses;
         for (Sesion i: sesiones){
-            if (i.getFecha().equals(vFecha)){
+            if (i.getDate().equals(vFecha)){
                 ses = i;
                 return ses;
             }
@@ -99,7 +114,7 @@ public class Sala {
     
     public String mostrarInfoSesion(Date vFecha){
         for (Sesion i: sesiones){
-            if (i.getFecha().equals(vFecha)){
+            if (i.getDate().equals(vFecha)){
                 return i.toString();
             }
         }
