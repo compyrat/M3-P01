@@ -87,16 +87,6 @@ public class Cine {
                     i.deleteSesion(i2.getDate());
             }
         }
-        /*Sala sala;
-        Sesion sesion;
-        Iterator<Sala> iter = listaSalas.iterator();
-        while(iter.hasNext()){
-            sala=inter.next();
-            Iterator<Sesison> iter2 = listaSesiones.iterator();
-            while(iter2.hasNext()){
-                
-            }
-        }*/
     }
     
     public void delPelicula(String titulo){
@@ -120,6 +110,7 @@ public class Cine {
     }
     
     public void delSala(Sala iSala){
+        iSala.deleteSesionNumSala(iSala.getNumSala());
         sala.remove(iSala);
     }
     public void delSala(int num){
@@ -186,7 +177,7 @@ public class Cine {
         Date vFecha = new Date();
         vFecha = getFecha(dia, mes, anyo);
         for (Sala i: getSala()){
-            if (i.devolverSesion(vFecha).getFecha().equals(vFecha)){
+            if (i.devolverSesion(vFecha).getDate().equals(vFecha)){
                 i.devolverSesion(vFecha).getPelicula().toString();
             }
         }
