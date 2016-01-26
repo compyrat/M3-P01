@@ -37,7 +37,7 @@ public class M3P01 {
         System.out.println(pelicula1.toString());
         System.out.println(sala1.toString());
         System.out.println(sesion1.toString());
-        System.out.println(cine1.toString());
+        
         System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
         //Constructores con todos los parámetros
         
@@ -55,7 +55,7 @@ public class M3P01 {
         System.out.println(pelicula2.toString());
         System.out.println(sala2.toString());
         System.out.println(sesion2.toString());
-        System.out.println(cine2.toString());
+        
         
     }
     
