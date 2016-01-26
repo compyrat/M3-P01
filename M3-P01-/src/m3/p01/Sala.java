@@ -51,6 +51,13 @@ public class Sala {
     public void deleteSesion(int anyo, int mes, int dia, int hora, int minuto){
         deleteSesion(getFecha(anyo, mes, dia, hora, minuto));
     }
+    public void deleteSesionNumSala(int nSala){
+        for(int i = 0; i<sesiones.size();i++){
+            if(sesiones.get(i).getSala().getNumSala() == nSala){
+                 sesiones.remove(sesiones.get(i));
+            }
+        }
+    }
     /*
     * 5. Añadir una nueva sesión de proyección en dicha sala;
     */
@@ -68,13 +75,7 @@ public class Sala {
     public void addSesion(Pelicula iPelicula, int anyo, int mes, int dia, int hora, int minuto){
         addSesion(iPelicula, getFecha(anyo, mes, dia, hora, minuto));
     }
-    public void deleteSesionNumSala(int nSala){
-        for(int i = 0; i<sesiones.size();i++){
-            if(sesiones.get(i).getSala().getNumSala() == nSala){
-                 sesiones.remove(sesiones.get(i));
-            }
-        }
-    }
+    
     public ArrayList<Sesion> getSesion(){
         return sesiones;
     }
