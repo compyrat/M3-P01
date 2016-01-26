@@ -130,14 +130,25 @@ public class Cine {
     * capacidad que tiene la sala donde se va a proyectar;
     */
     public void asignarPelicula(Pelicula pel, Date fecha, Sala sala){
-        //TODO
+        sala.addSesion(new Sesion(fecha, pel, sala));
     }
     
     public void asignarPelicula(String titulo,int numSala, int dia, int mes, int anyo, int hora, int minutos) {
-        //TODO
-        getFecha(dia, mes, anyo, hora, minutos);
+        for (Pelicula i: getPelicula()){
+            if (i.getTitulo().equals(titulo)){
+                asignarPelicula(i, getFecha(dia, mes, anyo, hora, minutos), getSalaWithNum(numSala));
+            }
+        }
     }
     
+    private Sala getSalaWithNum(int numSala){
+        for (Sala i : getSala()){
+            if (i.getNumSala() == numSala){
+                return i;
+            }
+        }
+        return null;
+    }
     /*
     * 9. Debe permitir la eliminación de una sesión concreta, dado su fecha 
     * de proyección, de una sala concreta;
