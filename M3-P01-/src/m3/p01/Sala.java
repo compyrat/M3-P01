@@ -133,7 +133,9 @@ public class Sala {
         StringBuilder sb = new StringBuilder();
         sb.append("Numero de sala: ").append(numSala);
         sb.append("\nNumero de Butacas totales: ").append(butacasMax);
+        if (getSesion() != null){
         sb.append("\nInformacion de la Sesion actual: \n\n").append(sesiones.toString());
+        }
         return sb.toString();
     }
     
