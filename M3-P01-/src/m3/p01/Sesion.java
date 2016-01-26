@@ -1,6 +1,8 @@
 package m3.p01;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
 public class Sesion {
     private Date fecha;
@@ -24,7 +26,15 @@ public class Sesion {
         this.sala = iSala;
     }
     
-    public Date getFecha() {
+    public Sesion( Pelicula iPelicula, Sala iSala, int anyo, int mes, int dia, int hora, int minuto){
+        this.fecha = getFecha(anyo, mes, dia, hora, minuto);
+        this.nButacas = iSala.getNButacas();
+        this.nButacasLibres = iSala.getNButacas();
+        this.pelicula = iPelicula;
+        this.sala = iSala;
+    }
+    
+    public Date getDate() {
         return fecha;
     }
 
@@ -67,6 +77,14 @@ public class Sesion {
     public void actualizarButacasVendidas(int vendidas) {
         nButacasLibres = nButacas - vendidas;
     }
+    private Date getFecha(int dia, int mes, int anyo, int hora, int minutos){
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.set(anyo, mes, dia, hora, minutos);
+        Date fecha = new Date();
+        fecha = cal.getTime();
+        return fecha;
+    }
+    
     
     @Override
     public String toString() {
