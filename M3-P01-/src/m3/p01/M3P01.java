@@ -49,7 +49,7 @@ public class M3P01 {
          */
         
         Pelicula pelicula2=new Pelicula("Pelicula2", "Director2", 2002, "Es una pelicula 2", Genero.CIENCIA_FICCION);
-        Sala sala2= new Sala(2);
+        Sala sala2= new Sala(2, 86);
         Sesion sesion2= new Sesion(pelicula2, sala2, 2016, 1, 26, 17, 30);
         Cine cine2 = new Cine("El bosque", "C/Real");
         System.out.println(pelicula2.toString());

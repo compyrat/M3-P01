@@ -12,12 +12,17 @@ public class Sala {
     public Sala(){
         
     }
-    public Sala(int vNumSala){
-        this.numSala = numSala;
+    public Sala(int vNumSala, int vButacasMax, ArrayList<Sesion> sesion){
+        this.numSala = vNumSala;
+        this.butacasMax = vButacasMax;
+        this.sesiones = sesion;
     }
     public Sala(int vNumSala, int vButacasMax){
         this.numSala = vNumSala;
         this.butacasMax = vButacasMax;
+    }
+    public int getNumSala(){
+        return numSala;
     }
     public int getNButacas(){
         return butacasMax;
@@ -25,18 +30,13 @@ public class Sala {
     public void setNButacas(int vButacas){
         this.butacasMax = vButacas;
     }
-   private Date getFecha(int dia, int mes, int anyo, int hora, int minutos){
-        Calendar cal = GregorianCalendar.getInstance();
-        cal.set(anyo, mes, dia, hora, minutos);
-        Date fecha = new Date();
-        fecha = cal.getTime();
-        return fecha;
+   public ArrayList<Sesion> getSesion(){
+        return sesiones;
+    }
+    public void setSesion(ArrayList<Sesion> sesiones){
+        this.sesiones = sesiones;
     }
     
-    public int getNumSala(){
-        return numSala;
-    }
-
     /*
     * 4. Es capaz de eliminar una sesión concreta a partir de su 
     * fecha de proyección;
@@ -76,12 +76,6 @@ public class Sala {
         addSesion(iPelicula, getFecha(anyo, mes, dia, hora, minuto));
     }
     
-    public ArrayList<Sesion> getSesion(){
-        return sesiones;
-    }
-    public void setSesion(ArrayList<Sesion> sesiones){
-        this.sesiones = sesiones;
-    }
     /*
     * 6. Devolver la sesión, a partir de la fecha de proyección;
     */
@@ -128,6 +122,14 @@ public class Sala {
         return "";
     }
 
+    private Date getFecha(int dia, int mes, int anyo, int hora, int minutos){
+        Calendar cal = GregorianCalendar.getInstance();
+        cal.set(anyo, mes, dia, hora, minutos);
+        Date fecha = new Date();
+        fecha = cal.getTime();
+        return fecha;
+    }
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
