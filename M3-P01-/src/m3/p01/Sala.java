@@ -133,10 +133,10 @@ public class Sala {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Numero de sala: ").append(numSala);
+        sb.append("\nNumero de sala: ").append(numSala);
         sb.append("\nNumero de Butacas totales: ").append(butacasMax);
         if (!mostrarInfoSesiones().equals("")){
-        sb.append("\nInformacion de la Sesion actual: \n\n").append(sesiones.toString());
+        sb.append("\nInformacion de las Sesiones actuales: \n").append(sesiones.toString());
         }
         return sb.toString();
     }
