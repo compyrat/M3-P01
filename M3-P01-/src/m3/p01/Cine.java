@@ -90,8 +90,7 @@ public class Cine {
     }
     
     public void delPelicula(String titulo){
-        Pelicula pel = buscarPelicula(titulo);
-        if (pel != null) delPelicula(pel);
+        pelicula.remove(buscarPelicula(titulo));
     }
     public Pelicula buscarPelicula(String titulo){
         Pelicula pel = null;
@@ -153,9 +152,9 @@ public class Cine {
     * 9. Debe permitir la eliminación de una sesión concreta, dado su fecha 
     * de proyección, de una sala concreta;
     */
-    public void eliminarSesion(Date vFecha, int vNumSala){
+    public void eliminarSesion(Date vFecha, Sala sala){
         for (Sala i: getSala()){
-            if (i.getNumSala() == vNumSala){
+            if (i.getNumSala() == sala.getNumSala()){
                 i.deleteSesion(vFecha);
             }
         }
@@ -171,12 +170,14 @@ public class Cine {
     * 10. Debe mostrar la información de las sesiones en las que se 
     * proyecta una película, dado el título de la película;
     */
-    public void showSesionesPelicula(String vNombre){
+    public String showSesionesPelicula(String vNombre){
+        String aux = "";
         for (Pelicula i: getPelicula()){
             if (i.getTitulo().equals(vNombre)){
-                i.toString();
+                aux = i.toString();
             }
         }
+        return aux;
     }
     
     /*
@@ -184,14 +185,17 @@ public class Cine {
     * fecha concreta (día, mes y año).
     */
 
-    public void showPelicula(int dia, int mes, int anyo){
+    public String showPelicula(int dia, int mes, int anyo){
+        String aux = "";
         Date vFecha = new Date();
         vFecha = getFecha(dia, mes, anyo);
         for (Sala i: getSala()){
             if (i.devolverSesion(vFecha).getDate().equals(vFecha)){
-                i.devolverSesion(vFecha).getPelicula().toString();
+                aux = i.devolverSesion(vFecha).getPelicula().toString();
             }
         }
+
+        return aux;
     }
     
     private Date getFecha(int dia, int mes, int anyo){
@@ -209,4 +213,15 @@ public class Cine {
         fecha = cal.getTime();
         return fecha;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("\nCine: ").append(nombre);
+        sb.append("\nDireccion: ").append(direccion);
+        sb.append("\nPeliculas: \n").append(this.getPelicula().toString());
+        sb.append("\nSala: \n").append(this.getSala().toString());
+        return sb.toString();
+    }
+    
 }
