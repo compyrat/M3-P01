@@ -62,7 +62,7 @@ public class Pelicula {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nTitulo: ").append(titulo);
+        sb.append("\n\nTitulo: ").append(titulo);
         sb.append("\nDirector: ").append(director);
         sb.append("\nAño: ").append(anyo);
         sb.append("\nSinopsis: ").append(sinopsis);

@@ -250,7 +250,7 @@ public class Cine {
         sb.append("\nCine: ").append(nombre);
         sb.append("\nDireccion: ").append(direccion);
         sb.append("\nPeliculas: \n").append(this.getPelicula().toString());
-        sb.append("\nSala: \n").append(this.getSala().toString());
+        sb.append("\n\nSala: \n").append(this.getSala().toString());
         return sb.toString();
     }
     

@@ -162,7 +162,7 @@ public class Sala {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nNumero de sala: ").append(numSala);
+        sb.append("\n\nNumero de sala: ").append(numSala);
         sb.append("\nNumero de Butacas totales: ").append(butacasMax);
         if (!mostrarInfoSesiones().equals("")){
         sb.append("\nInformacion de las Sesiones actuales: \n").append(sesiones.toString());

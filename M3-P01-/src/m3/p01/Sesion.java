@@ -89,7 +89,7 @@ public class Sesion {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("\nFecha: ").append(fecha);
+        sb.append("\n\nFecha: ").append(fecha);
         sb.append("\nNumero de Butacas totales: ").append(nButacas);
         sb.append("\nNumero de Butacas disponibles: ").append(nButacasLibres);
         sb.append("\nPelicula: ").append(pelicula.getTitulo());
