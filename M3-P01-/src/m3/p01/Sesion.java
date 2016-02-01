@@ -93,7 +93,6 @@ public class Sesion {
         sb.append("\nNumero de Butacas totales: ").append(nButacas);
         sb.append("\nNumero de Butacas disponibles: ").append(nButacasLibres);
         sb.append("\nPelicula: ").append(pelicula.getTitulo());
-        sb.append("\nNumero de sala: ").append(sala.getNumSala());
         return sb.toString();
     }
 }

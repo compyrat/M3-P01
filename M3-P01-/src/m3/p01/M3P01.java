@@ -78,31 +78,32 @@ public class M3P01 {
         cine.asignarPelicula("La noche de los muertos vivientes", 3, 16, 2, 2016,20,0);
         
         //Vemos las sesiones de una película
-        System.out.println("---------------------------");
+        System.out.println("\n\t Vemos las sesiones de una pelicula  (Blade Runner)");
         System.out.println(cine.showSesionesPelicula("Blade Runner"));
         
         //Vemos las sesiones de día
+        System.out.println("\n\t Vemos la pelicula del 15/1/2016 ");
         System.out.println(cine.showPelicula(15, 1, 2016));
         
-        System.out.println("---------------------------");
+        System.out.println("\n\t Vemos todo el cine ");
         System.out.println(cine.toString());
         
         //Borramos la última sesión del día 15 de la Sala 1
         cine.eliminarSesion(fecha, sala1);
         
-        System.out.println("---------------------------");
+        System.out.println("\n\t Despues de borrar la ultima sesion del dia 15 ");
         System.out.println(cine.toString());
         
         //Borramos la película "Blade Runner"
         cine.delPelicula("Blade Runner");
         
-        System.out.println("---------------------------");
+        System.out.println("\n\t Despues de borrar la pelicula Blade Runner ");
         System.out.println(cine.toString());
         
         //Borramos la Sala 3
         cine.delSala(3);
         
-        System.out.println("---------------------------");
+        System.out.println("\n\t Despues de borrar la sala 3 ");
         System.out.println(cine.toString());
     }
 }

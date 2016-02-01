@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.Iterator;
 
 public class Cine {
     private String nombre;
@@ -80,18 +81,32 @@ public class Cine {
     }
     
     public void delPelicula(Pelicula pel){
-        for (Sala i: sala){
-            for (Sesion i2: i.getSesion()){
-                if (i2.getPelicula().getTitulo().equals(pel.getTitulo())) 
-                    pelicula.remove(i2.getPelicula());
-                    i.deleteSesion(i2.getDate());
+        Sala auxSala;
+        Sesion auxSesion;
+        Iterator<Sala> iter = sala.iterator();
+        while(iter.hasNext()){
+            auxSala=iter.next();
+            boolean aunPuedeHaberSesiones=true;
+            while (aunPuedeHaberSesiones) {
+                Iterator<Sesion> iter2 = auxSala.getSesion().iterator();
+                boolean sesionEliminada=false;
+                while(iter2.hasNext() && !sesionEliminada){
+                    auxSesion= iter2.next();
+                    if (auxSesion.getPelicula().equals(pel)) {
+                        auxSala.getSesion().remove(auxSesion);
+                        sesionEliminada=true;
+                    }
+                }
+                if (!sesionEliminada) aunPuedeHaberSesiones=false;
             }
         }
+        pelicula.remove(pel);
     }
     
     public void delPelicula(String titulo){
-        pelicula.remove(buscarPelicula(titulo));
+        delPelicula(buscarPelicula(titulo));
     }
+    
     public Pelicula buscarPelicula(String titulo){
         Pelicula pel = null;
         for (Pelicula i: getPelicula()){

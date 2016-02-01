@@ -42,9 +42,11 @@ public class Sala {
     * fecha de proyección;
     */
     public void deleteSesion(Date vFecha){
+        String aux = "";
         for(int i = 0; i<sesiones.size();i++){
-            if(sesiones.get(i).getDate().equals(vFecha)){
+            if(FechaIgual(sesiones.get(i).getDate(),(vFecha), true)){
                  sesiones.remove(sesiones.get(i));
+                  aux = sesiones.get(i).toString();
             }
         }
     }
@@ -130,7 +132,7 @@ public class Sala {
         return fecha;
     }
     
-        private boolean FechaIgual(Date date1, Date date2){
+    private boolean FechaIgual(Date date1, Date date2){
         Calendar cal1 = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
         cal1.setTime(date1);
@@ -141,6 +143,19 @@ public class Sala {
                   cal1.get(Calendar.DAY_OF_MONTH) == cal2.get(Calendar.DAY_OF_MONTH)) sameDay = true;
                   //cal1.get(Calendar.HOUR) == cal2.get(Calendar.HOUR) &&
                   //cal1.get(Calendar.MINUTE) == cal2.get(Calendar.MINUTE);
+        return sameDay;
+    }
+    private boolean FechaIgual(Date date1, Date date2, Boolean horaMinuto){
+        Calendar cal1 = Calendar.getInstance();
+        Calendar cal2 = Calendar.getInstance();
+        cal1.setTime(date1);
+        cal2.setTime(date2);
+        boolean sameDay = false; 
+                if (cal1.get(Calendar.YEAR) == cal2.get(Calendar.YEAR) &&
+                  cal1.get(Calendar.MONTH) == cal2.get(Calendar.MONTH) &&
+                  cal1.get(Calendar.DAY_OF_MONTH) == cal2.get(Calendar.DAY_OF_MONTH)&&
+                  cal1.get(Calendar.HOUR) == cal2.get(Calendar.HOUR) &&
+                  cal1.get(Calendar.MINUTE) == cal2.get(Calendar.MINUTE)) sameDay = true;
         return sameDay;
     }
     
