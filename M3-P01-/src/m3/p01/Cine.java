@@ -66,7 +66,8 @@ public class Cine {
         int contador = 0;
         StringBuilder sb = new StringBuilder();
         for (Pelicula i: getPelicula()){
-            sb.append("Pelicula " + contador + ".\n");
+            contador++;
+            sb.append("\n\nPelicula " + contador + ":\n");
             sb.append("\t" + i.toString());
         }
         return sb.toString();
