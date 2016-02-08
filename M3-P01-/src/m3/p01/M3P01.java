@@ -105,7 +105,5 @@ public class M3P01 {
         
         System.out.println("\n\t Despues de borrar la sala 3 ");
         System.out.println(cine.toString());
-        System.out.println("-------------*************///////////////--------");
-        System.out.println(cine.mostrarCartelera());
     }
 }
