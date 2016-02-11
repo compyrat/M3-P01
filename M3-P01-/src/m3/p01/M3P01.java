@@ -5,6 +5,10 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import Exceptions.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class M3P01 {
     public static void main(String[] args) {
         //Creamos el cine
@@ -39,45 +43,53 @@ public class M3P01 {
         cal.set(2016, 1, 15, 16, 0, 0);
         Date fecha=cal.getTime();
         
-        //Añadimos Sesiones de las 16
-        cine.asignarPelicula(peli1, fecha, sala1);
-        cine.asignarPelicula(peli2, fecha, sala2);
-        cine.asignarPelicula(cine.buscarPelicula("El Guateque"), fecha, cine.buscarSala(3));
+        try {
+            //Añadimos Sesiones de las 16
+            cine.asignarPelicula(peli1, fecha, sala1);
+            cine.asignarPelicula(peli2, fecha, sala2);
+            cine.asignarPelicula(cine.buscarPelicula("El Guateque"), fecha, cine.buscarSala(3));
         
         //Añadimos Sesiones de las 18
-        cal.set(Calendar.HOUR_OF_DAY, 18);
-        fecha=cal.getTime();
-        cine.asignarPelicula(peli1, fecha, sala1);
-        cine.asignarPelicula(peli2, fecha, sala2);
-        cine.asignarPelicula(cine.buscarPelicula("El Guateque"), fecha, cine.buscarSala(3));
-        
-        //Añadimos Sesiones de las 20
-        cal.set(Calendar.HOUR_OF_DAY, 20);
-        fecha=cal.getTime();
-        cine.asignarPelicula(peli1, fecha, sala1);
-        cine.asignarPelicula(peli2, fecha, sala2);
-        cine.asignarPelicula(cine.buscarPelicula("El Guateque"), fecha, cine.buscarSala(3));
-        
-        
-        //Para el día 16, usamos la segunda versión sobrecargada de addPeliYsesionAsala()
-        //Añadimos Sesiones de las 16
-        cine.asignarPelicula(peli1.getTitulo(), sala1.getNumSala(), 16, 2, 2016,16,0);
-        cine.asignarPelicula(peli2.getTitulo(), sala2.getNumSala(), 16, 2, 2016,16,0);
-        cine.asignarPelicula("Blade Runner", 3, 16, 2, 2016,16,0);
-        
+            cal.set(Calendar.HOUR_OF_DAY, 18);
+            fecha=cal.getTime();
+            cine.asignarPelicula(peli1, fecha, sala1);
+            cine.asignarPelicula(peli2, fecha, sala2);
+            cine.asignarPelicula(cine.buscarPelicula("El Guateque"), fecha, cine.buscarSala(3));
+            
+            //Añadimos Sesiones de las 20
+            cal.set(Calendar.HOUR_OF_DAY, 20);
+            fecha=cal.getTime();
+            cine.asignarPelicula(peli1, fecha, sala1);
+            cine.asignarPelicula(peli2, fecha, sala2);
+            cine.asignarPelicula(cine.buscarPelicula("El Guateque"), fecha, cine.buscarSala(3));
 
-        //Añadimos Sesiones de las 18
-        cine.asignarPelicula(peli1.getTitulo(), sala1.getNumSala(), 16, 2, 2016,18,0);
-        cine.asignarPelicula(peli2.getTitulo(), sala2.getNumSala(), 16, 2, 2016,18,0);
-        cine.asignarPelicula("El Guateque", 3, 16, 2, 2016,18,0);
+
+            //Para el día 16, usamos la segunda versión sobrecargada de addPeliYsesionAsala()
+            //Añadimos Sesiones de las 16
+            cine.asignarPelicula(peli1.getTitulo(), sala1.getNumSala(), 16, 2, 2016,16,0);
+            cine.asignarPelicula(peli2.getTitulo(), sala2.getNumSala(), 16, 2, 2016,16,0);
+            cine.asignarPelicula("Blade Runner", 3, 16, 2, 2016,16,0);
+
+
+            //Añadimos Sesiones de las 18
+            cine.asignarPelicula(peli1.getTitulo(), sala1.getNumSala(), 16, 2, 2016,18,0);
+            cine.asignarPelicula(peli2.getTitulo(), sala2.getNumSala(), 16, 2, 2016,18,0);
+            cine.asignarPelicula("El Guateque", 3, 16, 2, 2016,18,0);
+
+
+            //Añadimos Sesiones de las 20
+            cine.asignarPelicula(peli1.getTitulo(), sala1.getNumSala(), 16, 2, 2016,18,0);
+            cine.asignarPelicula(peli2.getTitulo(), sala2.getNumSala(), 16, 2, 2016,20,0);
+            cine.asignarPelicula("La noche de los muertos vivientes", 3, 16, 2, 2016,20,0);
+            
+        } catch (PeliculaRepetida ex) {
+            System.out.println(ex.getMessage());
+        }
         
         
-        //Añadimos Sesiones de las 20
-        cine.asignarPelicula(peli1.getTitulo(), sala1.getNumSala(), 16, 2, 2016,20,0);
-        cine.asignarPelicula(peli2.getTitulo(), sala2.getNumSala(), 16, 2, 2016,20,0);
-        cine.asignarPelicula("La noche de los muertos vivientes", 3, 16, 2, 2016,20,0);
         
-        //Vemos las sesiones de una película
+        
+        /*//Vemos las sesiones de una película
         System.out.println("\n\t Vemos las sesiones de una pelicula  (Blade Runner)");
         System.out.println(cine.showSesionesPelicula("Blade Runner"));
         
@@ -104,6 +116,6 @@ public class M3P01 {
         cine.delSala(3);
         
         System.out.println("\n\t Despues de borrar la sala 3 ");
-        System.out.println(cine.toString());
+        System.out.println(cine.toString());*/
     }
 }

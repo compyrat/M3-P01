@@ -5,6 +5,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import Exceptions.*;
+
 public class Sala {
     private static int INTERVAL = 10;
     
@@ -73,14 +75,14 @@ public class Sala {
     /*
     * 5. Añadir una nueva sesión de proyección en dicha sala;
     */
-    public void addSesion(Sesion iSesion){
+    public void addSesion(Sesion iSesion) throws PeliculaRepetida{
         if (!overlap(iSesion)){
             iSesion.setSala(this);
             iSesion.setnButacas(getNButacas());
             iSesion.setButacasLibres(getNButacas());
             listaSesiones.add(iSesion);
         }else{
-            throw new Exceptions.PeliculaRepetida("Esta sesion se solapa con otra.");
+            throw new PeliculaRepetida("Esta sesion ("+ iSesion.getDate()+ "), de la sala ("+iSesion.getSala().getNumSala()+") se solapa con otra.");
         }
     }
     

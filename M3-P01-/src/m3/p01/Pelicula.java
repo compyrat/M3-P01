@@ -1,5 +1,7 @@
 package m3.p01;
 
+import Exceptions.*;
+
 public class Pelicula {
     private String titulo;
     private String director;

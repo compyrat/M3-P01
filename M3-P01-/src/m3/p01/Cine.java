@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 
+import Exceptions.*;
 public class Cine {
     private String nombre;
     private String direccion;
@@ -144,11 +145,11 @@ public class Cine {
     * sesión a una sala, las butacas de la sesión se deben actualizar con la 
     * capacidad que tiene la sala donde se va a proyectar;
     */
-    public void asignarPelicula(Pelicula pel, Date fecha, Sala sala){
+    public void asignarPelicula(Pelicula pel, Date fecha, Sala sala) throws PeliculaRepetida{
         sala.addSesion(new Sesion(fecha, pel, sala));
     }
     
-    public void asignarPelicula(String titulo,int numSala, int dia, int mes, int anyo, int hora, int minutos) {
+    public void asignarPelicula(String titulo,int numSala, int dia, int mes, int anyo, int hora, int minutos) throws PeliculaRepetida {
         for (Pelicula i: getPelicula()){
             if (i.getTitulo().equals(titulo)){
                 asignarPelicula(i, getFecha(dia, mes, anyo, hora, minutos), getSalaWithNum(numSala));

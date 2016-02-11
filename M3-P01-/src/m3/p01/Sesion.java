@@ -4,6 +4,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
 
+import Exceptions.*;
+
 public class Sesion {
     private Date fecha;
     //private String formato_fecha = new SimpleDateFormat("dd-MM-yyyy'T'HH:mm:ss").format(fecha);
