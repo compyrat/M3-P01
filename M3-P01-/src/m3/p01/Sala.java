@@ -6,8 +6,10 @@ import java.util.Date;
 import java.util.GregorianCalendar;
 
 public class Sala {
+    private static int INTERVAL = 10;
+    
     private int numSala, butacasMax;
-    private ArrayList<Sesion> sesiones = new ArrayList<Sesion>();
+    private ArrayList<Sesion> listaSesiones = new ArrayList<Sesion>();
     
     public Sala(){
         
@@ -15,12 +17,20 @@ public class Sala {
     public Sala(int vNumSala, int vButacasMax, ArrayList<Sesion> sesion){
         this.numSala = vNumSala;
         this.butacasMax = vButacasMax;
-        this.sesiones = sesion;
+        this.listaSesiones = sesion;
     }
     public Sala(int vNumSala, int vButacasMax){
         this.numSala = vNumSala;
         this.butacasMax = vButacasMax;
     }
+    
+    public static int getInterval(){
+        return INTERVAL;
+    }
+    public static void setInterval(int intervalo){
+        INTERVAL = intervalo;
+    }
+    
     public int getNumSala(){
         return numSala;
     }
@@ -31,10 +41,10 @@ public class Sala {
         this.butacasMax = vButacas;
     }
    public ArrayList<Sesion> getSesion(){
-        return sesiones;
+        return listaSesiones;
     }
-    public void setSesion(ArrayList<Sesion> sesiones){
-        this.sesiones = sesiones;
+    public void setSesion(ArrayList<Sesion> listaSesiones){
+        this.listaSesiones = listaSesiones;
     }
     
     /*
@@ -43,10 +53,10 @@ public class Sala {
     */
     public void deleteSesion(Date vFecha){
         String aux = "";
-        for(int i = 0; i<sesiones.size();i++){
-            if(FechaIgual(sesiones.get(i).getDate(),(vFecha), true)){
-                 sesiones.remove(sesiones.get(i));
-                  aux = sesiones.get(i).toString();
+        for(int i = 0; i<listaSesiones.size();i++){
+            if(FechaIgual(listaSesiones.get(i).getDate(),(vFecha))){
+                 listaSesiones.remove(listaSesiones.get(i));
+                  aux = listaSesiones.get(i).toString();
             }
         }
     }
@@ -54,9 +64,9 @@ public class Sala {
         deleteSesion(getFecha(anyo, mes, dia, hora, minuto));
     }
     public void deleteSesionNumSala(int nSala){
-        for(int i = 0; i<sesiones.size();i++){
-            if(sesiones.get(i).getSala().getNumSala() == nSala){
-                 sesiones.remove(sesiones.get(i));
+        for(int i = 0; i<listaSesiones.size();i++){
+            if(listaSesiones.get(i).getSala().getNumSala() == nSala){
+                 listaSesiones.remove(listaSesiones.get(i));
             }
         }
     }
@@ -64,15 +74,21 @@ public class Sala {
     * 5. Añadir una nueva sesión de proyección en dicha sala;
     */
     public void addSesion(Sesion iSesion){
-        iSesion.setSala(this);
-        iSesion.setnButacas(getNButacas());
-        iSesion.setButacasLibres(getNButacas());
-        sesiones.add(iSesion);
+        if (!overlap(iSesion)){
+            iSesion.setSala(this);
+            iSesion.setnButacas(getNButacas());
+            iSesion.setButacasLibres(getNButacas());
+            listaSesiones.add(iSesion);
+        }else{
+            throw new Exceptions.PeliculaRepetida("Esta sesion se solapa con otra.");
+        }
     }
     
     public void addSesion(Pelicula iPelicula, Date iFecha){
         Sesion ses = new Sesion(iFecha, iPelicula, this);
-        sesiones.add(ses);
+        if (!overlap(ses)){
+            listaSesiones.add(ses);
+        }
     }
     public void addSesion(Pelicula iPelicula, int anyo, int mes, int dia, int hora, int minuto){
         addSesion(iPelicula, getFecha(anyo, mes, dia, hora, minuto));
@@ -83,7 +99,7 @@ public class Sala {
     */
     public Sesion devolverSesion(Date vFecha){
         Sesion ses;
-        for (Sesion i: sesiones){
+        for (Sesion i: listaSesiones){
             if (FechaIgual(i.getDate(), vFecha)){
                 ses = i;
                 return ses;
@@ -93,13 +109,13 @@ public class Sala {
     }
     
     /*
-    * 7. Mostrar por pantalla la información de todas las sesiones que se 
+    * 7. Mostrar por pantalla la información de todas las listaSesiones que se 
     * proyectan en la sala. Esta funcionalidad se encapsulará en un método 
     * denominado mostrarInfoSesiones();
     */
     public String mostrarInfoSesiones(){
         Sesion ses;
-        for (Sesion i: sesiones){
+        for (Sesion i: listaSesiones){
             if (i.getSala().getNumSala() == this.numSala){
                 ses = i;
                 return i.toString();
@@ -116,7 +132,7 @@ public class Sala {
     */
     
     public String mostrarInfoSesion(Date vFecha){
-        for (Sesion i: sesiones){
+        for (Sesion i: listaSesiones){
             if (i.getDate().equals(vFecha)){
                 return i.toString();
             }
@@ -145,7 +161,7 @@ public class Sala {
                   //cal1.get(Calendar.MINUTE) == cal2.get(Calendar.MINUTE);
         return sameDay;
     }
-    private boolean FechaIgual(Date date1, Date date2, Boolean horaMinuto){
+    private boolean fechaIgual(Date date1, Date date2){
         Calendar cal1 = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
         cal1.setTime(date1);
@@ -158,14 +174,33 @@ public class Sala {
                   cal1.get(Calendar.MINUTE) == cal2.get(Calendar.MINUTE)) sameDay = true;
         return sameDay;
     }
+    private boolean fechaIntervalo(Sesion ses1, Sesion ses2){
+        boolean sameDay = false; 
+                if (Math.abs((ses1.getDate().getTime()+(ses1.getPelicula().getDuracion()*60000)) - 
+                        (ses1.getDate().getTime()+(ses1.getPelicula().getDuracion()*60000))) > 
+                        (INTERVAL * 60000)) sameDay = true;
+        return sameDay;
+    }
     
+    private boolean overlap(Sesion sesion){
+        boolean aux = false;
+        for(Sesion ses:listaSesiones){
+            if (fechaIgual(ses.getDate(), sesion.getDate())){
+                aux = true;
+            }
+            if (fechaIntervalo(ses, sesion)){
+                aux = true;
+            }
+        }
+        return aux;
+    }
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\n\nNumero de sala: ").append(numSala);
         sb.append("\nNumero de Butacas totales: ").append(butacasMax);
         if (!mostrarInfoSesiones().equals("")){
-        sb.append("\nInformacion de las Sesiones actuales: \n").append(sesiones.toString());
+        sb.append("\nInformacion de las Sesiones actuales: \n").append(listaSesiones.toString());
         }
         return sb.toString();
     }
