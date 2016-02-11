@@ -6,17 +6,19 @@ public class Pelicula {
     private int anyo;
     private String sinopsis;
     private Genero genero;
+    private int duracion;
 
     public Pelicula(){
         
     }
     
-    public Pelicula(String titulo, String director, int anyo, String sinopsis, Genero genero) {
+    public Pelicula(String titulo, String director, int anyo, String sinopsis, Genero genero, int duracion) {
         this.titulo = titulo;
         this.director = director;
         this.anyo = anyo;
         this.sinopsis = sinopsis;
         this.genero = genero;
+        this.duracion = duracion;
     }
 
     public String getTitulo() {
@@ -59,6 +61,14 @@ public class Pelicula {
         this.genero = genero;
     }
 
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+    
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -67,6 +77,7 @@ public class Pelicula {
         sb.append("\nAño: ").append(anyo);
         sb.append("\nSinopsis: ").append(sinopsis);
         sb.append("\nGenero: ").append(genero);
+        sb.append("\nDuración: ").append(duracion).append(" min");
         return sb.toString();
     }
 

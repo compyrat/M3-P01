@@ -76,8 +76,8 @@ public class Cine {
     public void addPelicula(Pelicula pel){
         pelicula.add(pel);
     }
-    public void addPelicula(String titulo, String director, int anyo, String sinopsis, Genero genero){
-        Pelicula pel = new Pelicula (titulo, director, anyo, sinopsis, genero);
+    public void addPelicula(String titulo, String director, int anyo, String sinopsis, Genero genero, int duracion){
+        Pelicula pel = new Pelicula (titulo, director, anyo, sinopsis, genero, duracion);
         addPelicula(pel);
     }
     

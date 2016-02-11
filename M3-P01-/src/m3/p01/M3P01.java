@@ -10,13 +10,13 @@ public class M3P01 {
         //Creamos el cine
         Cine cine=new Cine("Mambrino", "C/Mayor, El Toboso, La Mancha");
 
-        Pelicula peli1=new Pelicula("El halcón maltés", "John Huston", 1941, "Sam Spade se enfrenta a varias bandas que van tras el halcón maltés", Genero.ACCION);
+        Pelicula peli1=new Pelicula("El halcón maltés", "John Huston", 1941, "Sam Spade se enfrenta a varias bandas que van tras el halcón maltés", Genero.ACCION, 125);
         cine.addPelicula(peli1);
-        Pelicula peli2=new Pelicula("Blade Runner", "Ridley Scott", 1982, "En un futuro no lejano, un ex-policía es llamado por su Departamento para que \"retire\" un grupo de replicantes rebeldes", Genero.CIENCIA_FICCION);
+        Pelicula peli2=new Pelicula("Blade Runner", "Ridley Scott", 1982, "En un futuro no lejano, un ex-policía es llamado por su Departamento para que \"retire\" un grupo de replicantes rebeldes", Genero.CIENCIA_FICCION, 140);
         cine.addPelicula(peli2);
         
-        cine.addPelicula("El Guateque", "Blake Edwards", 1968, "Un patoso actor de origen hindú que se encuentra rodando una película en el desierto, es invitado por error a asistir a una sofisticada fiesta organizada por el productor de su última película", Genero.COMEDIA);
-        cine.addPelicula("La noche de los muertos vivientes", "George A. Romero", 1968, "Un grupo de personas se refugia en una granja cuando los muertos comienzan a cobrar vida", Genero.TERROR);
+        cine.addPelicula("El Guateque", "Blake Edwards", 1968, "Un patoso actor de origen hindú que se encuentra rodando una película en el desierto, es invitado por error a asistir a una sofisticada fiesta organizada por el productor de su última película", Genero.COMEDIA, 94);
+        cine.addPelicula("La noche de los muertos vivientes", "George A. Romero", 1968, "Un grupo de personas se refugia en una granja cuando los muertos comienzan a cobrar vida", Genero.TERROR, 104);
         
         //Añadimos 3 salas, utilizando las dos versiones sobrecargadas del método addSala()
         Sala sala1=new Sala(1, 100);
