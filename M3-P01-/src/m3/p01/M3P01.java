@@ -89,7 +89,7 @@ public class M3P01 {
         
         
         
-        /*//Vemos las sesiones de una película
+        //Vemos las sesiones de una película
         System.out.println("\n\t Vemos las sesiones de una pelicula  (Blade Runner)");
         System.out.println(cine.showSesionesPelicula("Blade Runner"));
         
@@ -116,6 +116,6 @@ public class M3P01 {
         cine.delSala(3);
         
         System.out.println("\n\t Despues de borrar la sala 3 ");
-        System.out.println(cine.toString());*/
+        System.out.println(cine.toString());
     }
 }

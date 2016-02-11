@@ -10,8 +10,8 @@ import Exceptions.*;
 public class Cine {
     private String nombre;
     private String direccion;
-    private ArrayList<Pelicula> pelicula = new ArrayList<Pelicula>();
-    private ArrayList<Sala> sala = new ArrayList<Sala>();
+    private ArrayList<Pelicula> cartelera = new ArrayList<Pelicula>();
+    private ArrayList<Sala> listaSalas = new ArrayList<Sala>();
 
     public Cine(){
         
@@ -23,8 +23,8 @@ public class Cine {
     public Cine(String nombre, String direccion, ArrayList<Pelicula> cartelera, ArrayList<Sala> sala){
         this.nombre = nombre;
         this.direccion = direccion;
-        this.pelicula = cartelera;
-        this.sala = sala;
+        this.cartelera = cartelera;
+        this.listaSalas = sala;
     }
    
     public String getNombre() {
@@ -44,19 +44,19 @@ public class Cine {
     }
 
     public ArrayList<Pelicula> getPelicula() {
-        return pelicula;
+        return cartelera;
     }
 
-    public void setPelicula(ArrayList<Pelicula> pelicula) {
-        this.pelicula = pelicula;
+    public void setPelicula(ArrayList<Pelicula> cartelera) {
+        this.cartelera = cartelera;
     }
 
     public ArrayList<Sala> getSala() {
-        return sala;
+        return listaSalas;
     }
 
     public void setSala(ArrayList<Sala> sala) {
-        this.sala = sala;
+        this.listaSalas = sala;
     }
     
     /*
@@ -75,7 +75,7 @@ public class Cine {
     }
     
     public void addPelicula(Pelicula pel){
-        pelicula.add(pel);
+        cartelera.add(pel);
     }
     public void addPelicula(String titulo, String director, int anyo, String sinopsis, Genero genero, int duracion){
         Pelicula pel = new Pelicula (titulo, director, anyo, sinopsis, genero, duracion);
@@ -85,7 +85,7 @@ public class Cine {
     public void delPelicula(Pelicula pel){
         Sala auxSala;
         Sesion auxSesion;
-        Iterator<Sala> iter = sala.iterator();
+        Iterator<Sala> iter = listaSalas.iterator();
         while(iter.hasNext()){
             auxSala=iter.next();
             boolean aunPuedeHaberSesiones=true;
@@ -102,7 +102,7 @@ public class Cine {
                 if (!sesionEliminada) aunPuedeHaberSesiones=false;
             }
         }
-        pelicula.remove(pel);
+        cartelera.remove(pel);
     }
     
     public void delPelicula(String titulo){
@@ -118,7 +118,7 @@ public class Cine {
     }
     
     public void addSala(Sala sala){
-        this.sala.add(sala);
+        this.listaSalas.add(sala);
     }
     public void addSala(int num, int butacas){
         Sala sala = new Sala(num, butacas);
@@ -127,14 +127,14 @@ public class Cine {
     
     public void delSala(Sala iSala){
         iSala.deleteSesionNumSala(iSala.getNumSala());
-        sala.remove(iSala);
+        listaSalas.remove(iSala);
     }
     public void delSala(int num){
         delSala(buscarSala(num));
     }
     public Sala buscarSala(int num){
         Sala sal = null;
-        for (Sala i: sala){
+        for (Sala i: listaSalas){
             if (i.getNumSala() == num) return i;
         }
         return sal;
@@ -206,7 +206,7 @@ public class Cine {
         String aux = "";
         Date vFecha = new Date();
         vFecha = getFecha(dia, mes, anyo);
-        for (Sala i: sala){
+        for (Sala i: listaSalas){
             if ((FechaIgual(i.devolverSesion(vFecha).getDate(), vFecha))){
                 aux = i.devolverSesion(vFecha).getPelicula().toString();
             }
