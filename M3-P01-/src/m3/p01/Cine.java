@@ -77,9 +77,25 @@ public class Cine {
     public void addPelicula(Pelicula pel){
         cartelera.add(pel);
     }
-    public void addPelicula(String titulo, String director, int anyo, String sinopsis, Genero genero, int duracion){
+    public void addPelicula(String titulo, String director, int anyo, String sinopsis, Genero genero, int duracion) throws PeliculaRepetida{
         Pelicula pel = new Pelicula (titulo, director, anyo, sinopsis, genero, duracion);
-        addPelicula(pel);
+        if (!mismaPelicula(pel)){
+            addPelicula(pel);
+        }else{
+            throw new PeliculaRepetida("La película "+pel.getTitulo()+" ya está en nuestra cartelera");
+        }
+    }
+    
+    private boolean mismaPelicula(Pelicula peli){
+        boolean cond=false;
+        for(Pelicula pel:cartelera){
+            if (peli.getTitulo().equals(pel.getTitulo())&&
+                    peli.getDirector().equals(pel.getDirector())&&
+                        peli.getAnyo()==pel.getAnyo()){
+                return true;
+            }
+        }
+        return false;
     }
     
     public void delPelicula(Pelicula pel){
@@ -145,11 +161,11 @@ public class Cine {
     * sesión a una sala, las butacas de la sesión se deben actualizar con la 
     * capacidad que tiene la sala donde se va a proyectar;
     */
-    public void asignarPelicula(Pelicula pel, Date fecha, Sala sala) throws PeliculaRepetida{
+    public void asignarPelicula(Pelicula pel, Date fecha, Sala sala) throws SesionSolapada{
         sala.addSesion(new Sesion(fecha, pel, sala));
     }
     
-    public void asignarPelicula(String titulo,int numSala, int dia, int mes, int anyo, int hora, int minutos) throws PeliculaRepetida {
+    public void asignarPelicula(String titulo,int numSala, int dia, int mes, int anyo, int hora, int minutos) throws SesionSolapada {
         for (Pelicula i: getPelicula()){
             if (i.getTitulo().equals(titulo)){
                 asignarPelicula(i, getFecha(dia, mes, anyo, hora, minutos), getSalaWithNum(numSala));
