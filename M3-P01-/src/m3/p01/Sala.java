@@ -75,14 +75,14 @@ public class Sala {
     /*
     * 5. Añadir una nueva sesión de proyección en dicha sala;
     */
-    public void addSesion(Sesion iSesion) throws SalaRepetida{
+    public void addSesion(Sesion iSesion) throws SesionSolapada{
         if (!overlap(iSesion)){
             iSesion.setSala(this);
             iSesion.setnButacas(getNButacas());
             iSesion.setButacasLibres(getNButacas());
             listaSesiones.add(iSesion);
         }else{
-            throw new SalaRepetida("Esta sesion ("+ iSesion.getDate()+ "), de la sala ("+iSesion.getSala().getNumSala()+") se solapa con otra.");
+            throw new SesionSolapada("Esta sesion ("+ iSesion.getDate()+ "), de la sala ("+iSesion.getSala().getNumSala()+") se solapa con otra.");
         }
     }
     

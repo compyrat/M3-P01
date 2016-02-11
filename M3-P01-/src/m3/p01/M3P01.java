@@ -19,8 +19,13 @@ public class M3P01 {
         Pelicula peli2=new Pelicula("Blade Runner", "Ridley Scott", 1982, "En un futuro no lejano, un ex-policía es llamado por su Departamento para que \"retire\" un grupo de replicantes rebeldes", Genero.CIENCIA_FICCION, 140);
         cine.addPelicula(peli2);
         
-        cine.addPelicula("El Guateque", "Blake Edwards", 1968, "Un patoso actor de origen hindú que se encuentra rodando una película en el desierto, es invitado por error a asistir a una sofisticada fiesta organizada por el productor de su última película", Genero.COMEDIA, 94);
-        cine.addPelicula("La noche de los muertos vivientes", "George A. Romero", 1968, "Un grupo de personas se refugia en una granja cuando los muertos comienzan a cobrar vida", Genero.TERROR, 104);
+        try {
+            cine.addPelicula("El Guateque", "Blake Edwards", 1968, "Un patoso actor de origen hindú que se encuentra rodando una película en el desierto, es invitado por error a asistir a una sofisticada fiesta organizada por el productor de su última película", Genero.COMEDIA, 94);
+            cine.addPelicula("La noche de los muertos vivientes", "George A. Romero", 1968, "Un grupo de personas se refugia en una granja cuando los muertos comienzan a cobrar vida", Genero.TERROR, 104);
+        } catch (PeliculaRepetida ex) {
+            System.out.println(ex.getMessage());
+        }
+
         
         //Añadimos 3 salas, utilizando las dos versiones sobrecargadas del método addSala()
         Sala sala1=new Sala(1, 100);
@@ -82,7 +87,7 @@ public class M3P01 {
             cine.asignarPelicula(peli2.getTitulo(), sala2.getNumSala(), 16, 2, 2016,20,0);
             cine.asignarPelicula("La noche de los muertos vivientes", 3, 16, 2, 2016,20,0);
             
-        } catch (PeliculaRepetida ex) {
+        } catch (SesionSolapada ex) {
             System.out.println(ex.getMessage());
         }
         
