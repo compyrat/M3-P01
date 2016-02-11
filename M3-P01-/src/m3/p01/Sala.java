@@ -56,7 +56,7 @@ public class Sala {
     public void deleteSesion(Date vFecha){
         String aux = "";
         for(int i = 0; i<listaSesiones.size();i++){
-            if(FechaIgual(listaSesiones.get(i).getDate(),(vFecha))){
+            if(fechaIgual(listaSesiones.get(i).getDate(),(vFecha), true)){
                  listaSesiones.remove(listaSesiones.get(i));
                   aux = listaSesiones.get(i).toString();
             }
@@ -75,14 +75,14 @@ public class Sala {
     /*
     * 5. Añadir una nueva sesión de proyección en dicha sala;
     */
-    public void addSesion(Sesion iSesion) throws PeliculaRepetida{
+    public void addSesion(Sesion iSesion) throws SalaRepetida{
         if (!overlap(iSesion)){
             iSesion.setSala(this);
             iSesion.setnButacas(getNButacas());
             iSesion.setButacasLibres(getNButacas());
             listaSesiones.add(iSesion);
         }else{
-            throw new PeliculaRepetida("Esta sesion ("+ iSesion.getDate()+ "), de la sala ("+iSesion.getSala().getNumSala()+") se solapa con otra.");
+            throw new SalaRepetida("Esta sesion ("+ iSesion.getDate()+ "), de la sala ("+iSesion.getSala().getNumSala()+") se solapa con otra.");
         }
     }
     
@@ -102,7 +102,7 @@ public class Sala {
     public Sesion devolverSesion(Date vFecha){
         Sesion ses;
         for (Sesion i: listaSesiones){
-            if (FechaIgual(i.getDate(), vFecha)){
+            if (fechaIgual(i.getDate(), vFecha)){
                 ses = i;
                 return ses;
             }
@@ -150,7 +150,7 @@ public class Sala {
         return fecha;
     }
     
-    private boolean FechaIgual(Date date1, Date date2){
+    private boolean fechaIgual(Date date1, Date date2){
         Calendar cal1 = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
         cal1.setTime(date1);
@@ -163,7 +163,7 @@ public class Sala {
                   //cal1.get(Calendar.MINUTE) == cal2.get(Calendar.MINUTE);
         return sameDay;
     }
-    private boolean fechaIgual(Date date1, Date date2){
+    private boolean fechaIgual(Date date1, Date date2, boolean ismin){
         Calendar cal1 = Calendar.getInstance();
         Calendar cal2 = Calendar.getInstance();
         cal1.setTime(date1);
@@ -187,7 +187,7 @@ public class Sala {
     private boolean overlap(Sesion sesion){
         boolean aux = false;
         for(Sesion ses:listaSesiones){
-            if (fechaIgual(ses.getDate(), sesion.getDate())){
+            if (fechaIgual(ses.getDate(), sesion.getDate(), true)){
                 aux = true;
             }
             if (fechaIntervalo(ses, sesion)){
