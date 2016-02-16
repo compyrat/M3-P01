@@ -23,7 +23,7 @@ public class Sala {
     }
     public Sala(int vNumSala, int vButacasMax){
         this.numSala = vNumSala;
-        this.butacasMax = vButacasMax;
+        setNButacas(vButacasMax);
     }
     
     public static int getInterval(){
