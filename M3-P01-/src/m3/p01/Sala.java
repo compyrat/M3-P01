@@ -40,7 +40,11 @@ public class Sala {
         return butacasMax;
     }
     public void setNButacas(int vButacas){
-        this.butacasMax = vButacas;
+        if (vButacas <= 0){
+            throw new IllegalArgumentException("No puedes introducir butacas negativas");
+        }else{
+            this.butacasMax = vButacas;
+        }
     }
    public ArrayList<Sesion> getSesion(){
         return listaSesiones;

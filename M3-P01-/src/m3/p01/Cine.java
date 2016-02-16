@@ -133,10 +133,15 @@ public class Cine {
         return pel;
     }
     
-    public void addSala(Sala sala){
+    public void addSala(Sala sala) throws SalaRepetida{
+        for (Sala sal:listaSalas){
+            if (sala.getNumSala() == sal.getNButacas()){
+                throw new SalaRepetida("Esta sala ya existe, porfavor verifica su numero.");
+            }
+        }
         this.listaSalas.add(sala);
     }
-    public void addSala(int num, int butacas){
+    public void addSala(int num, int butacas) throws SalaRepetida{
         Sala sala = new Sala(num, butacas);
         addSala(sala);
     }
