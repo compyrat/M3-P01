@@ -50,6 +50,9 @@ public class Sala {
         return listaSesiones;
     }
     public void setSesion(ArrayList<Sesion> listaSesiones){
+        if (listaSesiones == null){
+            throw new IllegalArgumentException("Comprueba la lista de Sesiones porfavor.");
+        }
         this.listaSesiones = listaSesiones;
     }
     
