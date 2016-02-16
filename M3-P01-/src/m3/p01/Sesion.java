@@ -49,14 +49,22 @@ public class Sesion {
     }
 
     public void setnButacas(int nButacas) {
-        this.nButacas = nButacas;
+        if (nButacas <= 0 || nButacas > getSala().getNButacas()){
+            throw new IllegalArgumentException("No se puede introducior un numero de butacas negativas ni mayor al numero de butacas de su sala");
+        }else{
+            this.nButacas = nButacas;
+        }
     }
 
     public int getnButacasLibres() {
         return nButacasLibres;
     }
     public void setButacasLibres(int num){
-        nButacasLibres = num;
+        if (num <= 0 || num > getSala().getNButacas()){
+            throw new IllegalArgumentException("No se puede introducior un numero de butacas libres negativas ni mayor al numero de butacas de su sala");
+        }else{
+            nButacasLibres = num;
+        }
     }
 
     public Pelicula getPelicula() {
@@ -77,7 +85,11 @@ public class Sesion {
     }
 
     public void actualizarButacasVendidas(int vendidas) {
-        nButacasLibres = nButacas - vendidas;
+        if (vendidas <= 0 || vendidas > nButacasLibres){
+            throw new IllegalArgumentException("No se puede introducior un numero de butacas libres negativas ni mayor al numero de butacas libres");
+        }else{
+            nButacasLibres = nButacas - vendidas;
+        }
     }
     private Date getFecha(int dia, int mes, int anyo, int hora, int minutos){
         Calendar cal = GregorianCalendar.getInstance();
