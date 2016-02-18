@@ -74,16 +74,16 @@ public class Cine {
         return sb.toString();
     }
     
-    public void addPelicula(Pelicula pel){
-        cartelera.add(pel);
-    }
-    public void addPelicula(String titulo, String director, int anyo, String sinopsis, Genero genero, int duracion) throws PeliculaRepetida{
-        Pelicula pel = new Pelicula (titulo, director, anyo, sinopsis, genero, duracion);
+    public void addPelicula(Pelicula pel) throws ArrayListException, PeliculaRepetida{
         if (!mismaPelicula(pel)){
-            addPelicula(pel);
+            if(!cartelera.add(pel)) throw new ArrayListException("La pelicula ( " + pel.getTitulo() +" ) no se ha agregado correctamente" );
         }else{
             throw new PeliculaRepetida("La película "+pel.getTitulo()+" ya está en nuestra cartelera");
         }
+    }
+    public void addPelicula(String titulo, String director, int anyo, String sinopsis, Genero genero, int duracion) throws PeliculaRepetida, ArrayListException{
+        Pelicula pel = new Pelicula (titulo, director, anyo, sinopsis, genero, duracion);
+        addPelicula(pel);
     }
     
     private boolean mismaPelicula(Pelicula peli){
@@ -135,13 +135,11 @@ public class Cine {
     
     public void addSala(Sala sala) throws SalaRepetida, ArrayListException{
         for (Sala sal:listaSalas){
-            if (sala.getNumSala() == sal.getNButacas()){
+            if (sala.getNumSala() == sal.getNButacas()) 
                 throw new SalaRepetida("Esta sala ya existe, porfavor verifica su numero.");
-            }
         }
-        if (!this.listaSalas.add(sala)){
+        if (!this.listaSalas.add(sala))
             throw new ArrayListException("La sala: "+sala.getNumSala()+" no se ha podido añadir a la lista");
-        }
     }
     public void addSala(int num, int butacas) throws SalaRepetida, ArrayListException{
         Sala sala = new Sala(num, butacas);
@@ -168,11 +166,11 @@ public class Cine {
     * sesión a una sala, las butacas de la sesión se deben actualizar con la 
     * capacidad que tiene la sala donde se va a proyectar;
     */
-    public void asignarPelicula(Pelicula pel, Date fecha, Sala sala) throws SesionSolapada{
+    public void asignarPelicula(Pelicula pel, Date fecha, Sala sala) throws SesionSolapada, ArrayListException{
         sala.addSesion(new Sesion(fecha, pel, sala));
     }
     
-    public void asignarPelicula(String titulo,int numSala, int dia, int mes, int anyo, int hora, int minutos) throws SesionSolapada {
+    public void asignarPelicula(String titulo,int numSala, int dia, int mes, int anyo, int hora, int minutos) throws SesionSolapada, ArrayListException {
         for (Pelicula i: getPelicula()){
             if (i.getTitulo().equals(titulo)){
                 asignarPelicula(i, getFecha(dia, mes, anyo, hora, minutos), getSalaWithNum(numSala));

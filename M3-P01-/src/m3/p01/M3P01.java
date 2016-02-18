@@ -92,6 +92,8 @@ public class M3P01 {
                 
             } catch (SesionSolapada ex) {
                 System.out.println(ex.getMessage());
+            } catch (ArrayListException ex) {
+                Logger.getLogger(M3P01.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             
@@ -126,6 +128,10 @@ public class M3P01 {
             System.out.println("\n\t Despues de borrar la sala 3 ");
             System.out.println(cine.toString());
         } catch (SalaRepetida ex) {
+            Logger.getLogger(M3P01.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ArrayListException ex) {
+            Logger.getLogger(M3P01.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PeliculaRepetida ex) {
             Logger.getLogger(M3P01.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

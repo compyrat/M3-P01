@@ -82,24 +82,22 @@ public class Sala {
     /*
     * 5. Añadir una nueva sesión de proyección en dicha sala;
     */
-    public void addSesion(Sesion iSesion) throws SesionSolapada{
+    public void addSesion(Sesion iSesion) throws SesionSolapada, ArrayListException{
         if (!overlap(iSesion)){
             iSesion.setSala(this);
             iSesion.setnButacas(getNButacas());
             iSesion.setButacasLibres(getNButacas());
-            listaSesiones.add(iSesion);
+            if (!listaSesiones.add(iSesion)) throw new ArrayListException("Sesion de la fecha ( " + iSesion.getDate() +" ) no se ha agregado correctamente" );
         }else{
             throw new SesionSolapada("Esta sesion ("+ iSesion.getDate()+ "), de la sala ("+iSesion.getSala().getNumSala()+") se solapa con otra.");
         }
     }
     
-    public void addSesion(Pelicula iPelicula, Date iFecha){
+    public void addSesion(Pelicula iPelicula, Date iFecha) throws SesionSolapada, ArrayListException{
         Sesion ses = new Sesion(iFecha, iPelicula, this);
-        if (!overlap(ses)){
-            listaSesiones.add(ses);
-        }
+        addSesion(ses);
     }
-    public void addSesion(Pelicula iPelicula, int anyo, int mes, int dia, int hora, int minuto){
+    public void addSesion(Pelicula iPelicula, int anyo, int mes, int dia, int hora, int minuto) throws SesionSolapada, ArrayListException{
         addSesion(iPelicula, getFecha(anyo, mes, dia, hora, minuto));
     }
     
