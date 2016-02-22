@@ -209,13 +209,15 @@ public class Cine {
     * proyecta una película, dado el título de la película;
     */
     public String showSesionesPelicula(String vNombre){
-        String aux = "";
-        for (Pelicula i: getPelicula()){
-            if (i.getTitulo().equals(vNombre)){
-                aux = i.toString();
+        StringBuilder aux = new StringBuilder();
+        for (Sala sal: listaSalas){
+            for(Sesion ses: sal.getSesion()){
+                if (ses.getPelicula().getTitulo().equals(vNombre)){
+                    aux.append("\n" + ses.toString());
+                }
             }
         }
-        return aux;
+        return aux.toString();
     }
     
     /*
@@ -224,16 +226,16 @@ public class Cine {
     */
 
     public String showPelicula(int dia, int mes, int anyo){
-        String aux = "";
+        StringBuilder aux = new StringBuilder();
         Date vFecha = new Date();
         vFecha = getFecha(dia, mes, anyo);
         for (Sala i: listaSalas){
             if ((FechaIgual(i.devolverSesion(vFecha).getDate(), vFecha))){
-                aux = i.devolverSesion(vFecha).getPelicula().toString();
+                aux.append(i.devolverSesion(vFecha).getPelicula().toString());
             }
         }
 
-        return aux;
+        return aux.toString();
     }
     
     private Date getFecha(int dia, int mes, int anyo){
