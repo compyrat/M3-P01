@@ -24,14 +24,14 @@
               </Group>
               <EmptySpace pref="34" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jComboBox1" pref="160" max="32767" attributes="0"/>
-                  <Component id="jComboBox2" alignment="0" max="32767" attributes="0"/>
+                  <Component id="addPeliculaToSesionSesionCombo" pref="160" max="32767" attributes="0"/>
+                  <Component id="addPeliculaToSesionPeliculaCombo" alignment="0" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" pref="93" max="-2" attributes="0"/>
+              <Component id="addPeliculaToSesionAddBtn" min="-2" pref="93" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="132" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -42,15 +42,15 @@
               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addPeliculaToSesionSesionCombo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBox2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="addPeliculaToSesionPeliculaCombo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="addPeliculaToSesionAddBtn" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="162" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -67,7 +67,7 @@
         <Property name="text" type="java.lang.String" value="Pelicula"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
+    <Component class="javax.swing.JComboBox" name="addPeliculaToSesionSesionCombo">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -79,7 +79,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox2">
+    <Component class="javax.swing.JComboBox" name="addPeliculaToSesionPeliculaCombo">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="4">
@@ -91,7 +91,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="addPeliculaToSesionAddBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="A&#xf1;adir"/>
       </Properties>

@@ -28,32 +28,32 @@ public class CrearCine extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        crearCineNombreTxt = new javax.swing.JTextField();
+        crearCineDireccionTxt = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        crearCineBtn = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(400, 279));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Nombre:");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 150, -1));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 150, -1));
+        add(crearCineNombreTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 80, 150, -1));
+        add(crearCineDireccionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 120, 150, -1));
 
         jLabel2.setText("Dirección:");
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
-        jButton1.setText("Crear");
-        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
+        crearCineBtn.setText("Crear");
+        add(crearCineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton crearCineBtn;
+    private javax.swing.JTextField crearCineDireccionTxt;
+    private javax.swing.JTextField crearCineNombreTxt;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

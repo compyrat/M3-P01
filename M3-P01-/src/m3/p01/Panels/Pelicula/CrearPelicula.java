@@ -33,13 +33,13 @@ public class CrearPelicula extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox();
+        crearPeliculaTituloTxt = new javax.swing.JTextField();
+        crearPeliculaDirectorTxt = new javax.swing.JTextField();
+        crearPeliculaAnyoTxt = new javax.swing.JTextField();
+        crearPeliculaDuracionTxt = new javax.swing.JTextField();
+        crearPeliculaGeneroCombo = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        crearPeliculaSinopsisTxtArea = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
 
         setPreferredSize(new java.awt.Dimension(400, 279));
@@ -62,17 +62,17 @@ public class CrearPelicula extends javax.swing.JPanel {
 
         jLabel6.setText("Sinopsis");
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 144, -1, -1));
-        add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 11, 260, -1));
-        add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 37, 260, -1));
-        add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 63, 70, -1));
-        add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 115, 70, -1));
+        add(crearPeliculaTituloTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 11, 260, -1));
+        add(crearPeliculaDirectorTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 37, 260, -1));
+        add(crearPeliculaAnyoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 63, 70, -1));
+        add(crearPeliculaDuracionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 115, 70, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 89, 70, -1));
+        crearPeliculaGeneroCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        add(crearPeliculaGeneroCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 89, 70, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        crearPeliculaSinopsisTxtArea.setColumns(20);
+        crearPeliculaSinopsisTxtArea.setRows(5);
+        jScrollPane1.setViewportView(crearPeliculaSinopsisTxtArea);
 
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 260, -1));
 
@@ -82,8 +82,13 @@ public class CrearPelicula extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField crearPeliculaAnyoTxt;
+    private javax.swing.JTextField crearPeliculaDirectorTxt;
+    private javax.swing.JTextField crearPeliculaDuracionTxt;
+    private javax.swing.JComboBox crearPeliculaGeneroCombo;
+    private javax.swing.JTextArea crearPeliculaSinopsisTxtArea;
+    private javax.swing.JTextField crearPeliculaTituloTxt;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -91,10 +96,5 @@ public class CrearPelicula extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
