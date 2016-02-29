@@ -5,6 +5,10 @@
  */
 package m3.p01.Panels.Pelicula;
 
+import m3.p01.Genero;
+import m3.p01.MainFrame;
+import m3.p01.Pelicula;
+
 /**
  *
  * @author albertmarnun
@@ -77,8 +81,22 @@ public class CrearPelicula extends javax.swing.JPanel {
         add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 260, -1));
 
         jButton1.setText("Crear");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 210, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        MainFrame.peliculas.add(new Pelicula(crearPeliculaTituloTxt.getText(), 
+                crearPeliculaDirectorTxt.getText(), Integer.parseInt(crearPeliculaAnyoTxt.getText()), 
+                crearPeliculaSinopsisTxtArea.getText(), 
+                (Genero)crearPeliculaGeneroCombo.getSelectedItem(),
+                Integer.parseInt(crearPeliculaDuracionTxt.getText())));
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

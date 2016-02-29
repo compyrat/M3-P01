@@ -90,7 +90,7 @@ public class ModificarCine extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         MainFrame.cines.get(0).setNombre(modificarCineNombreTxt.getText());
-        MainFrame.cines.get(0).set(modificarCineNombreTxt.getText());
+        MainFrame.cines.get(0).setDireccion(modificarCineDireccionTxt.getText());
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
