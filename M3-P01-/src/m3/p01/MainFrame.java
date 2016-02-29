@@ -5,6 +5,7 @@
  */
 package m3.p01;
 
+import java.util.ArrayList;
 import m3.p01.Panels.Cine.*;
 import m3.p01.Panels.Sesion.*;
 import m3.p01.Panels.Sala.*;
@@ -21,11 +22,17 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     JPanel jp = null;
+    public static ArrayList<Cine> cines = new ArrayList<Cine>(1);
+    public static ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
+    public static ArrayList<Sala> salas = new ArrayList<Sala>();
+    public static ArrayList<Sesion> sesiones = new ArrayList<Sesion>();
     public MainFrame() {
         initComponents();
         inicio();
     }
-
+    public void prueba(int almondigas){
+        
+    }
     private void inicio(){
         this.setBounds(0, 0, 450, 300);
         this.setLocationRelativeTo(null);
@@ -250,7 +257,8 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
-        if (jp != null){
+        
+        /*if (jp != null){
             this.remove(jp);
         }
         ModificarCine mC= new ModificarCine();
@@ -258,7 +266,7 @@ public class MainFrame extends javax.swing.JFrame {
         jp = mC;
         this.add(mC);
         this.revalidate();
-        this.repaint();
+        this.repaint();*/
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed

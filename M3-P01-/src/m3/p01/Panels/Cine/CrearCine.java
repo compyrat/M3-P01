@@ -5,6 +5,9 @@
  */
 package m3.p01.Panels.Cine;
 
+import m3.p01.Cine;
+import m3.p01.MainFrame;
+
 /**
  *
  * @author albertmarnun
@@ -45,8 +48,19 @@ public class CrearCine extends javax.swing.JPanel {
         add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
 
         crearCineBtn.setText("Crear");
+        crearCineBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearCineBtnActionPerformed(evt);
+            }
+        });
         add(crearCineBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, -1, -1));
     }// </editor-fold>//GEN-END:initComponents
+
+    private void crearCineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearCineBtnActionPerformed
+        // TODO add your handling code here:
+        Cine cine = new Cine(crearCineNombreTxt.getText(), crearCineDireccionTxt.getText());
+        MainFrame.cines.add(cine);
+    }//GEN-LAST:event_crearCineBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
