@@ -26,6 +26,7 @@ public class MainFrame extends javax.swing.JFrame {
     public static ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
     public static ArrayList<Sala> salas = new ArrayList<Sala>();
     public static ArrayList<Sesion> sesiones = new ArrayList<Sesion>();
+    
     public MainFrame() {
         initComponents();
         inicio();
@@ -36,7 +37,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void inicio(){
         this.setBounds(0, 0, 450, 300);
         this.setLocationRelativeTo(null);
-        
+        peliculas.add(new Pelicula("Titulo", "Director", 10, "Jaja", Genero.ACCION, 2000));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -274,7 +275,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (jp != null){
             this.remove(jp);
         }
-        ModificarPelicula mP= new ModificarPelicula();
+        ModificarPeliculaSeleccion mP= new ModificarPeliculaSeleccion();
         mP.setBounds(0, 0, 450, 279);
         jp = mP;
         this.add(mP);

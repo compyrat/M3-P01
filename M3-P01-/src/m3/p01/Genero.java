@@ -8,11 +8,11 @@ public enum Genero {
         switch(this){
             case COMEDIA: sb.append("Comedia");
                 break;
-            case ACCION: sb.append("Acción");
+            case ACCION: sb.append("Accion");
                 break;
             case TERROR: sb.append("Terror");
                 break;
-            case CIENCIA_FICCION: sb.append("Ciencia Ficción");
+            case CIENCIA_FICCION: sb.append("Ciencia Ficcion");
                 break;
             default:break;
         }

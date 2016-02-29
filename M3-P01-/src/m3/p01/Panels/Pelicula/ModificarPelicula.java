@@ -5,7 +5,9 @@
  */
 package m3.p01.Panels.Pelicula;
 
+import m3.p01.Genero;
 import m3.p01.MainFrame;
+import m3.p01.Pelicula;
 
 /**
  *
@@ -17,8 +19,21 @@ public class ModificarPelicula extends javax.swing.JPanel {
      * Creates new form CrearPelicula
      */
     int indexPelicula = 0;
-    public ModificarPelicula() {
+    Pelicula pelicula;
+    public ModificarPelicula(int index) {
         initComponents();
+        indexPelicula = index;
+        this.pelicula = MainFrame.peliculas.get(index);
+        modificarPeliculaGeneroCombo.addItem(Genero.ACCION);
+        modificarPeliculaGeneroCombo.addItem(Genero.CIENCIA_FICCION);
+        modificarPeliculaGeneroCombo.addItem(Genero.COMEDIA);
+        modificarPeliculaGeneroCombo.addItem(Genero.TERROR);
+        modificarPeliculaTituloTxt.setText(pelicula.getTitulo());
+        modificarPeliculaDirectorTxt.setText(pelicula.getDirector());
+        modificarPeliculaAnyoTxt.setText(String.valueOf(pelicula.getAnyo()));
+        modificarPeliculaGeneroCombo.setSelectedItem(pelicula.getGenero());
+        modificarPeliculaDuracionTxt.setText(String.valueOf(pelicula.getDuracion()));
+        modificarPeliculaSinopsisTxtArea.setText(pelicula.getSinopsis());
     }
 
     /**
@@ -70,7 +85,6 @@ public class ModificarPelicula extends javax.swing.JPanel {
         add(modificarPeliculaAnyoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 63, 70, -1));
         add(modificarPeliculaDuracionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 115, 70, -1));
 
-        modificarPeliculaGeneroCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(modificarPeliculaGeneroCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 89, 70, -1));
 
         modificarPeliculaSinopsisTxtArea.setColumns(20);
@@ -90,6 +104,12 @@ public class ModificarPelicula extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+        MainFrame.peliculas.get(indexPelicula).setTitulo(modificarPeliculaTituloTxt.getText());
+        MainFrame.peliculas.get(indexPelicula).setDirector(modificarPeliculaDirectorTxt.getText());
+        MainFrame.peliculas.get(indexPelicula).setGenero(Genero.valueOf(modificarPeliculaGeneroCombo.getSelectedItem().toString().toUpperCase().replace(" ", "_")));
+        MainFrame.peliculas.get(indexPelicula).setAnyo(Integer.parseInt(modificarPeliculaAnyoTxt.getText()));
+        MainFrame.peliculas.get(indexPelicula).setSinopsis(modificarPeliculaSinopsisTxtArea.getText());
+        MainFrame.peliculas.get(indexPelicula).setDuracion(Integer.parseInt(modificarPeliculaDuracionTxt.getText()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
