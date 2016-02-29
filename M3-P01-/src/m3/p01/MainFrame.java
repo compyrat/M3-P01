@@ -37,7 +37,11 @@ public class MainFrame extends javax.swing.JFrame {
     private void inicio(){
         this.setBounds(0, 0, 450, 300);
         this.setLocationRelativeTo(null);
-        peliculas.add(new Pelicula("Titulo", "Director", 10, "Jaja", Genero.ACCION, 2000));
+        Pelicula pel = new Pelicula("Titulo", "Director", 10, "Jaja", Genero.ACCION, 1000);
+        Sala sal = new Sala(15, 25);
+        peliculas.add(pel);
+        salas.add(sal);
+        sesiones.add(new Sesion(pel, sal, 95, 1, 15, 18, 00));
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -56,9 +60,11 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuSala = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenuSesion = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenuItem10 = new javax.swing.JMenuItem();
         jMenuPelicula = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -119,6 +125,14 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenuSala.add(jMenuItem2);
 
+        jMenuItem9.setText("Modificar Sala");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenuSala.add(jMenuItem9);
+
         jMenuBar1.add(jMenuSala);
 
         jMenuSesion.setText("Sesion");
@@ -138,6 +152,14 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jMenuSesion.add(jMenuItem6);
+
+        jMenuItem10.setText("Modificar Sesion");
+        jMenuItem10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem10ActionPerformed(evt);
+            }
+        });
+        jMenuSesion.add(jMenuItem10);
 
         jMenuBar1.add(jMenuSesion);
 
@@ -283,6 +305,32 @@ public class MainFrame extends javax.swing.JFrame {
         this.repaint();
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        // TODO add your handling code here:
+        if (jp != null){
+            this.remove(jp);
+        }
+        ModificarSalaSeleccion mP= new ModificarSalaSeleccion();
+        mP.setBounds(0, 0, 450, 279);
+        jp = mP;
+        this.add(mP);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void jMenuItem10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem10ActionPerformed
+        // TODO add your handling code here:
+        if (jp != null){
+            this.remove(jp);
+        }
+        ModificarSesionSeleccion mP= new ModificarSesionSeleccion();
+        mP.setBounds(0, 0, 450, 279);
+        jp = mP;
+        this.add(mP);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_jMenuItem10ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -323,6 +371,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenu jMenuCine;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
@@ -330,6 +379,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenu jMenuPelicula;
     private javax.swing.JMenu jMenuSala;
     private javax.swing.JMenu jMenuSesion;

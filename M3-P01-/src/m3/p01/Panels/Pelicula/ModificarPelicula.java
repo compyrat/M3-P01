@@ -53,9 +53,9 @@ public class ModificarPelicula extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         modificarPeliculaTituloTxt = new javax.swing.JTextField();
         modificarPeliculaDirectorTxt = new javax.swing.JTextField();
+        modificarPeliculaGeneroCombo = new javax.swing.JComboBox();
         modificarPeliculaAnyoTxt = new javax.swing.JTextField();
         modificarPeliculaDuracionTxt = new javax.swing.JTextField();
-        modificarPeliculaGeneroCombo = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         modificarPeliculaSinopsisTxtArea = new javax.swing.JTextArea();
         jButton1 = new javax.swing.JButton();
@@ -82,10 +82,12 @@ public class ModificarPelicula extends javax.swing.JPanel {
         add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 144, -1, -1));
         add(modificarPeliculaTituloTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 11, 260, -1));
         add(modificarPeliculaDirectorTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 37, 260, -1));
-        add(modificarPeliculaAnyoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 63, 70, -1));
-        add(modificarPeliculaDuracionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 115, 70, -1));
 
-        add(modificarPeliculaGeneroCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 89, 70, -1));
+        modificarPeliculaGeneroCombo.setMinimumSize(new java.awt.Dimension(200, 20));
+        modificarPeliculaGeneroCombo.setPreferredSize(new java.awt.Dimension(260, 20));
+        add(modificarPeliculaGeneroCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 89, 260, -1));
+        add(modificarPeliculaAnyoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 63, 60, -1));
+        add(modificarPeliculaDuracionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 115, 60, -1));
 
         modificarPeliculaSinopsisTxtArea.setColumns(20);
         modificarPeliculaSinopsisTxtArea.setRows(5);
