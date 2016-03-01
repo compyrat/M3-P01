@@ -71,7 +71,6 @@ public class CrearPelicula extends javax.swing.JPanel {
         add(crearPeliculaAnyoTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 63, 70, -1));
         add(crearPeliculaDuracionTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 115, 70, -1));
 
-        crearPeliculaGeneroCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         add(crearPeliculaGeneroCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(89, 89, 70, -1));
 
         crearPeliculaSinopsisTxtArea.setColumns(20);

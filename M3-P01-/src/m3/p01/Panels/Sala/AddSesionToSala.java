@@ -37,10 +37,6 @@ public class AddSesionToSala extends javax.swing.JPanel {
 
         jLabel2.setText("Sesion");
 
-        addSesionToSalaSalaCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        addSesionToSalaSesionCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         addSesionToSalaAddBtn.setText("Añadir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

@@ -37,10 +37,6 @@ public class AddPeliculaToSesion extends javax.swing.JPanel {
 
         jLabel2.setText("Pelicula");
 
-        addPeliculaToSesionSesionCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        addPeliculaToSesionPeliculaCombo.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         addPeliculaToSesionAddBtn.setText("Añadir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

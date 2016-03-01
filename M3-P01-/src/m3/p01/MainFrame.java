@@ -68,6 +68,7 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuPelicula = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuItem11 = new javax.swing.JMenuItem();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -181,6 +182,14 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jMenuPelicula.add(jMenuItem8);
+
+        jMenuItem11.setText("Eliminar");
+        jMenuItem11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem11ActionPerformed(evt);
+            }
+        });
+        jMenuPelicula.add(jMenuItem11);
 
         jMenuBar1.add(jMenuPelicula);
 
@@ -331,6 +340,19 @@ public class MainFrame extends javax.swing.JFrame {
         this.repaint();
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
+    private void jMenuItem11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem11ActionPerformed
+        // TODO add your handling code here:
+        if (jp != null){
+            this.remove(jp);
+        }
+        EliminarPelicula mP = new EliminarPelicula();
+        mP.setBounds(0, 0, 450, 279);
+        jp = mP;
+        this.add(mP);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_jMenuItem11ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -372,6 +394,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu jMenuCine;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
+    private javax.swing.JMenuItem jMenuItem11;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

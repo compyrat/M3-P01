@@ -48,7 +48,7 @@ public class ModificarSesionSeleccion extends javax.swing.JPanel  {
         jLabel1 = new javax.swing.JLabel();
         modificarPeliculaSeleccionBtn = new javax.swing.JButton();
 
-        jLabel1.setText("Selecciona la pelicula");
+        jLabel1.setText("Selecciona la sesion");
 
         modificarPeliculaSeleccionBtn.setText("Modificar");
         modificarPeliculaSeleccionBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -61,15 +61,16 @@ public class ModificarSesionSeleccion extends javax.swing.JPanel  {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(149, 149, 149))
             .addGroup(layout.createSequentialGroup()
-                .addGap(107, 107, 107)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(modificarPeliculaSeleccionBtn)
-                    .addComponent(modificarSesionSeleccionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(107, 107, 107)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(modificarPeliculaSeleccionBtn)
+                            .addComponent(modificarSesionSeleccionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(150, 150, 150)
+                        .addComponent(jLabel1)))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
