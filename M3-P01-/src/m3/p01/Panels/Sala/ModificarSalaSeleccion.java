@@ -3,27 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package m3.p01.Panels.Pelicula;
+package m3.p01.Panels.Sala;
 
+import m3.p01.Panels.Pelicula.*;
 import m3.p01.MainFrame;
 
 /**
  *
  * @author albertmarnun
  */
-public class ModificarPeliculaSeleccion extends javax.swing.JPanel  {
+public class ModificarSalaSeleccion extends javax.swing.JPanel  {
 
     /**
      * Creates new form EliminarPelicula
      */
-    public ModificarPeliculaSeleccion() {
+    public ModificarSalaSeleccion() {
         initComponents();
         cargarPeliculas();
         
     }
     public void cargarPeliculas(){
-        for(int i = 0; i<MainFrame.peliculas.size(); i++){
-            modificarPeliculaSeleccionCombo.addItem(i + "- " + MainFrame.peliculas.get(i).getTitulo());
+        for(int i = 0; i<MainFrame.salas.size(); i++){
+            modificarSalaSeleccionCombo.addItem(i + " - Sala: " + MainFrame.salas.get(i).getNumSala());
         }
     }
     /**
@@ -35,7 +36,7 @@ public class ModificarPeliculaSeleccion extends javax.swing.JPanel  {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        modificarPeliculaSeleccionCombo = new javax.swing.JComboBox();
+        modificarSalaSeleccionCombo = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         modificarPeliculaSeleccionBtn = new javax.swing.JButton();
 
@@ -60,7 +61,7 @@ public class ModificarPeliculaSeleccion extends javax.swing.JPanel  {
                 .addGap(107, 107, 107)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(modificarPeliculaSeleccionBtn)
-                    .addComponent(modificarPeliculaSeleccionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(modificarSalaSeleccionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -69,7 +70,7 @@ public class ModificarPeliculaSeleccion extends javax.swing.JPanel  {
                 .addGap(100, 100, 100)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(modificarPeliculaSeleccionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(modificarSalaSeleccionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(modificarPeliculaSeleccionBtn)
                 .addContainerGap(119, Short.MAX_VALUE))
@@ -78,15 +79,6 @@ public class ModificarPeliculaSeleccion extends javax.swing.JPanel  {
 
     private void modificarPeliculaSeleccionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPeliculaSeleccionBtnActionPerformed
         // TODO add your handling code here:
-
-        ModificarPelicula mP= new ModificarPelicula(modificarPeliculaSeleccionCombo.getSelectedIndex());
-        mP.setBounds(0, 0, 450, 279);
-        this.add(mP);
-        this.revalidate();
-        this.repaint();
-        this.jLabel1.setVisible(false);
-        this.modificarPeliculaSeleccionCombo.setVisible(false);
-        this.modificarPeliculaSeleccionBtn.setVisible(false);
         
     }//GEN-LAST:event_modificarPeliculaSeleccionBtnActionPerformed
 
@@ -94,6 +86,6 @@ public class ModificarPeliculaSeleccion extends javax.swing.JPanel  {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton modificarPeliculaSeleccionBtn;
-    private javax.swing.JComboBox modificarPeliculaSeleccionCombo;
+    private javax.swing.JComboBox modificarSalaSeleccionCombo;
     // End of variables declaration//GEN-END:variables
 }

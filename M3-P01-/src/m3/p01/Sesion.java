@@ -29,7 +29,7 @@ public class Sesion {
     }
     
     public Sesion( Pelicula iPelicula, Sala iSala, int anyo, int mes, int dia, int hora, int minuto){
-        this.fecha = getFecha(anyo, mes, dia, hora, minuto);
+        this.fecha = getFecha(dia, mes, anyo, hora, minuto);
         this.nButacas = iSala.getNButacas();
         this.nButacasLibres = iSala.getNButacas();
         this.pelicula = iPelicula;
