@@ -21,10 +21,10 @@ public class ModificarSesionSeleccion extends javax.swing.JPanel  {
      */
     public ModificarSesionSeleccion() {
         initComponents();
-        cargarPeliculas();
+        cargarSesiones();
         
     }
-    public void cargarPeliculas(){
+    public void cargarSesiones(){
         for(int i = 0; i<MainFrame.sesiones.size(); i++){
             Calendar cal = Calendar.getInstance();
             cal.setTime(MainFrame.sesiones.get(i).getDate());
@@ -48,6 +48,7 @@ public class ModificarSesionSeleccion extends javax.swing.JPanel  {
         jLabel1 = new javax.swing.JLabel();
         modificarPeliculaSeleccionBtn = new javax.swing.JButton();
 
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Selecciona la sesion");
 
         modificarPeliculaSeleccionBtn.setText("Modificar");
@@ -62,15 +63,11 @@ public class ModificarSesionSeleccion extends javax.swing.JPanel  {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(modificarPeliculaSeleccionBtn)
-                            .addComponent(modificarSesionSeleccionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, 186, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(150, 150, 150)
-                        .addComponent(jLabel1)))
+                .addGap(107, 107, 107)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(modificarPeliculaSeleccionBtn)
+                    .addComponent(modificarSesionSeleccionCombo, 0, 186, Short.MAX_VALUE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(107, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(

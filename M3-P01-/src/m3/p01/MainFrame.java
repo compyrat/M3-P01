@@ -61,10 +61,12 @@ public class MainFrame extends javax.swing.JFrame {
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem9 = new javax.swing.JMenuItem();
+        jMenuItem12 = new javax.swing.JMenuItem();
         jMenuSesion = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        jMenuItem13 = new javax.swing.JMenuItem();
         jMenuPelicula = new javax.swing.JMenu();
         jMenuItem4 = new javax.swing.JMenuItem();
         jMenuItem8 = new javax.swing.JMenuItem();
@@ -134,6 +136,14 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenuSala.add(jMenuItem9);
 
+        jMenuItem12.setText("Eliminar Sala");
+        jMenuItem12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem12ActionPerformed(evt);
+            }
+        });
+        jMenuSala.add(jMenuItem12);
+
         jMenuBar1.add(jMenuSala);
 
         jMenuSesion.setText("Sesion");
@@ -161,6 +171,14 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jMenuSesion.add(jMenuItem10);
+
+        jMenuItem13.setText("Eliminar Sesion");
+        jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem13ActionPerformed(evt);
+            }
+        });
+        jMenuSesion.add(jMenuItem13);
 
         jMenuBar1.add(jMenuSesion);
 
@@ -353,6 +371,32 @@ public class MainFrame extends javax.swing.JFrame {
         this.repaint();
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
+    private void jMenuItem12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem12ActionPerformed
+        // TODO add your handling code here:
+        if (jp != null){
+            this.remove(jp);
+        }
+        EliminarSala mP = new EliminarSala();
+        mP.setBounds(0, 0, 450, 279);
+        jp = mP;
+        this.add(mP);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_jMenuItem12ActionPerformed
+
+    private void jMenuItem13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem13ActionPerformed
+        // TODO add your handling code here:
+        if (jp != null){
+            this.remove(jp);
+        }
+        EliminarSesion mP = new EliminarSesion();
+        mP.setBounds(0, 0, 450, 279);
+        jp = mP;
+        this.add(mP);
+        this.revalidate();
+        this.repaint();
+    }//GEN-LAST:event_jMenuItem13ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -395,6 +439,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem11;
+    private javax.swing.JMenuItem jMenuItem12;
+    private javax.swing.JMenuItem jMenuItem13;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;

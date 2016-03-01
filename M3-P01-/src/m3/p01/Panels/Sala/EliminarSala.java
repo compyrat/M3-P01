@@ -3,27 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package m3.p01.Panels.Pelicula;
+package m3.p01.Panels.Sala;
 
+import m3.p01.Panels.Pelicula.*;
 import m3.p01.MainFrame;
 
 /**
  *
  * @author albertmarnun
  */
-public class EliminarPelicula extends javax.swing.JPanel {
+public class EliminarSala extends javax.swing.JPanel {
 
     /**
      * Creates new form EliminarPelicula
      */
-    public EliminarPelicula() {
+    public EliminarSala() {
         initComponents();
-        cargarPeliculas();
+        cargarSalas();
     }
 
-    public void cargarPeliculas(){
-        for(int i = 0; i<MainFrame.peliculas.size(); i++){
-            eliminarPeliculaSeleccionCombo.addItem(i + "- " + MainFrame.peliculas.get(i).getTitulo());
+    public void cargarSalas(){
+        for(int i = 0; i<MainFrame.salas.size(); i++){
+            eliminarSalaSeleccionCombo.addItem(i + " - Sala: " + MainFrame.salas.get(i).getNumSala());
         }
     }
     /**
@@ -35,12 +36,13 @@ public class EliminarPelicula extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        eliminarPeliculaSeleccionCombo = new javax.swing.JComboBox();
+        eliminarSalaSeleccionCombo = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Selecciona la pelicula");
+        jLabel1.setText("Selecciona la sala");
+        jLabel1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jButton1.setText("Eliminar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -58,7 +60,7 @@ public class EliminarPelicula extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(eliminarPeliculaSeleccionCombo, 0, 186, Short.MAX_VALUE))
+                    .addComponent(eliminarSalaSeleccionCombo, 0, 186, Short.MAX_VALUE))
                 .addContainerGap(110, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -67,7 +69,7 @@ public class EliminarPelicula extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(eliminarPeliculaSeleccionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(eliminarSalaSeleccionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addContainerGap(164, Short.MAX_VALUE))
@@ -76,12 +78,12 @@ public class EliminarPelicula extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MainFrame.peliculas.remove(eliminarPeliculaSeleccionCombo.getSelectedIndex());
+        MainFrame.peliculas.remove(eliminarSalaSeleccionCombo.getSelectedIndex());
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox eliminarPeliculaSeleccionCombo;
+    private javax.swing.JComboBox eliminarSalaSeleccionCombo;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
