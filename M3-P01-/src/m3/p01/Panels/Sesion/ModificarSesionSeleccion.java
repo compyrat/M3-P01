@@ -9,6 +9,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import m3.p01.Panels.Pelicula.*;
 import m3.p01.MainFrame;
+import m3.p01.Panels.Sala.ModificarSala;
 
 /**
  *
@@ -46,15 +47,15 @@ public class ModificarSesionSeleccion extends javax.swing.JPanel  {
 
         modificarSesionSeleccionCombo = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
-        modificarPeliculaSeleccionBtn = new javax.swing.JButton();
+        modificarSesionSeleccionBtn = new javax.swing.JButton();
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Selecciona la sesion");
 
-        modificarPeliculaSeleccionBtn.setText("Modificar");
-        modificarPeliculaSeleccionBtn.addActionListener(new java.awt.event.ActionListener() {
+        modificarSesionSeleccionBtn.setText("Modificar");
+        modificarSesionSeleccionBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificarPeliculaSeleccionBtnActionPerformed(evt);
+                modificarSesionSeleccionBtnActionPerformed(evt);
             }
         });
 
@@ -63,35 +64,42 @@ public class ModificarSesionSeleccion extends javax.swing.JPanel  {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(107, 107, 107)
+                .addGap(120, 120, 120)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(modificarPeliculaSeleccionBtn)
+                    .addComponent(modificarSesionSeleccionBtn)
                     .addComponent(modificarSesionSeleccionCombo, 0, 186, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(94, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
+                .addGap(50, 50, 50)
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(modificarSesionSeleccionCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(modificarPeliculaSeleccionBtn)
-                .addContainerGap(119, Short.MAX_VALUE))
+                .addComponent(modificarSesionSeleccionBtn)
+                .addContainerGap(164, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void modificarPeliculaSeleccionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPeliculaSeleccionBtnActionPerformed
+    private void modificarSesionSeleccionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarSesionSeleccionBtnActionPerformed
         // TODO add your handling code here:
-        
-    }//GEN-LAST:event_modificarPeliculaSeleccionBtnActionPerformed
+        ModificarSala mP= new ModificarSala(modificarSesionSeleccionCombo.getSelectedIndex());
+        mP.setBounds(0, 0, 450, 279);
+        this.add(mP);
+        this.revalidate();
+        this.repaint();
+        this.jLabel1.setVisible(false);
+        this.modificarSesionSeleccionCombo.setVisible(false);
+        this.modificarSesionSeleccionBtn.setVisible(false);
+    }//GEN-LAST:event_modificarSesionSeleccionBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JButton modificarPeliculaSeleccionBtn;
+    private javax.swing.JButton modificarSesionSeleccionBtn;
     private javax.swing.JComboBox modificarSesionSeleccionCombo;
     // End of variables declaration//GEN-END:variables
 }
