@@ -75,11 +75,17 @@
     <Component class="javax.swing.JTextField" name="modificarSalaNumeroButacasTxt">
     </Component>
     <Component class="javax.swing.JTextField" name="modificarSalaNumeroSalaTxt">
+      <Properties>
+        <Property name="enabled" type="boolean" value="false"/>
+      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="modificarSalaCrearBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Crear"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="modificarSalaCrearBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

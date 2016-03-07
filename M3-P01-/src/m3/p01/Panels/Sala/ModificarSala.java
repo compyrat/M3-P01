@@ -5,6 +5,8 @@
  */
 package m3.p01.Panels.Sala;
 
+import m3.p01.MainFrame;
+
 /**
  *
  * @author albertmarnun
@@ -14,8 +16,12 @@ public class ModificarSala extends javax.swing.JPanel {
     /**
      * Creates new form CrearSala
      */
+    int indice;
     public ModificarSala(int index) {
         initComponents();
+        indice = index;
+        modificarSalaNumeroSalaTxt.setText(String.valueOf(MainFrame.salas.get(indice).getNumSala()));
+        modificarSalaNumeroButacasTxt.setText(String.valueOf(MainFrame.salas.get(indice).getNButacas()));
     }
 
     /**
@@ -39,7 +45,14 @@ public class ModificarSala extends javax.swing.JPanel {
 
         jLabel2.setText("Nº de Butacas");
 
+        modificarSalaNumeroSalaTxt.setEnabled(false);
+
         modificarSalaCrearBtn.setText("Crear");
+        modificarSalaCrearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarSalaCrearBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,6 +88,11 @@ public class ModificarSala extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void modificarSalaCrearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarSalaCrearBtnActionPerformed
+        // TODO add your handling code here:
+        MainFrame.salas.get(indice).setNButacas(Integer.parseInt(modificarSalaNumeroButacasTxt.getText()));
+    }//GEN-LAST:event_modificarSalaCrearBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

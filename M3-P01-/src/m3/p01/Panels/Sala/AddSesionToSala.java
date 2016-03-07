@@ -5,6 +5,13 @@
  */
 package m3.p01.Panels.Sala;
 
+import Exceptions.ArrayListException;
+import Exceptions.SesionSolapada;
+import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import m3.p01.MainFrame;
+
 /**
  *
  * @author albertmarnun
@@ -16,6 +23,21 @@ public class AddSesionToSala extends javax.swing.JPanel {
      */
     public AddSesionToSala() {
         initComponents();
+        cargarSesionesSalas();
+    }
+    private void cargarSesionesSalas(){
+    for(int i = 0; i<MainFrame.salas.size(); i++){
+            addSesionToSalaSalaCombo.addItem((i+1) + " - Sala: " + MainFrame.salas.get(i).getNumSala());
+        }
+    for(int i = 0; i<MainFrame.sesiones.size(); i++){
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(MainFrame.sesiones.get(i).getDate());
+            addSesionToSalaSesionCombo.addItem((i+1) + " - Sesion: ( Sala: " + 
+                    MainFrame.sesiones.get(i).getSala().getNumSala() + " - " + 
+                    cal.get(Calendar.DAY_OF_MONTH) + "/" +cal.get(Calendar.MONTH) + "/" 
+                    +cal.get(Calendar.YEAR)  + " - " + cal.get(Calendar.HOUR_OF_DAY) + ":" + 
+                    cal.get(Calendar.MINUTE) + ")");
+        }
     }
 
     /**
@@ -38,6 +60,11 @@ public class AddSesionToSala extends javax.swing.JPanel {
         jLabel2.setText("Sesion");
 
         addSesionToSalaAddBtn.setText("Añadir");
+        addSesionToSalaAddBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addSesionToSalaAddBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,6 +101,17 @@ public class AddSesionToSala extends javax.swing.JPanel {
                 .addContainerGap(162, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addSesionToSalaAddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSesionToSalaAddBtnActionPerformed
+        try {
+            // TODO add your handling code here:
+            MainFrame.salas.get(addSesionToSalaSalaCombo.getSelectedIndex()).addSesion(MainFrame.sesiones.get(addSesionToSalaSesionCombo.getSelectedIndex()));
+        } catch (SesionSolapada ex) {
+            Logger.getLogger(AddSesionToSala.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ArrayListException ex) {
+            Logger.getLogger(AddSesionToSala.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_addSesionToSalaAddBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
