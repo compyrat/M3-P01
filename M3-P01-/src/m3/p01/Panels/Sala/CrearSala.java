@@ -5,6 +5,9 @@
  */
 package m3.p01.Panels.Sala;
 
+import m3.p01.MainFrame;
+import m3.p01.Sala;
+
 /**
  *
  * @author albertmarnun
@@ -40,6 +43,11 @@ public class CrearSala extends javax.swing.JPanel {
         jLabel2.setText("Nº de Butacas");
 
         crearSalaCrearBtn.setText("Crear");
+        crearSalaCrearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearSalaCrearBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -75,6 +83,11 @@ public class CrearSala extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void crearSalaCrearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearSalaCrearBtnActionPerformed
+        // TODO add your handling code here:
+        MainFrame.salas.add(new Sala(Integer.parseInt(crearSalaNumeroSalaTxt.getText()), Integer.parseInt(crearSalaNumeroButacasTxt.getText())));
+    }//GEN-LAST:event_crearSalaCrearBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -20,8 +20,15 @@ public class CrearPelicula extends javax.swing.JPanel {
      */
     public CrearPelicula() {
         initComponents();
+        cargarGeneros();
     }
 
+    public void cargarGeneros(){
+        crearPeliculaGeneroCombo.addItem(Genero.ACCION);
+        crearPeliculaGeneroCombo.addItem(Genero.CIENCIA_FICCION);
+        crearPeliculaGeneroCombo.addItem(Genero.COMEDIA);
+        crearPeliculaGeneroCombo.addItem(Genero.TERROR);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
