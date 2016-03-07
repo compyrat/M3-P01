@@ -5,6 +5,9 @@
  */
 package m3.p01.Panels.Sesion;
 
+import java.util.Calendar;
+import m3.p01.MainFrame;
+
 /**
  *
  * @author albertmarnun
@@ -16,6 +19,25 @@ public class AddPeliculaToSesion extends javax.swing.JPanel {
      */
     public AddPeliculaToSesion() {
         initComponents();
+        cargarSesiones();
+        cargarPeliculas();
+    }
+    
+    private void cargarSesiones(){
+        for(int i = 0; i<MainFrame.sesiones.size(); i++){
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(MainFrame.sesiones.get(i).getDate());
+            addPeliculaToSesionSesionCombo.addItem(i + " - Sala: " + 
+                    MainFrame.sesiones.get(i).getSala().getNumSala() + " - " + 
+                    cal.get(Calendar.DAY_OF_MONTH) + "/" +cal.get(Calendar.MONTH) + "/" 
+                    +cal.get(Calendar.YEAR)  + " - " + cal.get(Calendar.HOUR_OF_DAY) + ":" + 
+                    cal.get(Calendar.MINUTE));
+        }
+    }
+    private void cargarPeliculas(){
+        for (int i = 0; i<MainFrame.peliculas.size(); i++){
+            addPeliculaToSesionPeliculaCombo.addItem((i+1)+" - "+MainFrame.peliculas.get(i).getTitulo());
+        }
     }
 
     /**
@@ -38,6 +60,11 @@ public class AddPeliculaToSesion extends javax.swing.JPanel {
         jLabel2.setText("Pelicula");
 
         addPeliculaToSesionAddBtn.setText("Añadir");
+        addPeliculaToSesionAddBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addPeliculaToSesionAddBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -74,6 +101,12 @@ public class AddPeliculaToSesion extends javax.swing.JPanel {
                 .addContainerGap(162, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addPeliculaToSesionAddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPeliculaToSesionAddBtnActionPerformed
+        // TODO add your handling code here:
+        String sesi = addPeliculaToSesionSesionCombo.getSelectedItem().toString();
+        String pel = addPeliculaToSesionPeliculaCombo.getSelectedItem().toString();
+    }//GEN-LAST:event_addPeliculaToSesionAddBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
