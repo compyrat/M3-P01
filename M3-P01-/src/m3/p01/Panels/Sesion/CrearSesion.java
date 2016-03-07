@@ -5,6 +5,10 @@
  */
 package m3.p01.Panels.Sesion;
 
+import java.util.Calendar;
+import m3.p01.MainFrame;
+import m3.p01.Sesion;
+
 /**
  *
  * @author albertmarnun
@@ -16,6 +20,18 @@ public class CrearSesion extends javax.swing.JPanel {
      */
     public CrearSesion() {
         initComponents();
+        cargarSalas();
+        cargarPeliculas();
+    }
+    private void cargarSalas(){
+        for (int i = 0; i<MainFrame.salas.size(); i++){
+            crearSesionSalaCombo.addItem((i+1)+" - Sala: "+MainFrame.salas.get(i).getNumSala());
+        }
+    }
+    private void cargarPeliculas(){
+        for (int i = 0; i<MainFrame.peliculas.size(); i++){
+            crearSesionPeliculaCombo.addItem((i+1)+" - "+MainFrame.peliculas.get(i).getTitulo());
+        }
     }
 
     /**
@@ -81,6 +97,11 @@ public class CrearSesion extends javax.swing.JPanel {
         jLabel9.setText("Min");
 
         crearSesionCrearBtn.setText("Crear");
+        crearSesionCrearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                crearSesionCrearBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -178,6 +199,21 @@ public class CrearSesion extends javax.swing.JPanel {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {crearSesionFechaAnyoTxt, crearSesionFechaDiaTxt, crearSesionFechaHoraTxt, crearSesionFechaMesTxt, crearSesionFechaMinTxt});
 
     }// </editor-fold>//GEN-END:initComponents
+
+    private void crearSesionCrearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearSesionCrearBtnActionPerformed
+        // TODO add your handling code here:
+        int nsala = crearSesionSalaCombo.getSelectedIndex();
+        int npelicula = crearSesionPeliculaCombo.getSelectedIndex();
+        int nvendidas = Integer.parseInt(crearSesionButacasVendidasTxt.getText());
+        int dia = Integer.parseInt(crearSesionFechaDiaTxt.getText());
+        int mes = Integer.parseInt(crearSesionFechaMesTxt.getText());
+        int año = Integer.parseInt(crearSesionFechaAnyoTxt.getText());
+        int hora = Integer.parseInt(crearSesionFechaHoraTxt.getText());
+        int min = Integer.parseInt(crearSesionFechaMinTxt.getText());
+        Sesion sesion = new Sesion(MainFrame.peliculas.get(npelicula), MainFrame.salas.get(nsala), año, mes, dia, hora, min);
+        sesion.actualizarButacasVendidas(nvendidas);
+        MainFrame.sesiones.add(sesion);
+    }//GEN-LAST:event_crearSesionCrearBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

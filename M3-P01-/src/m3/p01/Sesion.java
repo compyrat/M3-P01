@@ -48,7 +48,7 @@ public class Sesion {
         return nButacas;
     }
 
-    public void setnButacas(int nButacas) {
+    public void setnButacas(int nButacas) throws IllegalArgumentException{
         if (nButacas <= 0 || nButacas > getSala().getNButacas()){
             throw new IllegalArgumentException("No se puede introducior un numero de butacas negativas ni mayor al numero de butacas de su sala");
         }else{
@@ -59,7 +59,7 @@ public class Sesion {
     public int getnButacasLibres() {
         return nButacasLibres;
     }
-    public void setButacasLibres(int num){
+    public void setButacasLibres(int num) throws IllegalArgumentException{
         if (num <= 0 || num > getSala().getNButacas()){
             throw new IllegalArgumentException("No se puede introducior un numero de butacas libres negativas ni mayor al numero de butacas de su sala");
         }else{
@@ -84,7 +84,7 @@ public class Sesion {
         nButacas = sala.getNButacas();
     }
 
-    public void actualizarButacasVendidas(int vendidas) {
+    public void actualizarButacasVendidas(int vendidas) throws IllegalArgumentException{
         if (vendidas <= 0 || vendidas > nButacasLibres){
             throw new IllegalArgumentException("No se puede introducior un numero de butacas libres negativas ni mayor al numero de butacas libres");
         }else{
