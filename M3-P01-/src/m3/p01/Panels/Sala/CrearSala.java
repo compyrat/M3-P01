@@ -5,6 +5,9 @@
  */
 package m3.p01.Panels.Sala;
 
+import Exceptions.noNumeric;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import m3.p01.MainFrame;
 import m3.p01.Sala;
 
@@ -86,7 +89,15 @@ public class CrearSala extends javax.swing.JPanel {
 
     private void crearSalaCrearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearSalaCrearBtnActionPerformed
         // TODO add your handling code here:
-        MainFrame.salas.add(new Sala(Integer.parseInt(crearSalaNumeroSalaTxt.getText()), Integer.parseInt(crearSalaNumeroButacasTxt.getText())));
+        if (MainFrame.isNumeric(crearSalaNumeroSalaTxt.getText()) && MainFrame.isNumeric(crearSalaNumeroButacasTxt.getText())){
+            MainFrame.salas.add(new Sala(Integer.parseInt(crearSalaNumeroSalaTxt.getText()), Integer.parseInt(crearSalaNumeroButacasTxt.getText())));
+        }else{
+            try {
+                throw new noNumeric("El numero de butacas y la sala ha de ser un texto Numerico");
+            } catch (noNumeric ex) {
+                Logger.getLogger(CrearSala.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_crearSalaCrearBtnActionPerformed
 
 
