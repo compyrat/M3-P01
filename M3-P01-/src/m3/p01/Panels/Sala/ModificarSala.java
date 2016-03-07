@@ -47,7 +47,7 @@ public class ModificarSala extends javax.swing.JPanel {
 
         modificarSalaNumeroSalaTxt.setEnabled(false);
 
-        modificarSalaCrearBtn.setText("Crear");
+        modificarSalaCrearBtn.setText("Modificar");
         modificarSalaCrearBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 modificarSalaCrearBtnActionPerformed(evt);

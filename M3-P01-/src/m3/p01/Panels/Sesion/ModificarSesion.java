@@ -81,6 +81,11 @@ public class ModificarSesion extends javax.swing.JPanel {
         jLabel9.setText("Min");
 
         modificarSesionCrearBtn.setText("Crear");
+        modificarSesionCrearBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificarSesionCrearBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -178,6 +183,10 @@ public class ModificarSesion extends javax.swing.JPanel {
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {modificarSesionFechaAnyoTxt, modificarSesionFechaDiaTxt, modificarSesionFechaHoraTxt, modificarSesionFechaMesTxt, modificarSesionFechaMinTxt});
 
     }// </editor-fold>//GEN-END:initComponents
+
+    private void modificarSesionCrearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarSesionCrearBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modificarSesionCrearBtnActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
