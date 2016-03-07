@@ -104,8 +104,9 @@ public class AddPeliculaToSesion extends javax.swing.JPanel {
 
     private void addPeliculaToSesionAddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addPeliculaToSesionAddBtnActionPerformed
         // TODO add your handling code here:
-        String sesi = addPeliculaToSesionSesionCombo.getSelectedItem().toString();
-        String pel = addPeliculaToSesionPeliculaCombo.getSelectedItem().toString();
+        int sesi = addPeliculaToSesionSesionCombo.getSelectedIndex();
+        int pel = addPeliculaToSesionPeliculaCombo.getSelectedIndex();
+        MainFrame.sesiones.get(sesi).setPelicula(MainFrame.peliculas.get(pel));
     }//GEN-LAST:event_addPeliculaToSesionAddBtnActionPerformed
 
 
