@@ -397,6 +397,14 @@ public class MainFrame extends javax.swing.JFrame {
         this.repaint();
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
+    public static Boolean isNumeric(String aux){
+        try{
+            Integer.parseInt(aux);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
     /**
      * @param args the command line arguments
      */
