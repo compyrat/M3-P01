@@ -39,7 +39,7 @@ public class Sala {
     public int getNButacas(){
         return butacasMax;
     }
-    public void setNButacas(int vButacas){
+    public void setNButacas(int vButacas) throws IllegalArgumentException{
         if (vButacas <= 0){
             throw new IllegalArgumentException("No puedes introducir butacas negativas");
         }else{
@@ -49,7 +49,7 @@ public class Sala {
    public ArrayList<Sesion> getSesion(){
         return listaSesiones;
     }
-    public void setSesion(ArrayList<Sesion> listaSesiones){
+    public void setSesion(ArrayList<Sesion> listaSesiones) throws IllegalArgumentException{
         if (listaSesiones == null){
             throw new IllegalArgumentException("Comprueba la lista de Sesiones porfavor.");
         }
