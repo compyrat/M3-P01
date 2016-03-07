@@ -97,11 +97,16 @@ public class CrearPelicula extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MainFrame.peliculas.add(new Pelicula(crearPeliculaTituloTxt.getText(), 
-                crearPeliculaDirectorTxt.getText(), Integer.parseInt(crearPeliculaAnyoTxt.getText()), 
-                crearPeliculaSinopsisTxtArea.getText(), 
-                (Genero)crearPeliculaGeneroCombo.getSelectedItem(),
-                Integer.parseInt(crearPeliculaDuracionTxt.getText())));
+        try{
+            MainFrame.peliculas.add(new Pelicula(crearPeliculaTituloTxt.getText(), 
+                    crearPeliculaDirectorTxt.getText(), Integer.parseInt(crearPeliculaAnyoTxt.getText()), 
+                    crearPeliculaSinopsisTxtArea.getText(), 
+                    (Genero)crearPeliculaGeneroCombo.getSelectedItem(),
+                    Integer.parseInt(crearPeliculaDuracionTxt.getText())));
+            MainFrame.infoCorrect("Se ha creado correctamente.");
+        }catch(Exception e){
+            MainFrame.infoFail("No se ha creado la pelicula.");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

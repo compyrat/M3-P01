@@ -5,7 +5,9 @@
  */
 package m3.p01;
 
+import java.awt.Dialog;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import m3.p01.Panels.Cine.*;
 import m3.p01.Panels.Sesion.*;
 import m3.p01.Panels.Sala.*;
@@ -404,6 +406,22 @@ public class MainFrame extends javax.swing.JFrame {
         }catch(Exception e){
             return false;
         }
+    }
+    
+    public static void infoCorrect(String infoMessage)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage, "Correct", JOptionPane.INFORMATION_MESSAGE);
+    }
+    
+    public static void infoFail(String infoMessage)
+    {
+        JOptionPane.showMessageDialog(null, infoMessage, "Error", JOptionPane.ERROR_MESSAGE);
+    }
+    
+    public static int infoComprobar(String infoMessage)
+    {
+        int result = JOptionPane.showConfirmDialog(null, infoMessage, "Eliminar", JOptionPane.INFORMATION_MESSAGE);
+        return result;
     }
     /**
      * @param args the command line arguments
