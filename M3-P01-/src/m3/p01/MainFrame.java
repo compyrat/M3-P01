@@ -5,8 +5,14 @@
  */
 package m3.p01;
 
+import Exceptions.ArrayListException;
+import Exceptions.PeliculaRepetida;
+import Exceptions.SalaRepetida;
+import Exceptions.SesionSolapada;
 import java.awt.Dialog;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import m3.p01.Panels.Cine.*;
 import m3.p01.Panels.Sesion.*;
@@ -41,9 +47,24 @@ public class MainFrame extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         Pelicula pel = new Pelicula("Titulo", "Director", 10, "Jaja", Genero.ACCION, 1000);
         Sala sal = new Sala(15, 25);
-        peliculas.add(pel);
-        salas.add(sal);
-        sesiones.add(new Sesion(pel, sal, 95, 1, 15, 18, 00));
+        Sala sal2 = new Sala(152, 252);
+        Cine cine = new Cine("cine", "Calle123");
+        cines.add(cine);
+        try {
+            cines.get(0).addPelicula(pel);
+            cines.get(0).addSala(sal);
+            cines.get(0).addSala(sal2);
+            cines.get(0).getSala().get(0).addSesion(new Sesion(pel, sal, 95, 1, 15, 18, 00));
+            cines.get(0).getSala().get(0).addSesion(new Sesion(pel, sal, 952, 12, 152, 22, 00));
+        } catch (ArrayListException ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PeliculaRepetida ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SalaRepetida ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SesionSolapada ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     /**
      * This method is called from within the constructor to initialize the form.
