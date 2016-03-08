@@ -18,12 +18,14 @@ public class ModificarPelicula extends javax.swing.JPanel {
     /**
      * Creates new form CrearPelicula
      */
-    int indexPelicula = 0;
+    String indexPelicula = "";
     Pelicula pelicula;
-    public ModificarPelicula(int index) {
+    public ModificarPelicula(String index) {
         initComponents();
+
+        this.pelicula = MainFrame.cines.get(0).buscarPelicula(index);
         indexPelicula = index;
-        this.pelicula = MainFrame.peliculas.get(index);
+                
         modificarPeliculaGeneroCombo.addItem(Genero.ACCION);
         modificarPeliculaGeneroCombo.addItem(Genero.CIENCIA_FICCION);
         modificarPeliculaGeneroCombo.addItem(Genero.COMEDIA);
@@ -106,12 +108,12 @@ public class ModificarPelicula extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MainFrame.peliculas.get(indexPelicula).setTitulo(modificarPeliculaTituloTxt.getText());
-        MainFrame.peliculas.get(indexPelicula).setDirector(modificarPeliculaDirectorTxt.getText());
-        MainFrame.peliculas.get(indexPelicula).setGenero(Genero.valueOf(modificarPeliculaGeneroCombo.getSelectedItem().toString().toUpperCase().replace(" ", "_")));
-        MainFrame.peliculas.get(indexPelicula).setAnyo(Integer.parseInt(modificarPeliculaAnyoTxt.getText()));
-        MainFrame.peliculas.get(indexPelicula).setSinopsis(modificarPeliculaSinopsisTxtArea.getText());
-        MainFrame.peliculas.get(indexPelicula).setDuracion(Integer.parseInt(modificarPeliculaDuracionTxt.getText()));
+        MainFrame.cines.get(0).buscarPelicula(indexPelicula).setTitulo(modificarPeliculaTituloTxt.getText());
+        MainFrame.cines.get(0).buscarPelicula(indexPelicula).setDirector(modificarPeliculaDirectorTxt.getText());
+        MainFrame.cines.get(0).buscarPelicula(indexPelicula).setGenero(Genero.valueOf(modificarPeliculaGeneroCombo.getSelectedItem().toString().toUpperCase().replace(" ", "_")));
+        MainFrame.cines.get(0).buscarPelicula(indexPelicula).setAnyo(Integer.parseInt(modificarPeliculaAnyoTxt.getText()));
+        MainFrame.cines.get(0).buscarPelicula(indexPelicula).setSinopsis(modificarPeliculaSinopsisTxtArea.getText());
+        MainFrame.cines.get(0).buscarPelicula(indexPelicula).setDuracion(Integer.parseInt(modificarPeliculaDuracionTxt.getText()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -238,6 +238,11 @@ public class Cine {
         return aux.toString();
     }
     
+    public Sesion showSesion(int numSala, Date fecha){
+        Sala sala = buscarSala(numSala);
+        Sesion sesion = sala.devolverSesion(fecha);
+        return sesion;
+    }
     private Date getFecha(int dia, int mes, int anyo){
         Calendar cal = GregorianCalendar.getInstance();
         cal.set(anyo, mes, dia);

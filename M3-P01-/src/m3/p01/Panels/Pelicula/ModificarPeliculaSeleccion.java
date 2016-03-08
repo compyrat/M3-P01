@@ -22,8 +22,8 @@ public class ModificarPeliculaSeleccion extends javax.swing.JPanel  {
         
     }
     public void cargarPeliculas(){
-        for(int i = 0; i<MainFrame.peliculas.size(); i++){
-            modificarPeliculaSeleccionCombo.addItem(i + "- " + MainFrame.peliculas.get(i).getTitulo());
+        for(int i = 0; i<MainFrame.cines.get(0).getPelicula().size(); i++){
+            modificarPeliculaSeleccionCombo.addItem(i + "- " + MainFrame.cines.get(0).getPelicula().get(i).getTitulo());
         }
     }
     /**
@@ -77,7 +77,7 @@ public class ModificarPeliculaSeleccion extends javax.swing.JPanel  {
     private void modificarPeliculaSeleccionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarPeliculaSeleccionBtnActionPerformed
         // TODO add your handling code here:
 
-        ModificarPelicula mP= new ModificarPelicula(modificarPeliculaSeleccionCombo.getSelectedIndex());
+        ModificarPelicula mP= new ModificarPelicula(modificarPeliculaSeleccionCombo.getSelectedItem().toString());
         mP.setBounds(0, 0, 450, 279);
         this.add(mP);
         this.revalidate();

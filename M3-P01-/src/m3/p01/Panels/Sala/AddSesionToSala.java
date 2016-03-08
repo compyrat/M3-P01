@@ -7,10 +7,13 @@ package m3.p01.Panels.Sala;
 
 import Exceptions.ArrayListException;
 import Exceptions.SesionSolapada;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import m3.p01.MainFrame;
+import m3.p01.Sala;
+import m3.p01.Sesion;
 
 /**
  *
@@ -21,23 +24,26 @@ public class AddSesionToSala extends javax.swing.JPanel {
     /**
      * Creates new form AddSesionToSala
      */
+    ArrayList<Sesion> sesiones = new ArrayList<Sesion>();
     public AddSesionToSala() {
         initComponents();
         cargarSesionesSalas();
     }
     private void cargarSesionesSalas(){
-    for(int i = 0; i<MainFrame.salas.size(); i++){
-            addSesionToSalaSalaCombo.addItem((i+1) + " - Sala: " + MainFrame.salas.get(i).getNumSala());
-        }
-    for(int i = 0; i<MainFrame.sesiones.size(); i++){
+    for(int i = 0; i<MainFrame.cines.get(0).getSala().size(); i++){
+            addSesionToSalaSalaCombo.addItem((i+1) + " - Sala: " + MainFrame.cines.get(0).getSala().get(i).getNumSala());
+            for(int i2 = 0; i2<MainFrame.cines.get(0).getSala().get(i).getSesion().size(); i2++){
             Calendar cal = Calendar.getInstance();
-            cal.setTime(MainFrame.sesiones.get(i).getDate());
-            addSesionToSalaSesionCombo.addItem((i+1) + " - Sesion: ( Sala: " + 
-                    MainFrame.sesiones.get(i).getSala().getNumSala() + " - " + 
+            cal.setTime(MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2).getDate());
+            addSesionToSalaSesionCombo.addItem((i2+1) + " - Sesion: ( Sala: " + 
+                    MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2).getSala().getNumSala() + " - " + 
                     cal.get(Calendar.DAY_OF_MONTH) + "/" +cal.get(Calendar.MONTH) + "/" 
                     +cal.get(Calendar.YEAR)  + " - " + cal.get(Calendar.HOUR_OF_DAY) + ":" + 
                     cal.get(Calendar.MINUTE) + ")");
+            sesiones.add(MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2));
         }
+        }
+    
     }
 
     /**
@@ -105,7 +111,9 @@ public class AddSesionToSala extends javax.swing.JPanel {
     private void addSesionToSalaAddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSesionToSalaAddBtnActionPerformed
         try {
             // TODO add your handling code here:
-            MainFrame.salas.get(addSesionToSalaSalaCombo.getSelectedIndex()).addSesion(MainFrame.sesiones.get(addSesionToSalaSesionCombo.getSelectedIndex()));
+            Sesion sesion = sesiones.get(addSesionToSalaSesionCombo.getSelectedIndex());
+            MainFrame.cines.get(0).getSala().get(addSesionToSalaSalaCombo.getSelectedIndex()).addSesion(sesion);
+            
         } catch (SesionSolapada ex) {
             Logger.getLogger(AddSesionToSala.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ArrayListException ex) {

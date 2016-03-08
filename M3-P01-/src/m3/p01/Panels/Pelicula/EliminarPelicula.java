@@ -22,8 +22,8 @@ public class EliminarPelicula extends javax.swing.JPanel {
     }
 
     public void cargarPeliculas(){
-        for(int i = 0; i<MainFrame.peliculas.size(); i++){
-            eliminarPeliculaSeleccionCombo.addItem(i + "- " + MainFrame.peliculas.get(i).getTitulo());
+        for(int i = 0; i<MainFrame.cines.get(0).getPelicula().size(); i++){
+            eliminarPeliculaSeleccionCombo.addItem(i + "- " + MainFrame.cines.get(0).getPelicula().get(i).getTitulo());
         }
     }
     /**
@@ -76,7 +76,7 @@ public class EliminarPelicula extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MainFrame.peliculas.remove(eliminarPeliculaSeleccionCombo.getSelectedIndex());
+        MainFrame.cines.get(0).delPelicula(eliminarPeliculaSeleccionCombo.getSelectedItem().toString());
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

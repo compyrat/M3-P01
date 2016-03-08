@@ -22,8 +22,8 @@ public class ModificarCine extends javax.swing.JPanel {
     }
     
     private void cargarCine(){
-    modificarCineNombreTxt.setText(MainFrame.cines.get(0).getNombre());
-     modificarCineDireccionTxt.setText(MainFrame.cines.get(0).getDireccion());
+        modificarCineNombreTxt.setText(MainFrame.cines.get(0).getNombre());
+        modificarCineDireccionTxt.setText(MainFrame.cines.get(0).getDireccion());
     }
 
     /**
