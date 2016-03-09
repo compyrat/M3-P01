@@ -8,10 +8,6 @@ package m3.p01.Panels.Sala;
 import m3.p01.Panels.Pelicula.*;
 import m3.p01.MainFrame;
 
-/**
- *
- * @author albertmarnun
- */
 public class EliminarSala extends javax.swing.JPanel {
 
     /**
@@ -23,8 +19,8 @@ public class EliminarSala extends javax.swing.JPanel {
     }
 
     public void cargarSalas(){
-        for(int i = 0; i<MainFrame.salas.size(); i++){
-            eliminarSalaSeleccionCombo.addItem(i + " - Sala: " + MainFrame.salas.get(i).getNumSala());
+        for(int i = 0; i<MainFrame.cines.get(0).getSala().size(); i++){
+            eliminarSalaSeleccionCombo.addItem(i + " - Sala: " + MainFrame.cines.get(0).getSala().get(i).getNumSala());
         }
     }
     /**
@@ -78,7 +74,7 @@ public class EliminarSala extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MainFrame.peliculas.remove(eliminarSalaSeleccionCombo.getSelectedIndex());
+        MainFrame.cines.get(0).getSala().remove(eliminarSalaSeleccionCombo.getSelectedIndex());
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

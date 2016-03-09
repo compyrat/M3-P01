@@ -5,6 +5,8 @@
  */
 package m3.p01.Panels.Sala;
 
+import Exceptions.ArrayListException;
+import Exceptions.SalaRepetida;
 import Exceptions.noNumeric;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -90,7 +92,13 @@ public class CrearSala extends javax.swing.JPanel {
     private void crearSalaCrearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_crearSalaCrearBtnActionPerformed
         // TODO add your handling code here:
         if (MainFrame.isNumeric(crearSalaNumeroSalaTxt.getText()) && MainFrame.isNumeric(crearSalaNumeroButacasTxt.getText())){
-            MainFrame.salas.add(new Sala(Integer.parseInt(crearSalaNumeroSalaTxt.getText()), Integer.parseInt(crearSalaNumeroButacasTxt.getText())));
+            try {
+                MainFrame.cines.get(0).addSala(new Sala(Integer.parseInt(crearSalaNumeroSalaTxt.getText()), Integer.parseInt(crearSalaNumeroButacasTxt.getText())));
+            } catch (SalaRepetida ex) {
+                Logger.getLogger(CrearSala.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ArrayListException ex) {
+                Logger.getLogger(CrearSala.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }else{
             try {
                 throw new noNumeric("El numero de butacas y la sala ha de ser un texto Numerico");

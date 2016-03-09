@@ -23,8 +23,8 @@ public class ModificarSalaSeleccion extends javax.swing.JPanel  {
         
     }
     public void cargarSalas(){
-        for(int i = 0; i<MainFrame.salas.size(); i++){
-            modificarSalaSeleccionCombo.addItem(i + " - Sala: " + MainFrame.salas.get(i).getNumSala());
+        for(int i = 0; i<MainFrame.cines.get(0).getSala().size(); i++){
+            modificarSalaSeleccionCombo.addItem((i + 1) + " - Sala: " + MainFrame.cines.get(0).getSala().get(i).getNumSala());
         }
     }
     /**
@@ -77,7 +77,7 @@ public class ModificarSalaSeleccion extends javax.swing.JPanel  {
 
     private void modificarSalaSeleccionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarSalaSeleccionBtnActionPerformed
         // TODO add your handling code here:
-        ModificarSala mP= new ModificarSala(modificarSalaSeleccionCombo.getSelectedIndex());
+        ModificarSala mP= new ModificarSala(MainFrame.cines.get(0).getSala().get(modificarSalaSeleccionCombo.getSelectedIndex()));
         mP.setBounds(0, 0, 450, 279);
         this.add(mP);
         this.revalidate();

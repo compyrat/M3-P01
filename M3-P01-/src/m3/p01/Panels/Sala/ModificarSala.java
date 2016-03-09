@@ -6,6 +6,7 @@
 package m3.p01.Panels.Sala;
 
 import m3.p01.MainFrame;
+import m3.p01.Sala;
 
 /**
  *
@@ -16,12 +17,12 @@ public class ModificarSala extends javax.swing.JPanel {
     /**
      * Creates new form CrearSala
      */
-    int indice;
-    public ModificarSala(int index) {
+    Sala sala = null;
+    public ModificarSala(Sala sala) {
         initComponents();
-        indice = index;
-        modificarSalaNumeroSalaTxt.setText(String.valueOf(MainFrame.salas.get(indice).getNumSala()));
-        modificarSalaNumeroButacasTxt.setText(String.valueOf(MainFrame.salas.get(indice).getNButacas()));
+        this.sala = sala;
+        modificarSalaNumeroSalaTxt.setText(String.valueOf(sala.getNumSala()));
+        modificarSalaNumeroButacasTxt.setText(String.valueOf(sala.getNButacas()));
     }
 
     /**
@@ -91,7 +92,19 @@ public class ModificarSala extends javax.swing.JPanel {
 
     private void modificarSalaCrearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarSalaCrearBtnActionPerformed
         // TODO add your handling code here:
-        MainFrame.salas.get(indice).setNButacas(Integer.parseInt(modificarSalaNumeroButacasTxt.getText()));
+        if (!modificarSalaNumeroButacasTxt.getText().equals("")){
+            if (MainFrame.isNumeric(modificarSalaNumeroButacasTxt.getText())){
+                if (Integer.valueOf(modificarSalaNumeroButacasTxt.getText().toString()) > 0){
+                    MainFrame.cines.get(0).buscarSala(sala.getNumSala()).setNButacas(Integer.parseInt(modificarSalaNumeroButacasTxt.getText()));
+                }else{
+                    MainFrame.infoFail("El valor de las butacas ha de ser superior a 0.");
+                }
+            }else{
+                MainFrame.infoFail("Solo puedes insertar un valor numerico en el campo de butacas.");
+            }
+        }else{
+            MainFrame.infoFail("No puedes el campo vacio.");
+        }
     }//GEN-LAST:event_modificarSalaCrearBtnActionPerformed
 
 

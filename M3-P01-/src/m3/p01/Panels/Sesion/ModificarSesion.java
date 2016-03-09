@@ -5,6 +5,9 @@
  */
 package m3.p01.Panels.Sesion;
 
+import m3.p01.MainFrame;
+import m3.p01.Sesion;
+
 /**
  *
  * @author albertmarnun
@@ -14,8 +17,21 @@ public class ModificarSesion extends javax.swing.JPanel {
     /**
      * Creates new form CrearSesion
      */
-    public ModificarSesion(int index) {
+    Sesion sesion = null;
+    public ModificarSesion(Sesion ses) {
         initComponents();
+        sesion = ses;
+        cargarDatos();
+    }
+    private void cargarDatos(){
+        modificarSesionSalaCombo.removeAllItems();
+        for (int i = 0; i < MainFrame.cines.get(0).getSala().size(); i++){
+            modificarSesionSalaCombo.addItem(" - Sala Numero: " + MainFrame.cines.get(0).getSala().get(i).getNumSala());
+        }
+        modificarSesionSalaCombo.setSelectedItem(" - Sala Numero: " + sesion.getSala().getNumSala());
+        for (int i = 0; i< MainFrame.cines.get(0).getPelicula().size(); i++){
+            
+        }
     }
 
     /**

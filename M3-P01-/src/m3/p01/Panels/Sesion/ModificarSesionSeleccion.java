@@ -5,11 +5,14 @@
  */
 package m3.p01.Panels.Sesion;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import m3.p01.Panels.Pelicula.*;
 import m3.p01.MainFrame;
 import m3.p01.Panels.Sala.ModificarSala;
+import m3.p01.Sala;
+import m3.p01.Sesion;
 
 /**
  *
@@ -20,20 +23,24 @@ public class ModificarSesionSeleccion extends javax.swing.JPanel  {
     /**
      * Creates new form EliminarPelicula
      */
+    ArrayList<Sesion> sesiones = new ArrayList<Sesion>();
     public ModificarSesionSeleccion() {
         initComponents();
         cargarSesiones();
         
     }
     public void cargarSesiones(){
-        for(int i = 0; i<MainFrame.sesiones.size(); i++){
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(MainFrame.sesiones.get(i).getDate());
-            modificarSesionSeleccionCombo.addItem(i + " - Sala: " + 
-                    MainFrame.sesiones.get(i).getSala().getNumSala() + " - " + 
+        for(int i = 0; i<MainFrame.cines.get(0).getSala().size(); i++){
+            for(int i2 = 0; i2<MainFrame.cines.get(0).getSala().get(i).getSesion().size(); i2++){
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2).getDate());
+                modificarSesionSeleccionCombo.addItem(i + " - Sala: " + 
+                    MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2).getSala().getNumSala() + " - " + 
                     cal.get(Calendar.DAY_OF_MONTH) + "/" +cal.get(Calendar.MONTH) + "/" 
                     +cal.get(Calendar.YEAR)  + " - " + cal.get(Calendar.HOUR_OF_DAY) + ":" + 
                     cal.get(Calendar.MINUTE));
+                sesiones.add(MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2));
+            }
         }
     }
     /**
@@ -86,7 +93,7 @@ public class ModificarSesionSeleccion extends javax.swing.JPanel  {
 
     private void modificarSesionSeleccionBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarSesionSeleccionBtnActionPerformed
         // TODO add your handling code here:
-        ModificarSala mP= new ModificarSala(modificarSesionSeleccionCombo.getSelectedIndex());
+        ModificarSesion mP= new ModificarSesion(sesiones.get(modificarSesionSeleccionCombo.getSelectedIndex()));
         mP.setBounds(0, 0, 450, 279);
         this.add(mP);
         this.revalidate();
