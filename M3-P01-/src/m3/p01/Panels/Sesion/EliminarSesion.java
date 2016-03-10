@@ -5,9 +5,11 @@
  */
 package m3.p01.Panels.Sesion;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import m3.p01.Panels.Pelicula.*;
 import m3.p01.MainFrame;
+import m3.p01.Sesion;
 
 /**
  *
@@ -18,20 +20,25 @@ public class EliminarSesion extends javax.swing.JPanel {
     /**
      * Creates new form EliminarPelicula
      */
+        ArrayList<Sesion> sesiones = new ArrayList<Sesion>();
+
     public EliminarSesion() {
         initComponents();
         cargarSesiones();
     }
 
     public void cargarSesiones(){
-        for(int i = 0; i<MainFrame.sesiones.size(); i++){
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(MainFrame.sesiones.get(i).getDate());
-            eliminarSesionSeleccionCombo.addItem(i + " - Sala: " + 
-                    MainFrame.sesiones.get(i).getSala().getNumSala() + " - " + 
+        for(int i = 0; i<MainFrame.cines.get(0).getSala().size(); i++){
+            for(int i2 = 0; i2<MainFrame.cines.get(0).getSala().get(i).getSesion().size(); i2++){
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2).getDate());
+                eliminarSesionSeleccionCombo.addItem(i + " - Sala: " + 
+                    MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2).getSala().getNumSala() + " - " + 
                     cal.get(Calendar.DAY_OF_MONTH) + "/" +cal.get(Calendar.MONTH) + "/" 
                     +cal.get(Calendar.YEAR)  + " - " + cal.get(Calendar.HOUR_OF_DAY) + ":" + 
                     cal.get(Calendar.MINUTE));
+                sesiones.add(MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2));
+            }
         }
     }
     /**
@@ -84,7 +91,7 @@ public class EliminarSesion extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MainFrame.peliculas.remove(eliminarSesionSeleccionCombo.getSelectedIndex());
+        MainFrame.cines.get(0).eliminarSesion(sesiones.get(eliminarSesionSeleccionCombo.getSelectedIndex()).getSala().getNumSala(), sesiones.get(eliminarSesionSeleccionCombo.getSelectedIndex()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

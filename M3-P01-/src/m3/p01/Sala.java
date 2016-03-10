@@ -69,6 +69,9 @@ public class Sala {
             }
         }
     }
+     public void deleteSesion(Sesion sesion){
+        listaSesiones.remove(sesion);
+    }
     public void deleteSesion(int anyo, int mes, int dia, int hora, int minuto){
         deleteSesion(getFecha(anyo, mes, dia, hora, minuto));
     }

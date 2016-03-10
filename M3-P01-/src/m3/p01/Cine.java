@@ -204,6 +204,14 @@ public class Cine {
             }
         }
     }
+    
+    public void eliminarSesion(int vNumSala, Sesion sesion){
+        for (Sala i: getSala()){
+            if (i.getNumSala() == vNumSala){
+                i.deleteSesion(sesion);
+            }
+        }
+    }
     /*
     * 10. Debe mostrar la información de las sesiones en las que se 
     * proyecta una película, dado el título de la película;
