@@ -5,8 +5,14 @@
  */
 package m3.p01.Panels.Sesion;
 
+import Exceptions.ArrayListException;
+import Exceptions.SesionSolapada;
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import m3.p01.MainFrame;
+import m3.p01.Sesion;
 
 /**
  *
@@ -17,6 +23,8 @@ public class AddPeliculaToSesion extends javax.swing.JPanel {
     /**
      * Creates new form AddSesionToSala
      */
+       ArrayList<Sesion> sesiones = new ArrayList<Sesion>();
+
     public AddPeliculaToSesion() {
         initComponents();
         cargarSesiones();
@@ -24,19 +32,22 @@ public class AddPeliculaToSesion extends javax.swing.JPanel {
     }
     
     private void cargarSesiones(){
-        for(int i = 0; i<MainFrame.sesiones.size(); i++){
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(MainFrame.sesiones.get(i).getDate());
-            addPeliculaToSesionSesionCombo.addItem(i + " - Sala: " + 
-                    MainFrame.sesiones.get(i).getSala().getNumSala() + " - " + 
-                    cal.get(Calendar.DAY_OF_MONTH) + "/" +cal.get(Calendar.MONTH) + "/" 
-                    +cal.get(Calendar.YEAR)  + " - " + cal.get(Calendar.HOUR_OF_DAY) + ":" + 
+       for(int i = 0; i<MainFrame.cines.get(0).getSala().size(); i++){
+            for(int i2 = 0; i2<MainFrame.cines.get(0).getSala().get(i).getSesion().size(); i2++){
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2).getDate());
+                addPeliculaToSesionSesionCombo.addItem(i + " - Sesion: " + 
+                    MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2).getSala().getNumSala() + " - " + 
+                    cal.get(Calendar.DAY_OF_MONTH) + "/" +cal.get(Calendar.MONTH) + "/" +
+                    cal.get(Calendar.YEAR)  + " - " + cal.get(Calendar.HOUR_OF_DAY) + ":" + 
                     cal.get(Calendar.MINUTE));
+                sesiones.add(MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2));
+            }
         }
     }
     private void cargarPeliculas(){
-        for (int i = 0; i<MainFrame.peliculas.size(); i++){
-            addPeliculaToSesionPeliculaCombo.addItem((i+1)+" - "+MainFrame.peliculas.get(i).getTitulo());
+        for (int i = 0; i<MainFrame.cines.get(0).getPelicula().size(); i++){
+            addPeliculaToSesionPeliculaCombo.addItem((i+1)+" - "+MainFrame.cines.get(0).getPelicula().get(i).getTitulo());
         }
     }
 
@@ -106,7 +117,13 @@ public class AddPeliculaToSesion extends javax.swing.JPanel {
         // TODO add your handling code here:
         int sesi = addPeliculaToSesionSesionCombo.getSelectedIndex();
         int pel = addPeliculaToSesionPeliculaCombo.getSelectedIndex();
-        MainFrame.sesiones.get(sesi).setPelicula(MainFrame.peliculas.get(pel));
+           try {
+               MainFrame.cines.get(0).asignarPelicula(MainFrame.cines.get(0).getPelicula().get(pel), sesiones.get(sesi).getDate(), sesiones.get(sesi).getSala());
+           } catch (SesionSolapada ex) {
+               Logger.getLogger(AddPeliculaToSesion.class.getName()).log(Level.SEVERE, null, ex);
+           } catch (ArrayListException ex) {
+               Logger.getLogger(AddPeliculaToSesion.class.getName()).log(Level.SEVERE, null, ex);
+           }
     }//GEN-LAST:event_addPeliculaToSesionAddBtnActionPerformed
 
 
