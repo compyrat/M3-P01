@@ -243,7 +243,7 @@ public class Cine {
         Sesion sesion = sala.devolverSesion(fecha);
         return sesion;
     }
-    private Date getFecha(int dia, int mes, int anyo){
+    public Date getFecha(int dia, int mes, int anyo){
         Calendar cal = GregorianCalendar.getInstance();
         cal.set(anyo, mes, dia);
         Date fecha = new Date();
@@ -251,7 +251,7 @@ public class Cine {
         return fecha;
     }
     
-    private Date getFecha(int dia, int mes, int anyo, int hora, int minutos){
+    public Date getFecha(int dia, int mes, int anyo, int hora, int minutos){
         Calendar cal = GregorianCalendar.getInstance();
         cal.set(anyo, mes, dia, hora, minutos);
         Date fecha = new Date();

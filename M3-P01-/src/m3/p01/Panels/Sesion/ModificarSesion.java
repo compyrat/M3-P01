@@ -30,8 +30,9 @@ public class ModificarSesion extends javax.swing.JPanel {
         }
         modificarSesionSalaCombo.setSelectedItem(" - Sala Numero: " + sesion.getSala().getNumSala());
         for (int i = 0; i< MainFrame.cines.get(0).getPelicula().size(); i++){
-            
+            modificarSesionPeliculaCombo.addItem(" - Pelicula: " + MainFrame.cines.get(0).getPelicula().get(i).getTitulo());
         }
+        modificarSesionPeliculaCombo.setSelectedItem(" - Pelicula: " + sesion.getPelicula().getTitulo());
     }
 
     /**
@@ -202,6 +203,22 @@ public class ModificarSesion extends javax.swing.JPanel {
 
     private void modificarSesionCrearBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarSesionCrearBtnActionPerformed
         // TODO add your handling code here:
+        sesion.setSala(MainFrame.cines.get(0).getSala().get(modificarSesionSalaCombo.getSelectedIndex()));
+        sesion.setPelicula(MainFrame.cines.get(0).getPelicula().get(modificarSesionPeliculaCombo.getSelectedIndex()));
+         if (!modificarSesionButacasVendidasTxt.getText().equals("")){
+            if (MainFrame.isNumeric(modificarSesionButacasVendidasTxt.getText())){
+                if (Integer.valueOf(modificarSesionButacasVendidasTxt.getText()) > 0 && Integer.valueOf(modificarSesionButacasVendidasTxt.getText()) < sesion.getSala().getNButacas()){
+                    sesion.setnButacas(Integer.parseInt(modificarSesionButacasVendidasTxt.getText()));
+                }else{
+                    MainFrame.infoFail("El valor de las butacas ha de ser superior a 0 e inferior a " + sesion.getSala().getNButacas() + ".");
+                }
+            }else{
+                MainFrame.infoFail("Solo puedes insertar un valor numerico en el campo de butacas.");
+            }
+        }else{
+            MainFrame.infoFail("No puedes el campo vacio.");
+        }
+         sesion.setFecha(MainFrame.cines.get(0).getFecha(Integer.parseInt(modificarSesionFechaDiaTxt.getText()), Integer.parseInt(modificarSesionFechaMesTxt.getText()),Integer.parseInt(modificarSesionFechaAnyoTxt.getText()), Integer.parseInt(modificarSesionFechaHoraTxt.getText()), Integer.parseInt(modificarSesionFechaMinTxt.getText())));
     }//GEN-LAST:event_modificarSesionCrearBtnActionPerformed
 
 
