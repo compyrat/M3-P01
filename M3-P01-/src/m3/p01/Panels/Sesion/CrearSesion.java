@@ -5,7 +5,11 @@
  */
 package m3.p01.Panels.Sesion;
 
+import Exceptions.ArrayListException;
+import Exceptions.SesionSolapada;
 import java.util.Calendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import m3.p01.MainFrame;
 import m3.p01.Sesion;
 
@@ -210,9 +214,15 @@ public class CrearSesion extends javax.swing.JPanel {
         int año = Integer.parseInt(crearSesionFechaAnyoTxt.getText());
         int hora = Integer.parseInt(crearSesionFechaHoraTxt.getText());
         int min = Integer.parseInt(crearSesionFechaMinTxt.getText());
-        Sesion sesion = new Sesion(MainFrame.peliculas.get(npelicula), MainFrame.salas.get(nsala), año, mes, dia, hora, min);
+        Sesion sesion = new Sesion(MainFrame.cines.get(0).getPelicula().get(npelicula), MainFrame.cines.get(0).getSala().get(nsala), año, mes, dia, hora, min);
         sesion.actualizarButacasVendidas(nvendidas);
-        MainFrame.sesiones.add(sesion);
+        try {
+            MainFrame.cines.get(0).getSala().get(nsala).addSesion(sesion);
+        } catch (SesionSolapada ex) {
+            Logger.getLogger(CrearSesion.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ArrayListException ex) {
+            Logger.getLogger(CrearSesion.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_crearSesionCrearBtnActionPerformed
 
 
