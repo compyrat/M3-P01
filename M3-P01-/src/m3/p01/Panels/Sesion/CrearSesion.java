@@ -223,6 +223,12 @@ public class CrearSesion extends javax.swing.JPanel {
         } catch (ArrayListException ex) {
             Logger.getLogger(CrearSesion.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.removeAll();
+        CrearSesion cSes= new CrearSesion();
+        cSes.setBounds(0, 0, 450, 279);
+        this.add(cSes);
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_crearSesionCrearBtnActionPerformed
 
 

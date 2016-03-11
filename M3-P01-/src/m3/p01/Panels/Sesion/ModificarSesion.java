@@ -229,6 +229,12 @@ public class ModificarSesion extends javax.swing.JPanel {
             MainFrame.infoFail("No puedes el campo vacio.");
         }
          sesion.setFecha(MainFrame.cines.get(0).getFecha(Integer.parseInt(modificarSesionFechaDiaTxt.getText()), Integer.parseInt(modificarSesionFechaMesTxt.getText()),Integer.parseInt(modificarSesionFechaAnyoTxt.getText()), Integer.parseInt(modificarSesionFechaHoraTxt.getText()), Integer.parseInt(modificarSesionFechaMinTxt.getText())));
+         this.removeAll();
+         ModificarSesionSeleccion mP= new ModificarSesionSeleccion();
+        mP.setBounds(0, 0, 450, 279);
+        this.add(mP);
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_modificarSesionCrearBtnActionPerformed
 
 

@@ -125,6 +125,12 @@ public class AddPeliculaToSesion extends javax.swing.JPanel {
            } catch (ArrayListException ex) {
                Logger.getLogger(AddPeliculaToSesion.class.getName()).log(Level.SEVERE, null, ex);
            }
+           this.removeAll();
+           AddPeliculaToSesion aPTS= new AddPeliculaToSesion();
+        aPTS.setBounds(0, 0, 450, 279);
+        this.add(aPTS);
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_addPeliculaToSesionAddBtnActionPerformed
 
 
