@@ -26,21 +26,35 @@ public class AddSesionToSala extends javax.swing.JPanel {
      */
     ArrayList<Sala> salas = new ArrayList<Sala>();
     ArrayList<Sesion> sesiones = new ArrayList<Sesion>();
+    private boolean firstTime = true;
+    
     public AddSesionToSala() {
         initComponents();
+        addSesionToSalaSesionCombo.setEnabled(false);
         cargarSesionesSalas();
+        firstTime = false;
     }
     private void cargarSesionesSalas(){
         for(int i = 0; i<MainFrame.cines.get(0).getSala().size(); i++){
             addSesionToSalaSalaCombo.addItem((i+1) + " - Sala: " + MainFrame.cines.get(0).getSala().get(i).getNumSala());
             salas.add(MainFrame.cines.get(0).getSala().get(i));
             for(int i2 = 0; i2<MainFrame.cines.get(0).getSala().get(i).getSesion().size(); i2++){
-           
-            sesiones.add(MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2));
+                sesiones.add(MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2));
             }
         }
     }
 
+    private void cargarAux(){
+        
+        sesiones = null;
+        sesiones = new ArrayList<Sesion>();
+        addSesionToSalaSesionCombo.removeAllItems();
+        for(int i = 0; i<MainFrame.cines.get(0).getSala().size(); i++){
+            for(int i2 = 0; i2<MainFrame.cines.get(0).getSala().get(i).getSesion().size(); i2++){
+                sesiones.add(MainFrame.cines.get(0).getSala().get(i).getSesion().get(i2));
+            }
+        }
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -108,36 +122,50 @@ public class AddSesionToSala extends javax.swing.JPanel {
         try {
             // TODO add your handling code here:
             Sesion sesion = sesiones.get(addSesionToSalaSesionCombo.getSelectedIndex());
+            System.out.println("************************");
+            System.out.println(sesion.toString());
             MainFrame.cines.get(0).getSala().get(addSesionToSalaSalaCombo.getSelectedIndex()).addSesion(sesion);
-            
-            System.out.println(MainFrame.cines.get(0).getSala().get(1).getSesion().size());
+            MainFrame.infoCorrect("Sesion cambiada correctamente");
+
+            for(Sesion ses: sesiones){
+                System.out.println(ses.toString());
+            }
+            //cargarAux();
         } catch (SesionSolapada ex) {
             MainFrame.infoFail(ex.getMessage());
         } catch (ArrayListException ex) {
             MainFrame.infoFail(ex.getMessage());
         } catch (Exception e){
             MainFrame.infoFail("No puedes dejar campos vacios.");
+        } catch (Throwable ex) {
+            Logger.getLogger(AddSesionToSala.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_addSesionToSalaAddBtnActionPerformed
 
     private void addSesionToSalaSalaComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSesionToSalaSalaComboActionPerformed
+        
         addSesionToSalaSesionCombo.removeAllItems();
+        int contador = 0;
         for(Sesion ses: sesiones){
             if (salas.get(addSesionToSalaSalaCombo.getSelectedIndex()).getNumSala() != ses.getSala().getNumSala()){
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(ses.getDate());
-            addSesionToSalaSesionCombo.addItem(" - Sesion: ( Sala: " + 
-            salas.get(addSesionToSalaSalaCombo.getSelectedIndex()).getNumSala() + " - " + 
-            cal.get(Calendar.DAY_OF_MONTH) + "/" +cal.get(Calendar.MONTH) + "/" 
-            +cal.get(Calendar.YEAR)  + " - " + cal.get(Calendar.HOUR_OF_DAY) + ":" + 
-            cal.get(Calendar.MINUTE) + ")");
+                Calendar cal = Calendar.getInstance();
+                cal.setTime(ses.getDate());
+                addSesionToSalaSesionCombo.addItem("Sesion: ( Sala: " + 
+                ses.getSala().getNumSala() + " - " + 
+                cal.get(Calendar.DAY_OF_MONTH) + "/" +cal.get(Calendar.MONTH) + "/" 
+                +cal.get(Calendar.YEAR)  + " - " + cal.get(Calendar.HOUR_OF_DAY) + ":" + 
+                cal.get(Calendar.MINUTE) + ")");
             }
         }
-        if (addSesionToSalaSesionCombo.getItemCount() == 0){
-            MainFrame.infoCorrect("No hay Sesiones disponibles para esta sala.");
+        if (!firstTime){
+            addSesionToSalaSesionCombo.setEnabled(true);
+            if (addSesionToSalaSesionCombo.getItemCount() == 0){
+                MainFrame.infoCorrect("No hay Sesiones disponibles para esta sala.");
+            }
         }   
     }//GEN-LAST:event_addSesionToSalaSalaComboActionPerformed
 
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addSesionToSalaAddBtn;

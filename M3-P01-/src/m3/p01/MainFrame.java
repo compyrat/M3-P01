@@ -31,10 +31,7 @@ public class MainFrame extends javax.swing.JFrame {
      */
     JPanel jp = null;
     public static ArrayList<Cine> cines = new ArrayList<Cine>(1);
-    public static ArrayList<Pelicula> peliculas = new ArrayList<Pelicula>();
-    public static ArrayList<Sala> salas = new ArrayList<Sala>();
-    public static ArrayList<Sesion> sesiones = new ArrayList<Sesion>();
-    
+
     public MainFrame() {
         initComponents();
         inicio();
@@ -54,8 +51,8 @@ public class MainFrame extends javax.swing.JFrame {
             cines.get(0).addPelicula(pel);
             cines.get(0).addSala(sal);
             cines.get(0).addSala(sal2);
-            cines.get(0).getSala().get(0).addSesion(new Sesion(pel, sal, 95, 1, 15, 18, 00));
-            cines.get(0).getSala().get(0).addSesion(new Sesion(pel, sal, 952, 12, 152, 22, 00));
+            cines.get(0).getSala().get(1).addSesion(new Sesion(pel, sal, 95, 1, 15, 18, 00));
+            cines.get(0).getSala().get(1).addSesion(new Sesion(pel, sal, 952, 12, 152, 22, 00));
         } catch (ArrayListException ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (PeliculaRepetida ex) {
@@ -252,15 +249,19 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
-        if (jp != null){
-            this.remove(jp);
+        if (cines.size() >= 1 ){
+            infoFail("No puedes crear mas de un cine");
+        }else{
+            if (jp != null){
+                this.remove(jp);
+            }
+            CrearCine cC= new CrearCine();
+            cC.setBounds(0, 0, 450, 279);
+            jp = cC;
+            this.add(cC);
+            this.revalidate();
+            this.repaint();
         }
-        CrearCine cC= new CrearCine();
-        cC.setBounds(0, 0, 450, 279);
-        jp = cC;
-        this.add(cC);
-        this.revalidate();
-        this.repaint();
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed

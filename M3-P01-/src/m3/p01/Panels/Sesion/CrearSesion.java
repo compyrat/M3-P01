@@ -7,7 +7,6 @@ package m3.p01.Panels.Sesion;
 
 import Exceptions.ArrayListException;
 import Exceptions.SesionSolapada;
-import java.util.Calendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import m3.p01.MainFrame;
@@ -28,13 +27,13 @@ public class CrearSesion extends javax.swing.JPanel {
         cargarPeliculas();
     }
     private void cargarSalas(){
-        for (int i = 0; i<MainFrame.salas.size(); i++){
-            crearSesionSalaCombo.addItem((i+1)+" - Sala: "+MainFrame.salas.get(i).getNumSala());
+        for (int i = 0; i<MainFrame.cines.get(0).getSala().size(); i++){
+            crearSesionSalaCombo.addItem((i+1)+" - Sala: " + MainFrame.cines.get(0).getSala().get(i).getNumSala());
         }
     }
     private void cargarPeliculas(){
-        for (int i = 0; i<MainFrame.peliculas.size(); i++){
-            crearSesionPeliculaCombo.addItem((i+1)+" - "+MainFrame.peliculas.get(i).getTitulo());
+        for (int i = 0; i<MainFrame.cines.get(0).getPelicula().size(); i++){
+            crearSesionPeliculaCombo.addItem((i+1)+" - " + MainFrame.cines.get(0).getPelicula().get(i).getTitulo());
         }
     }
 
