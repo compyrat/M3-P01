@@ -107,12 +107,12 @@ public class CrearPelicula extends javax.swing.JPanel {
         }catch(Exception e){
             MainFrame.infoFail("No se ha creado la pelicula.");
         }
-       this.removeAll();
+      /* this.removeAll();
         CrearPelicula cP= new CrearPelicula();
         cP.setBounds(0, 0, 450, 279);
         this.add(cP);
         this.revalidate();
-        this.repaint();
+        this.repaint();*/
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

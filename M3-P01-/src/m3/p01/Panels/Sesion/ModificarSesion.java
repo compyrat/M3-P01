@@ -34,7 +34,7 @@ public class ModificarSesion extends javax.swing.JPanel {
             modificarSesionPeliculaCombo.addItem(" - Pelicula: " + MainFrame.cines.get(0).getPelicula().get(i).getTitulo());
         }
         modificarSesionPeliculaCombo.setSelectedItem(" - Pelicula: " + sesion.getPelicula().getTitulo());
-        modificarSesionButacasVendidasTxt.setText(String.valueOf(sesion.getnButacas() - sesion.getnButacasLibres()));
+        modificarSesionButacasVendidasTxt.setText(sesion.getSala().getNButacas() - sesion.getnButacasLibres() + "");
         Calendar cal = Calendar.getInstance();
         cal.setTime(sesion.getDate());
         modificarSesionFechaDiaTxt.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
@@ -217,7 +217,8 @@ public class ModificarSesion extends javax.swing.JPanel {
          if (!modificarSesionButacasVendidasTxt.getText().equals("")){
             if (MainFrame.isNumeric(modificarSesionButacasVendidasTxt.getText())){
                 if (Integer.valueOf(modificarSesionButacasVendidasTxt.getText()) > 0 && Integer.valueOf(modificarSesionButacasVendidasTxt.getText()) < sesion.getSala().getNButacas()){
-                    sesion.setnButacas(Integer.parseInt(modificarSesionButacasVendidasTxt.getText()));
+                    //sesion.setnButacas(Integer.parseInt(modificarSesionButacasVendidasTxt.getText()));
+                    sesion.actualizarButacasVendidas(Integer.parseInt(modificarSesionButacasVendidasTxt.getText()));
                     MainFrame.infoCorrect("Se ha modificado correctamente.");
                 }else{
                     MainFrame.infoFail("El valor de las butacas ha de ser superior a 0 e inferior a " + sesion.getSala().getNButacas() + ".");

@@ -66,6 +66,9 @@ public class Sesion {
             nButacasLibres = num;
         }
     }
+    public int getButacasVendidas(){
+        return nButacas - nButacasLibres;
+    }
 
     public Pelicula getPelicula() {
         return pelicula;
@@ -85,10 +88,11 @@ public class Sesion {
     }
 
     public void actualizarButacasVendidas(int vendidas) throws IllegalArgumentException{
-        if (vendidas <= 0 || vendidas > nButacasLibres){
+        if (vendidas <= 0 || vendidas > this.nButacasLibres){
             throw new IllegalArgumentException("No se puede introducior un numero de butacas libres negativas ni mayor al numero de butacas libres");
         }else{
-            nButacasLibres = nButacas - vendidas;
+            this.nButacasLibres = nButacas -  vendidas;
+            System.out.println(nButacas + " " + nButacasLibres + " " + getButacasVendidas());
         }
     }
     private Date getFecha(int dia, int mes, int anyo, int hora, int minutos){

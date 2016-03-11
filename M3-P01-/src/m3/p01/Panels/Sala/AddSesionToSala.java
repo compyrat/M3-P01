@@ -30,7 +30,6 @@ public class AddSesionToSala extends javax.swing.JPanel {
     
     public AddSesionToSala() {
         initComponents();
-        addSesionToSalaSesionCombo.setEnabled(false);
         cargarSesionesSalas();
         firstTime = false;
     }
