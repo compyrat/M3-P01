@@ -442,7 +442,7 @@ public class MainFrame extends javax.swing.JFrame {
     
     public static int infoComprobar(String infoMessage)
     {
-        int result = JOptionPane.showConfirmDialog(null, infoMessage, "Eliminar", JOptionPane.INFORMATION_MESSAGE);
+        int result = JOptionPane.showConfirmDialog(null, infoMessage, "Eliminar", JOptionPane.YES_NO_OPTION);
         return result;
     }
     /**
