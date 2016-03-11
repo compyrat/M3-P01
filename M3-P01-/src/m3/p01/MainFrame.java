@@ -45,7 +45,7 @@ public class MainFrame extends javax.swing.JFrame {
         Pelicula pel = new Pelicula("Titulo", "Director", 10, "Jaja", Genero.ACCION, 1000);
         Sala sal = new Sala(15, 25);
         Sala sal2 = new Sala(152, 252);
-        Cine cine = new Cine("cine", "Calle123");
+        /*Cine cine = new Cine("cine", "Calle123");
         cines.add(cine);
         try {
             cines.get(0).addPelicula(pel);
@@ -61,7 +61,7 @@ public class MainFrame extends javax.swing.JFrame {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SesionSolapada ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
     /**
      * This method is called from within the constructor to initialize the form.

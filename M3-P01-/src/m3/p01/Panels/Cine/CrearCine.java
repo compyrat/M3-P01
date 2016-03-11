@@ -61,7 +61,12 @@ public class CrearCine extends javax.swing.JPanel {
         Cine cine = new Cine(crearCineNombreTxt.getText(), crearCineDireccionTxt.getText());
         MainFrame.cines.add(cine);
         MainFrame.infoCorrect("Se ha creado correctamente.");
-        
+        jLabel1.setVisible(false);
+        jLabel2.setVisible(false);
+        crearCineNombreTxt.setVisible(false);
+        crearCineDireccionTxt.setVisible(false);
+        crearCineBtn.setVisible(false);
+        crearCineBtn.setEnabled(false);
     }//GEN-LAST:event_crearCineBtnActionPerformed
 
 
