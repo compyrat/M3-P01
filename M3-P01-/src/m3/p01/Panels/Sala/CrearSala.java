@@ -107,6 +107,12 @@ public class CrearSala extends javax.swing.JPanel {
                 Logger.getLogger(CrearSala.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+        this.removeAll();
+        CrearSala cS= new CrearSala();
+        cS.setBounds(0, 0, 450, 279);
+        this.add(cS);
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_crearSalaCrearBtnActionPerformed
 
 

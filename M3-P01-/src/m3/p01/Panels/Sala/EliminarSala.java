@@ -75,6 +75,12 @@ public class EliminarSala extends javax.swing.JPanel {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         MainFrame.cines.get(0).getSala().remove(eliminarSalaSeleccionCombo.getSelectedIndex());
+        this.removeAll();
+        EliminarSala mP = new EliminarSala();
+        mP.setBounds(0, 0, 450, 279);
+        this.add(mP);
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

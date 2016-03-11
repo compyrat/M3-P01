@@ -106,6 +106,12 @@ public class ModificarSala extends javax.swing.JPanel {
         }else{
             MainFrame.infoFail("No puedes el campo vacio.");
         }
+        this.removeAll();
+        ModificarSalaSeleccion mP= new ModificarSalaSeleccion();
+        mP.setBounds(0, 0, 450, 279);
+        this.add(mP);
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_modificarSalaCrearBtnActionPerformed
 
 

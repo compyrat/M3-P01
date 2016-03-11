@@ -140,6 +140,12 @@ public class AddSesionToSala extends javax.swing.JPanel {
         } catch (Throwable ex) {
             Logger.getLogger(AddSesionToSala.class.getName()).log(Level.SEVERE, null, ex);
         }
+        this.removeAll();
+        AddSesionToSala aSTS= new AddSesionToSala();
+        aSTS.setBounds(0, 0, 450, 279);
+        this.add(aSTS);
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_addSesionToSalaAddBtnActionPerformed
 
     private void addSesionToSalaSalaComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSesionToSalaSalaComboActionPerformed
