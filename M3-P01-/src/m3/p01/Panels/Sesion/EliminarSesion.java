@@ -7,6 +7,7 @@ package m3.p01.Panels.Sesion;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import javax.swing.JOptionPane;
 import m3.p01.Panels.Pelicula.*;
 import m3.p01.MainFrame;
 import m3.p01.Sesion;
@@ -91,13 +92,20 @@ public class EliminarSesion extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MainFrame.cines.get(0).eliminarSesion(sesiones.get(eliminarSesionSeleccionCombo.getSelectedIndex()).getSala().getNumSala(), sesiones.get(eliminarSesionSeleccionCombo.getSelectedIndex()));
-        this.removeAll();
-        EliminarSesion mP = new EliminarSesion();
-        mP.setBounds(0, 0, 450, 279);
-        this.add(mP);
-        this.revalidate();
-        this.repaint();
+        try{
+            if (MainFrame.infoComprobar("Desea eliminar la sesión: "+eliminarSesionSeleccionCombo.getSelectedItem().toString())==JOptionPane.YES_OPTION){
+                MainFrame.cines.get(0).eliminarSesion(sesiones.get(eliminarSesionSeleccionCombo.getSelectedIndex()).getSala().getNumSala(), sesiones.get(eliminarSesionSeleccionCombo.getSelectedIndex()));
+                MainFrame.infoCorrect("Sesión eliminada correctamente.");
+                this.removeAll();
+                EliminarSesion mP = new EliminarSesion();
+                mP.setBounds(0, 0, 450, 279);
+                this.add(mP);
+                this.revalidate();
+                this.repaint();
+            }
+        }catch(NullPointerException NPE){
+            MainFrame.infoFail("No hay nada seleccionado.");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
