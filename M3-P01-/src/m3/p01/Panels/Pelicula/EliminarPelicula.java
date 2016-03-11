@@ -5,6 +5,7 @@
  */
 package m3.p01.Panels.Pelicula;
 
+import javax.swing.JOptionPane;
 import m3.p01.MainFrame;
 
 /**
@@ -23,7 +24,7 @@ public class EliminarPelicula extends javax.swing.JPanel {
 
     public void cargarPeliculas(){
         for(int i = 0; i<MainFrame.cines.get(0).getPelicula().size(); i++){
-            eliminarPeliculaSeleccionCombo.addItem(i + "- " + MainFrame.cines.get(0).getPelicula().get(i).getTitulo());
+            eliminarPeliculaSeleccionCombo.addItem(MainFrame.cines.get(0).getPelicula().get(i).getTitulo());
         }
     }
     /**
@@ -76,7 +77,16 @@ public class EliminarPelicula extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MainFrame.cines.get(0).delPelicula(eliminarPeliculaSeleccionCombo.getSelectedItem().toString());
+        try{
+        if (MainFrame.infoComprobar("Desea eliminar la película: "+eliminarPeliculaSeleccionCombo.getSelectedItem().toString())==JOptionPane.YES_OPTION){
+            MainFrame.cines.get(0).delPelicula(eliminarPeliculaSeleccionCombo.getSelectedItem().toString());
+            eliminarPeliculaSeleccionCombo.removeAllItems();
+            MainFrame.infoCorrect("Película eliminada correctamente.");
+            cargarPeliculas();
+        }
+        }catch(NullPointerException NPE){
+            MainFrame.infoFail("No hay nada seleccionado.");
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
