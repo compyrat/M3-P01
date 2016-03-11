@@ -98,6 +98,12 @@ public class ModificarCine extends javax.swing.JPanel {
         MainFrame.cines.get(0).setNombre(modificarCineNombreTxt.getText());
         MainFrame.cines.get(0).setDireccion(modificarCineDireccionTxt.getText());
         MainFrame.infoCorrect("Se ha modificado correctamente.");
+        this.removeAll();
+        ModificarCine mC= new ModificarCine();
+        mC.setBounds(0, 0, 450, 279);
+        this.add(mC);
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

@@ -332,7 +332,7 @@ public class MainFrame extends javax.swing.JFrame {
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
         // TODO add your handling code here:
         
-        /*if (jp != null){
+        if (jp != null){
             this.remove(jp);
         }
         ModificarCine mC= new ModificarCine();
@@ -340,7 +340,7 @@ public class MainFrame extends javax.swing.JFrame {
         jp = mC;
         this.add(mC);
         this.revalidate();
-        this.repaint();*/
+        this.repaint();
     }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed

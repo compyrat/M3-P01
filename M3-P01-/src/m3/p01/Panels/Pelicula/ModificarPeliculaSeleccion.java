@@ -23,7 +23,7 @@ public class ModificarPeliculaSeleccion extends javax.swing.JPanel  {
     }
     public void cargarPeliculas(){
         for(int i = 0; i<MainFrame.cines.get(0).getPelicula().size(); i++){
-            modificarPeliculaSeleccionCombo.addItem(i + "- " + MainFrame.cines.get(0).getPelicula().get(i).getTitulo());
+            modificarPeliculaSeleccionCombo.addItem(MainFrame.cines.get(0).getPelicula().get(i).getTitulo());
         }
     }
     /**
