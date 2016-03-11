@@ -96,6 +96,7 @@ public class ModificarSala extends javax.swing.JPanel {
             if (MainFrame.isNumeric(modificarSalaNumeroButacasTxt.getText())){
                 if (Integer.valueOf(modificarSalaNumeroButacasTxt.getText()) > 0){
                     MainFrame.cines.get(0).buscarSala(sala.getNumSala()).setNButacas(Integer.parseInt(modificarSalaNumeroButacasTxt.getText()));
+                    MainFrame.infoCorrect("Se ha modificado correctamente.");
                 }else{
                     MainFrame.infoFail("El valor de las butacas ha de ser superior a 0.");
                 }

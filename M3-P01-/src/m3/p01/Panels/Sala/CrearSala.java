@@ -94,6 +94,7 @@ public class CrearSala extends javax.swing.JPanel {
         if (MainFrame.isNumeric(crearSalaNumeroSalaTxt.getText()) && MainFrame.isNumeric(crearSalaNumeroButacasTxt.getText())){
             try {
                 MainFrame.cines.get(0).addSala(new Sala(Integer.parseInt(crearSalaNumeroSalaTxt.getText()), Integer.parseInt(crearSalaNumeroButacasTxt.getText())));
+                MainFrame.infoCorrect("Se ha creado correctamente.");
             } catch (SalaRepetida ex) {
                 Logger.getLogger(CrearSala.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ArrayListException ex) {

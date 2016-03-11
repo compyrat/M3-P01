@@ -97,6 +97,7 @@ public class ModificarCine extends javax.swing.JPanel {
         // TODO add your handling code here:
         MainFrame.cines.get(0).setNombre(modificarCineNombreTxt.getText());
         MainFrame.cines.get(0).setDireccion(modificarCineDireccionTxt.getText());
+        MainFrame.infoCorrect("Se ha modificado correctamente.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

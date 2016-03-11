@@ -119,6 +119,7 @@ public class AddPeliculaToSesion extends javax.swing.JPanel {
         int pel = addPeliculaToSesionPeliculaCombo.getSelectedIndex();
            try {
                MainFrame.cines.get(0).asignarPelicula(MainFrame.cines.get(0).getPelicula().get(pel), sesiones.get(sesi).getDate(), sesiones.get(sesi).getSala());
+               MainFrame.infoCorrect("Se ha Añadido correctamente.");
            } catch (SesionSolapada ex) {
                Logger.getLogger(AddPeliculaToSesion.class.getName()).log(Level.SEVERE, null, ex);
            } catch (ArrayListException ex) {

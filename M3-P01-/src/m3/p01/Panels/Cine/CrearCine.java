@@ -60,6 +60,7 @@ public class CrearCine extends javax.swing.JPanel {
         // TODO add your handling code here:
         Cine cine = new Cine(crearCineNombreTxt.getText(), crearCineDireccionTxt.getText());
         MainFrame.cines.add(cine);
+        MainFrame.infoCorrect("Se ha creado correctamente.");
         
     }//GEN-LAST:event_crearCineBtnActionPerformed
 

@@ -160,7 +160,7 @@ public class AddSesionToSala extends javax.swing.JPanel {
         if (!firstTime){
             addSesionToSalaSesionCombo.setEnabled(true);
             if (addSesionToSalaSesionCombo.getItemCount() == 0){
-                MainFrame.infoCorrect("No hay Sesiones disponibles para esta sala.");
+                MainFrame.infoFail("No hay Sesiones disponibles para esta sala.");
             }
         }   
     }//GEN-LAST:event_addSesionToSalaSalaComboActionPerformed

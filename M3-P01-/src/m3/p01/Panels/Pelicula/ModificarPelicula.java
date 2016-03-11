@@ -114,6 +114,7 @@ public class ModificarPelicula extends javax.swing.JPanel {
         MainFrame.cines.get(0).buscarPelicula(indexPelicula).setAnyo(Integer.parseInt(modificarPeliculaAnyoTxt.getText()));
         MainFrame.cines.get(0).buscarPelicula(indexPelicula).setSinopsis(modificarPeliculaSinopsisTxtArea.getText());
         MainFrame.cines.get(0).buscarPelicula(indexPelicula).setDuracion(Integer.parseInt(modificarPeliculaDuracionTxt.getText()));
+        MainFrame.infoCorrect("Se ha modificado correctamente.");
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

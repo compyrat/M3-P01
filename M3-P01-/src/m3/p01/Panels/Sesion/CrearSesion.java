@@ -217,6 +217,7 @@ public class CrearSesion extends javax.swing.JPanel {
         sesion.actualizarButacasVendidas(nvendidas);
         try {
             MainFrame.cines.get(0).getSala().get(nsala).addSesion(sesion);
+            MainFrame.infoCorrect("Se ha creado correctamente.");
         } catch (SesionSolapada ex) {
             Logger.getLogger(CrearSesion.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ArrayListException ex) {

@@ -218,6 +218,7 @@ public class ModificarSesion extends javax.swing.JPanel {
             if (MainFrame.isNumeric(modificarSesionButacasVendidasTxt.getText())){
                 if (Integer.valueOf(modificarSesionButacasVendidasTxt.getText()) > 0 && Integer.valueOf(modificarSesionButacasVendidasTxt.getText()) < sesion.getSala().getNButacas()){
                     sesion.setnButacas(Integer.parseInt(modificarSesionButacasVendidasTxt.getText()));
+                    MainFrame.infoCorrect("Se ha modificado correctamente.");
                 }else{
                     MainFrame.infoFail("El valor de las butacas ha de ser superior a 0 e inferior a " + sesion.getSala().getNButacas() + ".");
                 }
