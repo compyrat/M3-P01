@@ -5,6 +5,7 @@
  */
 package m3.p01.Panels.Sesion;
 
+import java.util.Calendar;
 import m3.p01.MainFrame;
 import m3.p01.Sesion;
 
@@ -33,6 +34,14 @@ public class ModificarSesion extends javax.swing.JPanel {
             modificarSesionPeliculaCombo.addItem(" - Pelicula: " + MainFrame.cines.get(0).getPelicula().get(i).getTitulo());
         }
         modificarSesionPeliculaCombo.setSelectedItem(" - Pelicula: " + sesion.getPelicula().getTitulo());
+        modificarSesionButacasVendidasTxt.setText(String.valueOf(sesion.getnButacas() - sesion.getnButacasLibres()));
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(sesion.getDate());
+        modificarSesionFechaDiaTxt.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
+        modificarSesionFechaMesTxt.setText(String.valueOf(cal.get(Calendar.MONTH)));
+        modificarSesionFechaAnyoTxt.setText(String.valueOf(cal.get(Calendar.YEAR)));
+        modificarSesionFechaHoraTxt.setText(String.valueOf(cal.get(Calendar.HOUR_OF_DAY)));
+        modificarSesionFechaMinTxt.setText(String.valueOf(cal.get(Calendar.MINUTE)));
     }
 
     /**
