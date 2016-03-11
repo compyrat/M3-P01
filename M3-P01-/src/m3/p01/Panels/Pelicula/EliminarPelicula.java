@@ -77,16 +77,13 @@ public class EliminarPelicula extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        try{
-        if (MainFrame.infoComprobar("Desea eliminar la película: "+eliminarPeliculaSeleccionCombo.getSelectedItem().toString())==JOptionPane.YES_OPTION){
-            MainFrame.cines.get(0).delPelicula(eliminarPeliculaSeleccionCombo.getSelectedItem().toString());
-            eliminarPeliculaSeleccionCombo.removeAllItems();
-            MainFrame.infoCorrect("Película eliminada correctamente.");
-            cargarPeliculas();
-        }
-        }catch(NullPointerException NPE){
-            MainFrame.infoFail("No hay nada seleccionado.");
-        }
+        MainFrame.cines.get(0).delPelicula(eliminarPeliculaSeleccionCombo.getSelectedItem().toString());
+        this.removeAll();
+        EliminarPelicula mP = new EliminarPelicula();
+        mP.setBounds(0, 0, 450, 279);
+        this.add(mP);
+        this.revalidate();
+        this.repaint();
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
