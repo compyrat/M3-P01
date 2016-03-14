@@ -34,7 +34,7 @@ public class ModificarSesion extends javax.swing.JPanel {
             modificarSesionPeliculaCombo.addItem(" - Pelicula: " + MainFrame.cines.get(0).getPelicula().get(i).getTitulo());
         }
         modificarSesionPeliculaCombo.setSelectedItem(" - Pelicula: " + sesion.getPelicula().getTitulo());
-        modificarSesionButacasVendidasTxt.setText(sesion.getSala().getNButacas() - sesion.getnButacasLibres() + "");
+        modificarSesionButacasVendidasTxt.setText(String.valueOf(sesion.getButacasVendidas()));
         Calendar cal = Calendar.getInstance();
         cal.setTime(sesion.getDate());
         modificarSesionFechaDiaTxt.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));

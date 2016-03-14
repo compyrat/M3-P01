@@ -48,11 +48,9 @@ public class CrearSesion extends javax.swing.JPanel {
 
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         crearSesionSalaCombo = new javax.swing.JComboBox();
         crearSesionPeliculaCombo = new javax.swing.JComboBox();
-        crearSesionButacasVendidasTxt = new javax.swing.JTextField();
         crearSesionFechaDiaTxt = new javax.swing.JTextField();
         crearSesionFechaMesTxt = new javax.swing.JTextField();
         crearSesionFechaAnyoTxt = new javax.swing.JTextField();
@@ -70,8 +68,6 @@ public class CrearSesion extends javax.swing.JPanel {
         jLabel1.setText("Sala");
 
         jLabel2.setText("Pelicula");
-
-        jLabel3.setText("Butacas Vendidas");
 
         jLabel4.setText("Fecha");
 
@@ -136,15 +132,13 @@ public class CrearSesion extends javax.swing.JPanel {
                             .addComponent(crearSesionFechaMinTxt, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel9)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
+                        .addGap(96, 96, 96)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(crearSesionButacasVendidasTxt, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
-                            .addComponent(crearSesionPeliculaCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(crearSesionPeliculaCombo, 0, 56, Short.MAX_VALUE)
                             .addComponent(crearSesionSalaCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(160, 160, 160)
@@ -165,11 +159,7 @@ public class CrearSesion extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(crearSesionPeliculaCombo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(crearSesionButacasVendidasTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createSequentialGroup()
@@ -196,7 +186,7 @@ public class CrearSesion extends javax.swing.JPanel {
                         .addComponent(crearSesionFechaMinTxt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(crearSesionCrearBtn)
-                .addContainerGap(90, Short.MAX_VALUE))
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {crearSesionFechaAnyoTxt, crearSesionFechaDiaTxt, crearSesionFechaHoraTxt, crearSesionFechaMesTxt, crearSesionFechaMinTxt});
@@ -207,21 +197,21 @@ public class CrearSesion extends javax.swing.JPanel {
         // TODO add your handling code here:
         int nsala = crearSesionSalaCombo.getSelectedIndex();
         int npelicula = crearSesionPeliculaCombo.getSelectedIndex();
-        int nvendidas = Integer.parseInt(crearSesionButacasVendidasTxt.getText());
         int dia = Integer.parseInt(crearSesionFechaDiaTxt.getText());
         int mes = Integer.parseInt(crearSesionFechaMesTxt.getText());
         int año = Integer.parseInt(crearSesionFechaAnyoTxt.getText());
         int hora = Integer.parseInt(crearSesionFechaHoraTxt.getText());
         int min = Integer.parseInt(crearSesionFechaMinTxt.getText());
         Sesion sesion = new Sesion(MainFrame.cines.get(0).getPelicula().get(npelicula), MainFrame.cines.get(0).getSala().get(nsala), año, mes, dia, hora, min);
-        sesion.actualizarButacasVendidas(nvendidas);
-        try {
+        try {          
             MainFrame.cines.get(0).getSala().get(nsala).addSesion(sesion);
             MainFrame.infoCorrect("Se ha creado correctamente.");
         } catch (SesionSolapada ex) {
-            Logger.getLogger(CrearSesion.class.getName()).log(Level.SEVERE, null, ex);
+            MainFrame.infoFail(ex.getMessage());
         } catch (ArrayListException ex) {
-            Logger.getLogger(CrearSesion.class.getName()).log(Level.SEVERE, null, ex);
+            MainFrame.infoFail(ex.getMessage());
+        } catch (IllegalArgumentException ex){
+            MainFrame.infoFail(ex.getMessage());
         }
         this.removeAll();
         CrearSesion cSes= new CrearSesion();
@@ -233,7 +223,6 @@ public class CrearSesion extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField crearSesionButacasVendidasTxt;
     private javax.swing.JButton crearSesionCrearBtn;
     private javax.swing.JTextField crearSesionFechaAnyoTxt;
     private javax.swing.JTextField crearSesionFechaDiaTxt;
@@ -244,7 +233,6 @@ public class CrearSesion extends javax.swing.JPanel {
     private javax.swing.JComboBox crearSesionSalaCombo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;

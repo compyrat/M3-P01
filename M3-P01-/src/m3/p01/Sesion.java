@@ -91,7 +91,7 @@ public class Sesion {
         if (vendidas <= 0 || vendidas > this.nButacasLibres){
             throw new IllegalArgumentException("No se puede introducior un numero de butacas libres negativas ni mayor al numero de butacas libres");
         }else{
-            this.nButacasLibres = nButacas -  vendidas;
+            setButacasLibres(nButacas -  vendidas);
             System.out.println(nButacas + " " + nButacasLibres + " " + getButacasVendidas());
         }
     }
