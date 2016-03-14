@@ -264,6 +264,17 @@ public class Cine {
         }
         return aux.toString();
     }
+    public String listaSesiones(String titulo){
+        StringBuilder aux= new StringBuilder();
+        for (Sala sal: listaSalas){
+            for(Sesion ses: sal.getSesion()){
+                if (ses.getPelicula().getTitulo().equals(titulo)){
+                    aux.append("\nSala:" +sal.getNumSala() +" Sesión: "+ ses.getDate());
+                }
+            }
+        }
+        return aux.toString();
+    }
     public Sesion showSesion(int numSala, Date fecha){
         Sala sala = buscarSala(numSala);
         Sesion sesion = sala.devolverSesion(fecha);
