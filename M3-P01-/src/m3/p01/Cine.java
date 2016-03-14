@@ -245,7 +245,17 @@ public class Cine {
 
         return aux.toString();
     }
-    
+    public String listaSesiones(){
+        String aux="";
+        for (Sala sal: listaSalas){
+            for(Sesion ses: sal.getSesion()){
+                //if (ses.getPelicula().getTitulo().equals(vNombre)){
+                    //aux.append("\n" + ses.toString());
+                //}
+            }
+        }
+        return aux.toString();
+    }
     public Sesion showSesion(int numSala, Date fecha){
         Sala sala = buscarSala(numSala);
         Sesion sesion = sala.devolverSesion(fecha);
