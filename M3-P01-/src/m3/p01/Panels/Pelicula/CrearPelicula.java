@@ -5,6 +5,10 @@
  */
 package m3.p01.Panels.Pelicula;
 
+import Exceptions.ArrayListException;
+import Exceptions.PeliculaRepetida;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import m3.p01.Genero;
 import m3.p01.MainFrame;
 import m3.p01.Pelicula;
@@ -96,23 +100,30 @@ public class CrearPelicula extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        try{
-            MainFrame.cines.get(0).addPelicula(new Pelicula(crearPeliculaTituloTxt.getText(), 
+        try {
+            // TODO add your handling code here:
+            MainFrame.cines.get(0).addPelicula(new Pelicula(crearPeliculaTituloTxt.getText(),
                     crearPeliculaDirectorTxt.getText(), Integer.parseInt(crearPeliculaAnyoTxt.getText()), 
-                    crearPeliculaSinopsisTxtArea.getText(), 
+                    crearPeliculaSinopsisTxtArea.getText(),
                     (Genero)crearPeliculaGeneroCombo.getSelectedItem(),
                     Integer.parseInt(crearPeliculaDuracionTxt.getText())));
-            MainFrame.infoCorrect("Se ha creado correctamente.");
-        }catch(Exception e){
-            MainFrame.infoFail("No se ha creado la pelicula.");
+                    MainFrame.infoCorrect("Se ha creado correctamente.");
+        } catch (ArrayListException ex) {
+            MainFrame.infoFail(ex.getMessage());
+        } catch (PeliculaRepetida ex) {
+            MainFrame.infoFail(ex.getMessage());
         }
-      /* this.removeAll();
-        CrearPelicula cP= new CrearPelicula();
-        cP.setBounds(0, 0, 450, 279);
-        this.add(cP);
-        this.revalidate();
-        this.repaint();*/
+        
+        try{
+            this.removeAll();
+            CrearPelicula cP= new CrearPelicula();
+            cP.setBounds(0, 0, 450, 279);
+            super.add(cP);
+            this.revalidate();
+            this.repaint();
+        }catch(Exception e){
+            
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
 
