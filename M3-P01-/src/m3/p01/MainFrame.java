@@ -512,7 +512,7 @@ public class MainFrame extends javax.swing.JFrame {
         if (jp != null){
             this.remove(jp);
         }
-        ConsultarSesiones mP = new ConsultarSesiones();
+        ConsultarSesiones2 mP = new ConsultarSesiones2();
         mP.setBounds(0, 0, 450, 279);
         jp = mP;
         this.add(mP);

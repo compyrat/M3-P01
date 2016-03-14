@@ -5,17 +5,19 @@
  */
 package m3.p01.Panels.Sesion;
 
+import m3.p01.MainFrame;
+
 /**
  *
  * @author albertribgar
  */
-public class ConsultarSesiones extends javax.swing.JPanel {
+public class ConsultarSesiones2 extends javax.swing.JPanel {
 
     /**
      * Creates new form ConsultarSesiones
      */
     private boolean fechacond;
-    public ConsultarSesiones() {
+    public ConsultarSesiones2() {
         initComponents();
         inicio();
     }
@@ -50,9 +52,11 @@ public class ConsultarSesiones extends javax.swing.JPanel {
         ConsultarSesionesTxtAño = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList();
         ConsultarSesionesBtBuscar = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ConsultarSesionesTxtArea = new javax.swing.JTextArea();
+
+        setPreferredSize(new java.awt.Dimension(440, 260));
 
         jLabel1.setText("Número de sala");
 
@@ -76,14 +80,16 @@ public class ConsultarSesiones extends javax.swing.JPanel {
 
         jLabel4.setText("/");
 
-        jScrollPane1.setViewportView(jList1);
-
         ConsultarSesionesBtBuscar.setText("Buscar");
         ConsultarSesionesBtBuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultarSesionesBtBuscarActionPerformed(evt);
             }
         });
+
+        ConsultarSesionesTxtArea.setColumns(20);
+        ConsultarSesionesTxtArea.setRows(5);
+        jScrollPane2.setViewportView(ConsultarSesionesTxtArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -93,7 +99,7 @@ public class ConsultarSesiones extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(26, 26, 26)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(layout.createSequentialGroup()
@@ -112,23 +118,22 @@ public class ConsultarSesiones extends javax.swing.JPanel {
                                 .addComponent(jLabel4)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ConsultarSesionesTxtAño, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(106, 106, 106)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(ConsultarSesionesBtBuscar)))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(106, 106, 106)
+                                .addGap(javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE)
+                                .addComponent(ConsultarSesionesBtBuscar))
+                            .addComponent(jScrollPane2)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(84, 84, 84)
                         .addComponent(ConsultarSesionesRadioDia)
                         .addGap(33, 33, 33)
                         .addComponent(ConsultarSesionesRadioSala)))
-                .addContainerGap(116, Short.MAX_VALUE))
+                .addContainerGap(205, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(47, 47, 47)
+                .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ConsultarSesionesRadioDia)
                     .addComponent(ConsultarSesionesRadioSala))
@@ -147,8 +152,8 @@ public class ConsultarSesiones extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ConsultarSesionesBtBuscar)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -179,9 +184,13 @@ public class ConsultarSesiones extends javax.swing.JPanel {
     private void ConsultarSesionesBtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarSesionesBtBuscarActionPerformed
         // TODO add your handling code here:
         if (fechacond){
-            
+            int dia = Integer.parseInt(ConsultarSesionesTxtDia.getText());
+            int mes = Integer.parseInt(ConsultarSesionesTxtMes.getText());
+            int año = Integer.parseInt(ConsultarSesionesTxtAño.getText());
+            ConsultarSesionesTxtArea.setText(MainFrame.cines.get(0).listaSesiones(dia, mes, año));
         }else{
-            
+            int nSala = Integer.parseInt(ConsultarSesionesTxtSala.getText());
+            ConsultarSesionesTxtArea.setText(MainFrame.cines.get(0).listaSesiones(nSala));
         }
     }//GEN-LAST:event_ConsultarSesionesBtBuscarActionPerformed
 
@@ -190,6 +199,7 @@ public class ConsultarSesiones extends javax.swing.JPanel {
     private javax.swing.JButton ConsultarSesionesBtBuscar;
     private javax.swing.JRadioButton ConsultarSesionesRadioDia;
     private javax.swing.JRadioButton ConsultarSesionesRadioSala;
+    private javax.swing.JTextArea ConsultarSesionesTxtArea;
     private javax.swing.JTextField ConsultarSesionesTxtAño;
     private javax.swing.JTextField ConsultarSesionesTxtDia;
     private javax.swing.JTextField ConsultarSesionesTxtMes;
@@ -198,7 +208,6 @@ public class ConsultarSesiones extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JList jList1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 }

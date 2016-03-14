@@ -245,14 +245,22 @@ public class Cine {
 
         return aux.toString();
     }
-    public String listaSesiones(){
-        String aux="";
+    public String listaSesiones(int dia, int mes, int anyo){
+        StringBuilder aux= new StringBuilder();
         for (Sala sal: listaSalas){
             for(Sesion ses: sal.getSesion()){
-                //if (ses.getPelicula().getTitulo().equals(vNombre)){
-                    //aux.append("\n" + ses.toString());
-                //}
+                if (ses.getDate() == getFecha(dia, mes, anyo)){
+                    aux.append("\nSala:" +sal.getNumSala() +" Sesión: "+ ses.getDate());
+                }
             }
+        }
+        return aux.toString();
+    }
+    public String listaSesiones(int nSala){
+        StringBuilder aux= new StringBuilder();
+        Sala sala = buscarSala(nSala);
+        for (Sesion ses: sala.getSesion()){
+            aux.append("\nSala:" +sala.getNumSala() +" Sesión: "+ ses.getDate());
         }
         return aux.toString();
     }
