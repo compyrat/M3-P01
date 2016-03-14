@@ -249,7 +249,7 @@ public class Cine {
         StringBuilder aux= new StringBuilder();
         for (Sala sal: listaSalas){
             for(Sesion ses: sal.getSesion()){
-                if (ses.getDate() == getFecha(dia, mes, anyo)){
+                if (FechaIgual(ses.getDate(), getFecha(dia, mes, anyo))){
                     aux.append("\nSala:" +sal.getNumSala() +" Sesión: "+ ses.getDate());
                 }
             }
