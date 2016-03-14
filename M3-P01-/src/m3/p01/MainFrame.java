@@ -290,6 +290,10 @@ public class MainFrame extends javax.swing.JFrame {
             this.add(cC);
             this.revalidate();
             this.repaint();
+            jLabel1.setVisible(false);
+            jLabel3.setVisible(false);
+            jLabel4.setVisible(false);
+            jLabel5.setVisible(false);
         }
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
