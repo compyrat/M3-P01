@@ -305,15 +305,23 @@ public class MainFrame extends javax.swing.JFrame {
         if (cines.size() < 1 ){
             infoFail("No puedes acceder a esta opcion porque no hay ningun cine creado.");
         }else{
-        if (jp != null){
-            this.remove(jp);
-        }
-        CrearSesion cSes= new CrearSesion();
-        cSes.setBounds(0, 0, 450, 279);
-        jp = cSes;
-        this.add(cSes);
-        this.revalidate();
-        this.repaint();
+            if (cines.get(0).getPelicula().size() >= 1){
+                if (cines.get(0).getSala().size() >= 1){
+                    if (jp != null){
+                        this.remove(jp);
+                    }
+                    CrearSesion cSes= new CrearSesion();
+                    cSes.setBounds(0, 0, 450, 279);
+                    jp = cSes;
+                    this.add(cSes);
+                    this.revalidate();
+                    this.repaint();
+                }else{
+                    infoFail("No puedes acceder a esta opcion porque no hay ninguna sala creada.");
+                }
+            }else{
+                infoFail("No puedes acceder a esta opcion porque no hay ninguna pelicula creada.");
+            }
         }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
@@ -360,15 +368,27 @@ public class MainFrame extends javax.swing.JFrame {
         if (cines.size() < 1 ){
             infoFail("No puedes acceder a esta opcion porque no hay ningun cine creado.");
         }else{
-        if (jp != null){
-            this.remove(jp);
-        }
-        AddPeliculaToSesion aPTS= new AddPeliculaToSesion();
-        aPTS.setBounds(0, 0, 450, 279);
-        jp = aPTS;
-        this.add(aPTS);
-        this.revalidate();
-        this.repaint();
+            boolean haySesion = false;
+            for (Sala sala: cines.get(0).getSala()){
+                if (sala.getSesion().size() > 0){
+                    haySesion = true;
+                }
+            }
+            if (haySesion){
+                if (cines.get(0).getSala().size() >= 1){
+                    if (jp != null){
+                        this.remove(jp);
+                    }
+                    AddPeliculaToSesion aPTS= new AddPeliculaToSesion();
+                    aPTS.setBounds(0, 0, 450, 279);
+                    jp = aPTS;
+                    this.add(aPTS);
+                    this.revalidate();
+                    this.repaint();
+                }
+            }else{
+                infoFail("No puedes acceder a esta opcion porque no hay ninguna sesion creada.");
+            }
         }
     }//GEN-LAST:event_jMenuItem6ActionPerformed
 
@@ -394,15 +414,19 @@ public class MainFrame extends javax.swing.JFrame {
         if (cines.size() < 1 ){
             infoFail("No puedes acceder a esta opcion porque no hay ningun cine creado.");
         }else{
-        if (jp != null){
-            this.remove(jp);
-        }
-        ModificarPeliculaSeleccion mP= new ModificarPeliculaSeleccion();
-        mP.setBounds(0, 0, 450, 279);
-        jp = mP;
-        this.add(mP);
-        this.revalidate();
-        this.repaint();
+            if (cines.get(0).getPelicula().size() >= 1){
+                if (jp != null){
+                    this.remove(jp);
+                }
+                ModificarPeliculaSeleccion mP= new ModificarPeliculaSeleccion();
+                mP.setBounds(0, 0, 450, 279);
+                jp = mP;
+                this.add(mP);
+                this.revalidate();
+                this.repaint();
+            }else{
+                infoFail("No puedes acceder a esta opcion porque no hay ninguna Pelicula creada.");
+            }
         }
     }//GEN-LAST:event_jMenuItem8ActionPerformed
 
@@ -432,15 +456,25 @@ public class MainFrame extends javax.swing.JFrame {
         if (cines.size() < 1 ){
             infoFail("No puedes acceder a esta opcion porque no hay ningun cine creado.");
         }else{
-        if (jp != null){
-            this.remove(jp);
-        }
-        ModificarSesionSeleccion mP= new ModificarSesionSeleccion();
-        mP.setBounds(0, 0, 450, 279);
-        jp = mP;
-        this.add(mP);
-        this.revalidate();
-        this.repaint();
+            boolean haySesion = false;
+            for (Sala sala: cines.get(0).getSala()){
+                if (sala.getSesion().size() > 0){
+                    haySesion = true;
+                }
+            }
+            if (haySesion){
+                if (jp != null){
+                    this.remove(jp);
+                }
+                ModificarSesionSeleccion mP= new ModificarSesionSeleccion();
+                mP.setBounds(0, 0, 450, 279);
+                jp = mP;
+                this.add(mP);
+                this.revalidate();
+                this.repaint();
+            }else{
+                infoFail("No puedes acceder a esta opcion porque no hay ninguna sesion creada.");
+            }
         }
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
@@ -449,15 +483,19 @@ public class MainFrame extends javax.swing.JFrame {
         if (cines.size() < 1 ){
             infoFail("No puedes acceder a esta opcion porque no hay ningun cine creado.");
         }else{
-        if (jp != null){
-            this.remove(jp);
-        }
-        EliminarPelicula mP = new EliminarPelicula();
-        mP.setBounds(0, 0, 450, 279);
-        jp = mP;
-        this.add(mP);
-        this.revalidate();
-        this.repaint();
+            if (cines.get(0).getPelicula().size() >= 1){
+                if (jp != null){
+                    this.remove(jp);
+                }
+                EliminarPelicula mP = new EliminarPelicula();
+                mP.setBounds(0, 0, 450, 279);
+                jp = mP;
+                this.add(mP);
+                this.revalidate();
+                this.repaint();
+            }else{
+                infoFail("No puedes acceder a esta opcion porque no hay ninguna Pelicula creada.");
+            }
         }
     }//GEN-LAST:event_jMenuItem11ActionPerformed
 
@@ -487,15 +525,25 @@ public class MainFrame extends javax.swing.JFrame {
         if (cines.size() < 1 ){
             infoFail("No puedes acceder a esta opcion porque no hay ningun cine creado.");
         }else{
-        if (jp != null){
-            this.remove(jp);
-        }
-        EliminarSesion mP = new EliminarSesion();
-        mP.setBounds(0, 0, 450, 279);
-        jp = mP;
-        this.add(mP);
-        this.revalidate();
-        this.repaint();
+            boolean haySesion = false;
+            for (Sala sala: cines.get(0).getSala()){
+                if (sala.getSesion().size() > 0){
+                    haySesion = true;
+                }
+            }
+            if (haySesion){
+                if (jp != null){
+                    this.remove(jp);
+                }
+                EliminarSesion mP = new EliminarSesion();
+                mP.setBounds(0, 0, 450, 279);
+                jp = mP;
+                this.add(mP);
+                this.revalidate();
+                this.repaint();
+            }else{
+                infoFail("No puedes acceder a esta opcion porque no hay ninguna sesion creada.");
+            }
         }
     }//GEN-LAST:event_jMenuItem13ActionPerformed
 
@@ -525,15 +573,25 @@ public class MainFrame extends javax.swing.JFrame {
         if (cines.size() < 1 ){
             infoFail("No puedes acceder a esta opcion porque no hay ningun cine creado.");
         }else{
-        if (jp != null){
-            this.remove(jp);
-        }
-        ConsultarSesiones mP = new ConsultarSesiones();
-        mP.setBounds(0, 0, 450, 279);
-        jp = mP;
-        this.add(mP);
-        this.revalidate();
-        this.repaint();
+            boolean haySesion = false;
+            for (Sala sala: cines.get(0).getSala()){
+                if (sala.getSesion().size() > 0){
+                    haySesion = true;
+                }
+            }
+            if (haySesion){
+                if (jp != null){
+                    this.remove(jp);
+                }
+                ConsultarSesiones mP = new ConsultarSesiones();
+                mP.setBounds(0, 0, 450, 279);
+                jp = mP;
+                this.add(mP);
+                this.revalidate();
+                this.repaint();
+            }else{
+                infoFail("No puedes acceder a esta opcion porque no hay ninguna sesion creada.");
+            }
         }
     }//GEN-LAST:event_jMenuItem15ActionPerformed
 
@@ -542,15 +600,19 @@ public class MainFrame extends javax.swing.JFrame {
         if (cines.size() < 1 ){
             infoFail("No puedes acceder a esta opcion porque no hay ningun cine creado.");
         }else{
-        if (jp != null){
-            this.remove(jp);
-        }
-        MostrarCartelera mP = new MostrarCartelera();
-        mP.setBounds(0, 0, 450, 279);
-        jp = mP;
-        this.add(mP);
-        this.revalidate();
-        this.repaint();
+            if (cines.get(0).getPelicula().size() >= 1){
+                if (jp != null){
+                    this.remove(jp);
+                }
+                MostrarCartelera mP = new MostrarCartelera();
+                mP.setBounds(0, 0, 450, 279);
+                jp = mP;
+                this.add(mP);
+                this.revalidate();
+                this.repaint();
+            }else{
+                infoFail("No puedes acceder a esta opcion porque no hay ninguna Pelicula creada.");
+            }
         }
     }//GEN-LAST:event_jMenuItem16ActionPerformed
 
