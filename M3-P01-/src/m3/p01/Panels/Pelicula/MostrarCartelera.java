@@ -5,6 +5,9 @@
  */
 package m3.p01.Panels.Pelicula;
 
+import javax.swing.table.DefaultTableModel;
+import m3.p01.MainFrame;
+
 /**
  *
  * @author albertribgar
@@ -16,8 +19,21 @@ public class MostrarCartelera extends javax.swing.JPanel {
      */
     public MostrarCartelera() {
         initComponents();
+        cargarPeliculas();
     }
 
+    private void cargarPeliculas(){
+        DefaultTableModel model = (DefaultTableModel)jTable1.getModel();
+        for(int i = 0; i<MainFrame.cines.get(0).getPelicula().size(); i++){
+            String titulo = MainFrame.cines.get(0).getPelicula().get(i).getTitulo();
+            String autor = MainFrame.cines.get(0).getPelicula().get(i).getDirector();
+            String genero = MainFrame.cines.get(0).getPelicula().get(i).getGenero().toString();
+            String duracion = String.valueOf(MainFrame.cines.get(0).getPelicula().get(i).getDuracion());
+            String fecha = String.valueOf(MainFrame.cines.get(0).getPelicula().get(i).getAnyo());
+            String comentario = MainFrame.cines.get(0).getPelicula().get(i).getSinopsis();
+            model.addRow(new String[]{titulo, autor, duracion, genero, fecha,comentario});
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,19 +43,42 @@ public class MostrarCartelera extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Titulo", "Director", "Duracion", "Genero", "Fecha", "Comentario"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
