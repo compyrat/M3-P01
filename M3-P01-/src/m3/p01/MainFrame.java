@@ -219,7 +219,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jMenuPelicula.add(jMenuItem4);
 
-        jMenuItem16.setText("Monstrar Cartelera");
+        jMenuItem16.setText("Mostrar Cartelera");
         jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem16ActionPerformed(evt);
