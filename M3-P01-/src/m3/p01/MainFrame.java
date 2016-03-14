@@ -339,15 +339,19 @@ public class MainFrame extends javax.swing.JFrame {
         if (cines.size() < 1 ){
             infoFail("No puedes acceder a esta opcion porque no hay ningun cine creado.");
         }else{
-        if (jp != null){
-            this.remove(jp);
-        }
-        AddSesionToSala aSTS= new AddSesionToSala();
-        aSTS.setBounds(0, 0, 450, 279);
-        jp = aSTS;
-        this.add(aSTS);
-        this.revalidate();
-        this.repaint();
+            if (cines.get(0).getSala().size() >= 1){
+                if (jp != null){
+                    this.remove(jp);
+                }
+                AddSesionToSala aSTS= new AddSesionToSala();
+                aSTS.setBounds(0, 0, 450, 279);
+                jp = aSTS;
+                this.add(aSTS);
+                this.revalidate();
+                this.repaint();
+            }else{
+                infoFail("No puedes acceder a esta opcion porque no hay ninguna sala creada.");
+            }
         }
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
@@ -407,15 +411,19 @@ public class MainFrame extends javax.swing.JFrame {
         if (cines.size() < 1 ){
             infoFail("No puedes acceder a esta opcion porque no hay ningun cine creado.");
         }else{
-        if (jp != null){
-            this.remove(jp);
-        }
-        ModificarSalaSeleccion mP= new ModificarSalaSeleccion();
-        mP.setBounds(0, 0, 450, 279);
-        jp = mP;
-        this.add(mP);
-        this.revalidate();
-        this.repaint();
+            if (cines.get(0).getSala().size() >= 1){
+                if (jp != null){
+                    this.remove(jp);
+                }
+                ModificarSalaSeleccion mP= new ModificarSalaSeleccion();
+                mP.setBounds(0, 0, 450, 279);
+                jp = mP;
+                this.add(mP);
+                this.revalidate();
+                this.repaint();
+            }else{
+                infoFail("No puedes acceder a esta opcion porque no hay ninguna sala creada.");
+            }
         }
     }//GEN-LAST:event_jMenuItem9ActionPerformed
 
@@ -458,15 +466,19 @@ public class MainFrame extends javax.swing.JFrame {
         if (cines.size() < 1 ){
             infoFail("No puedes acceder a esta opcion porque no hay ningun cine creado.");
         }else{
-        if (jp != null){
-            this.remove(jp);
-        }
-        EliminarSala mP = new EliminarSala();
-        mP.setBounds(0, 0, 450, 279);
-        jp = mP;
-        this.add(mP);
-        this.revalidate();
-        this.repaint();
+            if (cines.get(0).getSala().size() >= 1){
+                if (jp != null){
+                    this.remove(jp);
+                }
+                EliminarSala mP = new EliminarSala();
+                mP.setBounds(0, 0, 450, 279);
+                jp = mP;
+                this.add(mP);
+                this.revalidate();
+                this.repaint();
+            }else{
+                infoFail("No puedes acceder a esta opcion porque no hay ninguna sala creada.");
+            }
         }
     }//GEN-LAST:event_jMenuItem12ActionPerformed
 
@@ -492,15 +504,19 @@ public class MainFrame extends javax.swing.JFrame {
         if (cines.size() < 1 ){
             infoFail("No puedes acceder a esta opcion porque no hay ningun cine creado.");
         }else{
-        if (jp != null){
-            this.remove(jp);
-        }
-        ConsultarSalas mP = new ConsultarSalas();
-        mP.setBounds(0, 0, 450, 279);
-        jp = mP;
-        this.add(mP);
-        this.revalidate();
-        this.repaint();
+            if (cines.get(0).getSala().size() >= 1){
+                if (jp != null){
+                    this.remove(jp);
+                }
+                ConsultarSalas mP = new ConsultarSalas();
+                mP.setBounds(0, 0, 450, 279);
+                jp = mP;
+                this.add(mP);
+                this.revalidate();
+                this.repaint();
+            }else{
+                infoFail("No puedes acceder a esta opcion porque no hay ninguna sala creada.");
+            }
         }
     }//GEN-LAST:event_jMenuItem14ActionPerformed
 
