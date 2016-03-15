@@ -38,7 +38,7 @@ public class ModificarSesion extends javax.swing.JPanel {
         Calendar cal = Calendar.getInstance();
         cal.setTime(sesion.getDate());
         modificarSesionFechaDiaTxt.setText(String.valueOf(cal.get(Calendar.DAY_OF_MONTH)));
-        modificarSesionFechaMesTxt.setText(String.valueOf(cal.get(Calendar.MONTH)));
+        modificarSesionFechaMesTxt.setText(String.valueOf(cal.get(Calendar.MONTH))+1);
         modificarSesionFechaAnyoTxt.setText(String.valueOf(cal.get(Calendar.YEAR)));
         modificarSesionFechaHoraTxt.setText(String.valueOf(cal.get(Calendar.HOUR_OF_DAY)));
         modificarSesionFechaMinTxt.setText(String.valueOf(cal.get(Calendar.MINUTE)));
@@ -229,9 +229,9 @@ public class ModificarSesion extends javax.swing.JPanel {
         }else{
             MainFrame.infoFail("No puedes el campo vacio.");
         }
-         sesion.setFecha(MainFrame.cines.get(0).getFecha(Integer.parseInt(modificarSesionFechaDiaTxt.getText()), Integer.parseInt(modificarSesionFechaMesTxt.getText()),Integer.parseInt(modificarSesionFechaAnyoTxt.getText()), Integer.parseInt(modificarSesionFechaHoraTxt.getText()), Integer.parseInt(modificarSesionFechaMinTxt.getText())));
-         this.removeAll();
-         ModificarSesionSeleccion mP= new ModificarSesionSeleccion();
+        sesion.setFecha(MainFrame.cines.get(0).getFecha(Integer.parseInt(modificarSesionFechaDiaTxt.getText()), Integer.parseInt(modificarSesionFechaMesTxt.getText())-1,Integer.parseInt(modificarSesionFechaAnyoTxt.getText()), Integer.parseInt(modificarSesionFechaHoraTxt.getText()), Integer.parseInt(modificarSesionFechaMinTxt.getText())));
+        this.removeAll();
+        ModificarSesionSeleccion mP= new ModificarSesionSeleccion();
         mP.setBounds(0, 0, 450, 279);
         this.add(mP);
         this.revalidate();

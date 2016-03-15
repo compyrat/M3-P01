@@ -198,7 +198,7 @@ public class CrearSesion extends javax.swing.JPanel {
         int nsala = crearSesionSalaCombo.getSelectedIndex();
         int npelicula = crearSesionPeliculaCombo.getSelectedIndex();
         int dia = Integer.parseInt(crearSesionFechaDiaTxt.getText());
-        int mes = Integer.parseInt(crearSesionFechaMesTxt.getText());
+        int mes = Integer.parseInt(crearSesionFechaMesTxt.getText())-1;
         int año = Integer.parseInt(crearSesionFechaAnyoTxt.getText());
         int hora = Integer.parseInt(crearSesionFechaHoraTxt.getText());
         int min = Integer.parseInt(crearSesionFechaMinTxt.getText());
